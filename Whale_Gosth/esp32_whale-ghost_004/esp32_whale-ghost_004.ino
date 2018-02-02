@@ -1,5 +1,5 @@
 //ID
-#define NODE_NUMBER 10
+#define NODE_NUMBER 2
 
 #define VERSION 1
 
