@@ -83,102 +83,48 @@ void leds_show() {
 }//leds_show
 
 
-
 void leds_test() {
   #ifdef DEBUG
   Serial.println("initTest()");
   #endif
-  for (int i = 0 ; i < numberOfLed ; i++) {
-    
-  if (i<=NUM_LEDS_PER_STRIP)
+  for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) { 
     strands[0]->pixels[i] = pixelFromRGB(TEST_VAL, 0, 0);
-
-  if (i<=NUM_LEDS_PER_STRIP*2 & i>=NUM_LEDS_PER_STRIP) 
-    strands[1]->pixels[i-NUM_LEDS_PER_STRIP] = pixelFromRGB(TEST_VAL, 0, 0);
-    
-  if (i<=NUM_LEDS_PER_STRIP*3 & i>=NUM_LEDS_PER_STRIP*2) 
-    strands[2]->pixels[i-NUM_LEDS_PER_STRIP*2] = pixelFromRGB(TEST_VAL, 0, 0);
-  
-  if (i<=NUM_LEDS_PER_STRIP*4 & i>=NUM_LEDS_PER_STRIP*3) 
-    strands[3]->pixels[i-NUM_LEDS_PER_STRIP*3] = pixelFromRGB(TEST_VAL, 0, 0);
-  
-  if (i<=NUM_LEDS_PER_STRIP*5 & i>=NUM_LEDS_PER_STRIP*4) 
-    strands[4]->pixels[i-NUM_LEDS_PER_STRIP*4] = pixelFromRGB(TEST_VAL, 0, 0);
-  
-  if (i<=NUM_LEDS_PER_STRIP*6 & i>=NUM_LEDS_PER_STRIP*5)
-    strands[5]->pixels[i-NUM_LEDS_PER_STRIP*5] = pixelFromRGB(TEST_VAL, 0, 0);
-  
+    strands[1]->pixels[i] = pixelFromRGB(TEST_VAL, 0, 0);
+    strands[2]->pixels[i] = pixelFromRGB(TEST_VAL, 0, 0);
+    strands[3]->pixels[i] = pixelFromRGB(TEST_VAL, 0, 0);
+    strands[4]->pixels[i] = pixelFromRGB(TEST_VAL, 0, 0);
+    strands[5]->pixels[i] = pixelFromRGB(TEST_VAL, 0, 0);
 }//for i
   leds_show();
   delay(500);
-  for (int i = 0 ; i < numberOfLed ; i++) {
-     
-   if (i<=NUM_LEDS_PER_STRIP) 
-     strands[0]->pixels[i] = pixelFromRGB(0, TEST_VAL, 0);
-
-  if (i<=NUM_LEDS_PER_STRIP*2 & i>=NUM_LEDS_PER_STRIP) 
-    strands[1]->pixels[i-NUM_LEDS_PER_STRIP] = pixelFromRGB(0, TEST_VAL, 0);
-  
-  if (i<=NUM_LEDS_PER_STRIP*3 & i>=NUM_LEDS_PER_STRIP*2) 
-    strands[2]->pixels[i-NUM_LEDS_PER_STRIP*2] = pixelFromRGB(0, TEST_VAL, 0);
-  
-  if (i<=NUM_LEDS_PER_STRIP*4 & i>=NUM_LEDS_PER_STRIP*3) 
-    strands[3]->pixels[i-NUM_LEDS_PER_STRIP*3] = pixelFromRGB(0, TEST_VAL, 0);
-  
-  if (i<=NUM_LEDS_PER_STRIP*5 & i>=NUM_LEDS_PER_STRIP*4) 
-    strands[4]->pixels[i-NUM_LEDS_PER_STRIP*4] = pixelFromRGB(0, TEST_VAL, 0);
-  
-  if (i<=NUM_LEDS_PER_STRIP*6 & i>=NUM_LEDS_PER_STRIP*5) 
-    strands[5]->pixels[i-NUM_LEDS_PER_STRIP*5] = pixelFromRGB(0, TEST_VAL, 0);
-  
+  for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) { 
+    strands[0]->pixels[i] = pixelFromRGB(0, TEST_VAL, 0); 
+    strands[1]->pixels[i] = pixelFromRGB(0, TEST_VAL, 0); 
+    strands[2]->pixels[i] = pixelFromRGB(0, TEST_VAL, 0);
+    strands[3]->pixels[i] = pixelFromRGB(0, TEST_VAL, 0);
+    strands[4]->pixels[i] = pixelFromRGB(0, TEST_VAL, 0); 
+    strands[5]->pixels[i] = pixelFromRGB(0, TEST_VAL, 0);
 }//for i
   leds_show();
   delay(500);
-  for (int i = 0 ; i < numberOfLed ; i++) {
-      
-   if (i<=NUM_LEDS_PER_STRIP) 
-     strands[0]->pixels[i] = pixelFromRGB(0, 0, TEST_VAL);
-
-  if (i<=NUM_LEDS_PER_STRIP*2 & i>=NUM_LEDS_PER_STRIP) 
-    strands[1]->pixels[i-NUM_LEDS_PER_STRIP] = pixelFromRGB(0, 0, TEST_VAL);
-  
-  if (i<=NUM_LEDS_PER_STRIP*3 & i>=NUM_LEDS_PER_STRIP*2) 
-    strands[2]->pixels[i-NUM_LEDS_PER_STRIP*2] = pixelFromRGB(0, 0, TEST_VAL);
-  
-  if (i<=NUM_LEDS_PER_STRIP*4 & i>=NUM_LEDS_PER_STRIP*3) 
-    strands[3]->pixels[i-NUM_LEDS_PER_STRIP*3] = pixelFromRGB(0, 0, TEST_VAL);
-  
-  if (i<=NUM_LEDS_PER_STRIP*5 & i>=NUM_LEDS_PER_STRIP*4) 
-    strands[4]->pixels[i-NUM_LEDS_PER_STRIP*4] = pixelFromRGB(0, 0, TEST_VAL);
-  
-  if (i<=NUM_LEDS_PER_STRIP*6 & i>=NUM_LEDS_PER_STRIP*5) 
-    strands[5]->pixels[i-NUM_LEDS_PER_STRIP*5] = pixelFromRGB(0, 0, TEST_VAL);
-  
+  for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
+    strands[0]->pixels[i] = pixelFromRGB(0, 0, TEST_VAL); 
+    strands[1]->pixels[i] = pixelFromRGB(0, 0, TEST_VAL);
+    strands[2]->pixels[i] = pixelFromRGB(0, 0, TEST_VAL); 
+    strands[3]->pixels[i] = pixelFromRGB(0, 0, TEST_VAL); 
+    strands[4]->pixels[i] = pixelFromRGB(0, 0, TEST_VAL);
+    strands[5]->pixels[i] = pixelFromRGB(0, 0, TEST_VAL); 
   }//for i
   leds_show();
   delay(500);
-  for (int i = 0 ; i < numberOfLed ; i++) {
-     
-  if (i<=NUM_LEDS_PER_STRIP) 
-    strands[0]->pixels[i] = pixelFromRGB(0, 0, 0);
-
-  if (i<=NUM_LEDS_PER_STRIP*2 & i>=NUM_LEDS_PER_STRIP) 
-    strands[1]->pixels[i-NUM_LEDS_PER_STRIP] = pixelFromRGB(0, 0, 0);
-    
-  if (i<=NUM_LEDS_PER_STRIP*3 & i>=NUM_LEDS_PER_STRIP*2) 
-    strands[2]->pixels[i-NUM_LEDS_PER_STRIP*2] = pixelFromRGB(0, 0, 0);
-  
-  if (i<=NUM_LEDS_PER_STRIP*4 & i>=NUM_LEDS_PER_STRIP*3) 
-    strands[3]->pixels[i-NUM_LEDS_PER_STRIP*3] = pixelFromRGB(0, 0, 0);
-  
-  if (i<=NUM_LEDS_PER_STRIP*5 & i>=NUM_LEDS_PER_STRIP*4) 
-    strands[4]->pixels[i-NUM_LEDS_PER_STRIP*4] = pixelFromRGB(0, 0, 0);
-  
-  if (i<=NUM_LEDS_PER_STRIP*6 & i>=NUM_LEDS_PER_STRIP*5) 
-    strands[5]->pixels[i-NUM_LEDS_PER_STRIP*5] = pixelFromRGB(0, 0, 0);
-  
-  }
+  for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
+    strands[0]->pixels[i] = pixelFromRGB(0, 0, 0); 
+    strands[1]->pixels[i] = pixelFromRGB(0, 0, 0);
+    strands[2]->pixels[i] = pixelFromRGB(0, 0, 0); 
+    strands[3]->pixels[i] = pixelFromRGB(0, 0, 0);
+    strands[4]->pixels[i] = pixelFromRGB(0, 0, 0);
+    strands[5]->pixels[i] = pixelFromRGB(0, 0, 0);
+  }//for i
   leds_show();
 }//initest
-
 
