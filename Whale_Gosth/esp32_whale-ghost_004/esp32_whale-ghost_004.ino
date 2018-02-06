@@ -70,6 +70,8 @@ void setup() {
 
 // LOOP
 void loop() {
+  // auto connect
+  if (WiFi.waitForConnectResult() != WL_CONNECTED)  wifi_init();
 
   // UPDATE with data received
   if ( wifi_read(incomingPacket) )
