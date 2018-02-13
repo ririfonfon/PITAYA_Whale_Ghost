@@ -1,10 +1,10 @@
 //ID
-#define NODE_NUMBER 1
+//#define NODE_NUMBER 11
 
 #define VERSION 1
 
 //Debug
-#define DEBUG 1
+//#define DEBUG 1
 //#define DEBUG_MSG 1
 
 
@@ -13,10 +13,10 @@
 #include <WiFiUdp.h>
 
 unsigned long lastRefresh = 0;
-#define REFRESH 33
+#define REFRESH 10
 
 unsigned long lastInfo = 0;
-#define INFOTIME 1000
+#define INFOTIME 500
 
 #if defined(ARDUINO) && ARDUINO >= 100
   // No extras
