@@ -1,0 +1,3 @@
+[submodule "stratum-hnode"]
+	path = stratum-hnode
+	url = git@github.com:Hemisphere-Project/stratum-hnode.git
