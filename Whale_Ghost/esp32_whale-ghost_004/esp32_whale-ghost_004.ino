@@ -57,13 +57,9 @@ void setup() {
     Serial.print("Starting ");
     Serial.println(nodeName);
   #endif
-    
 
   // WIFI
   wifi_init();
-
-  // OTA
-  ota_setup();
   
   // LEDS
   leds_init();
@@ -99,7 +95,4 @@ void loop() {
     lastInfo = millis();
   }
 
-  // OTA
-  ota_loop();
-  
 }
