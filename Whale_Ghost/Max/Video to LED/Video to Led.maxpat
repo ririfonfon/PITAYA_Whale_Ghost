@@ -8,7 +8,7 @@
 			"architecture" : "x64"
 		}
 ,
-		"rect" : [ 18.0, 67.0, 572.0, 503.0 ],
+		"rect" : [ 49.0, 150.0, 572.0, 503.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 11.0,
@@ -6000,7 +6000,7 @@
 					"patching_rect" : [ 162.5, 197.0, 83.0, 20.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 248.0, 56.0, 52.0, 20.0 ],
-					"text" : "0 ' 13 ''"
+					"text" : "2 ' 42 ''"
 				}
 
 			}
@@ -11465,16 +11465,16 @@
 			}
  ],
 		"parameters" : 		{
-			"obj-136" : [ "live.toggle[2]", "live.toggle[2]", 0 ],
-			"obj-135::obj-114" : [ "MIX", "MIX", 0 ],
-			"obj-10::obj-136" : [ "live.toggle[3]", "live.toggle[2]", 0 ],
 			"obj-118::obj-4" : [ "live.toggle[1]", "live.toggle[1]", 0 ],
-			"obj-4::obj-7" : [ "live.toggle", "live.toggle", 0 ]
+			"obj-135::obj-114" : [ "MIX", "MIX", 0 ],
+			"obj-4::obj-7" : [ "live.toggle", "live.toggle", 0 ],
+			"obj-136" : [ "live.toggle[2]", "live.toggle[2]", 0 ],
+			"obj-10::obj-136" : [ "live.toggle[3]", "live.toggle[2]", 0 ]
 		}
 ,
 		"dependency_cache" : [ 			{
 				"name" : "slice.maxpat",
-				"bootpath" : "/Users/maclaren/Dropbox/HMSPHR/WORK/Baleine/Video to LED/Video to LED",
+				"bootpath" : "/Users/macosphere23/Desktop/PITAYA/Whale_Ghost/Max/Video to LED",
 				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
