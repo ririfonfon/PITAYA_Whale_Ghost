@@ -8,7 +8,7 @@
 			"architecture" : "x64"
 		}
 ,
-		"rect" : [ 18.0, 67.0, 572.0, 503.0 ],
+		"rect" : [ 49.0, 150.0, 572.0, 503.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 11.0,
@@ -6000,7 +6000,7 @@
 					"patching_rect" : [ 162.5, 197.0, 83.0, 20.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 248.0, 56.0, 52.0, 20.0 ],
-					"text" : "0 ' 13 ''"
+					"text" : "2 ' 42 ''"
 				}
 
 			}
@@ -11095,6 +11095,33 @@
 						"tags" : "",
 						"boxes" : [ 							{
 								"box" : 								{
+									"fontname" : "Arial",
+									"fontsize" : 11.0,
+									"id" : "obj-6",
+									"maxclass" : "newobj",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 231.0, 248.0, 66.0, 19.0 ],
+									"text" : "s startagain"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"fontname" : "Arial",
+									"fontsize" : 11.0,
+									"id" : "obj-4",
+									"maxclass" : "newobj",
+									"numinlets" : 2,
+									"numoutlets" : 1,
+									"outlettype" : [ "bang" ],
+									"patching_rect" : [ 231.0, 222.0, 66.0, 19.0 ],
+									"text" : "del 5000"
+								}
+
+							}
+, 							{
+								"box" : 								{
 									"id" : "obj-5",
 									"maxclass" : "button",
 									"numinlets" : 1,
@@ -11150,10 +11177,10 @@
 									"id" : "obj-28",
 									"maxclass" : "newobj",
 									"numinlets" : 1,
-									"numoutlets" : 4,
-									"outlettype" : [ "bang", "bang", "bang", "bang" ],
-									"patching_rect" : [ 50.0, 153.0, 83.5, 19.0 ],
-									"text" : "t b b b b"
+									"numoutlets" : 5,
+									"outlettype" : [ "bang", "bang", "bang", "bang", "bang" ],
+									"patching_rect" : [ 50.0, 153.0, 117.666664, 19.0 ],
+									"text" : "t b b b b b"
 								}
 
 							}
@@ -11271,6 +11298,24 @@
 									"disabled" : 0,
 									"hidden" : 0,
 									"source" : [ "obj-28", 3 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-4", 0 ],
+									"disabled" : 0,
+									"hidden" : 0,
+									"source" : [ "obj-28", 4 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-6", 0 ],
+									"disabled" : 0,
+									"hidden" : 0,
+									"source" : [ "obj-4", 0 ]
 								}
 
 							}
@@ -11465,16 +11510,16 @@
 			}
  ],
 		"parameters" : 		{
-			"obj-136" : [ "live.toggle[2]", "live.toggle[2]", 0 ],
-			"obj-135::obj-114" : [ "MIX", "MIX", 0 ],
-			"obj-10::obj-136" : [ "live.toggle[3]", "live.toggle[2]", 0 ],
 			"obj-118::obj-4" : [ "live.toggle[1]", "live.toggle[1]", 0 ],
-			"obj-4::obj-7" : [ "live.toggle", "live.toggle", 0 ]
+			"obj-135::obj-114" : [ "MIX", "MIX", 0 ],
+			"obj-4::obj-7" : [ "live.toggle", "live.toggle", 0 ],
+			"obj-136" : [ "live.toggle[2]", "live.toggle[2]", 0 ],
+			"obj-10::obj-136" : [ "live.toggle[3]", "live.toggle[2]", 0 ]
 		}
 ,
 		"dependency_cache" : [ 			{
 				"name" : "slice.maxpat",
-				"bootpath" : "/Users/maclaren/Dropbox/HMSPHR/WORK/Baleine/Video to LED/Video to LED",
+				"bootpath" : "/Users/macosphere23/Desktop/PITAYA/Whale_Ghost/Max/Video to LED",
 				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
