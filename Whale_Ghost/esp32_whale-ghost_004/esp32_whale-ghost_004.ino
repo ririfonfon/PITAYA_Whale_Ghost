@@ -1,7 +1,7 @@
 //ID
 //#define NODE_NUMBER 1
 
-#define VERSION 1
+#define VERSION 2
 
 //Debug
 //#define DEBUG 1
@@ -61,6 +61,9 @@ void setup() {
 
   // WIFI
   wifi_init();
+
+  // OTA
+  ota_setup();
   
   // LEDS
   leds_init();
@@ -95,5 +98,8 @@ void loop() {
     lastRefresh = millis();
     lastInfo = millis();
   }
+
+  // OTA
+  ota_loop();
   
 }
