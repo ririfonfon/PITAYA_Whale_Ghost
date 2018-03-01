@@ -60,10 +60,14 @@ void setup() {
 
   // WIFI
   wifi_init();
+
+  // OTA
+  ota_setup();
   
   // LEDS
   leds_init();
   leds_test();
+  
 }
 
 
@@ -95,4 +99,6 @@ void loop() {
     lastInfo = millis();
   }
 
+  // OTA
+  ota_loop();
 }
