@@ -8,7 +8,7 @@
 			"architecture" : "x64"
 		}
 ,
-		"rect" : [ 18.0, 67.0, 575.0, 445.0 ],
+		"rect" : [ 18.0, 67.0, 572.0, 503.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 11.0,
@@ -79,6 +79,7 @@
 			}
 , 			{
 				"box" : 				{
+					"color" : [ 0.874552, 0.873164, 0.882973, 1.0 ],
 					"fontface" : 1,
 					"fontname" : "Arial",
 					"fontsize" : 11.0,
@@ -4399,6 +4400,7 @@
 			}
 , 			{
 				"box" : 				{
+					"color" : [ 0.874552, 0.873164, 0.882973, 1.0 ],
 					"fontface" : 1,
 					"fontname" : "Arial",
 					"fontsize" : 11.0,
@@ -5226,6 +5228,7 @@
 			}
 , 			{
 				"box" : 				{
+					"color" : [ 0.874552, 0.873164, 0.882973, 1.0 ],
 					"fontface" : 1,
 					"fontname" : "Arial",
 					"fontsize" : 11.0,
@@ -5522,7 +5525,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 161.581543, 411.0, 77.495972, 31.0 ],
+									"patching_rect" : [ 232.581543, 411.0, 77.495972, 31.0 ],
 									"text" : "End of sound = Reloop"
 								}
 
@@ -5535,7 +5538,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 170.693115, 391.595032, 68.0, 19.0 ],
+									"patching_rect" : [ 230.693115, 391.595032, 68.0, 19.0 ],
 									"text" : "s startagain"
 								}
 
@@ -5733,6 +5736,15 @@
 									"disabled" : 0,
 									"hidden" : 0,
 									"source" : [ "obj-121", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-106", 0 ],
+									"disabled" : 0,
+									"hidden" : 0,
+									"source" : [ "obj-122", 2 ]
 								}
 
 							}
@@ -5988,7 +6000,7 @@
 					"patching_rect" : [ 162.5, 197.0, 83.0, 20.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 248.0, 56.0, 52.0, 20.0 ],
-					"text" : "1 ' 53 ''"
+					"text" : "0 ' 13 ''"
 				}
 
 			}
@@ -6052,6 +6064,7 @@
 			}
 , 			{
 				"box" : 				{
+					"color" : [ 0.874552, 0.873164, 0.882973, 1.0 ],
 					"fontface" : 1,
 					"fontname" : "Arial",
 					"fontsize" : 11.0,
@@ -7442,6 +7455,7 @@
 			}
 , 			{
 				"box" : 				{
+					"color" : [ 0.874552, 0.873164, 0.882973, 1.0 ],
 					"fontface" : 1,
 					"fontname" : "Arial",
 					"fontsize" : 12.0,
@@ -11035,7 +11049,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 34.0, 321.608276, 80.0, 46.391739 ],
+					"patching_rect" : [ 50.0, 325.584106, 80.0, 46.391739 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 30.0, 164.0, 255.5, 72.641739 ]
 				}
@@ -11043,6 +11057,7 @@
 			}
 , 			{
 				"box" : 				{
+					"color" : [ 0.874552, 0.873164, 0.882973, 1.0 ],
 					"fontface" : 1,
 					"fontname" : "Arial",
 					"fontsize" : 12.0,
@@ -11340,15 +11355,6 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-110", 0 ],
-					"disabled" : 0,
-					"hidden" : 0,
-					"source" : [ "obj-113", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
 					"destination" : [ "obj-112", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
@@ -11441,6 +11447,15 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-110", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-5", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-113", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
@@ -11450,11 +11465,11 @@
 			}
  ],
 		"parameters" : 		{
-			"obj-4::obj-7" : [ "live.toggle", "live.toggle", 0 ],
+			"obj-136" : [ "live.toggle[2]", "live.toggle[2]", 0 ],
 			"obj-135::obj-114" : [ "MIX", "MIX", 0 ],
 			"obj-10::obj-136" : [ "live.toggle[3]", "live.toggle[2]", 0 ],
-			"obj-136" : [ "live.toggle[2]", "live.toggle[2]", 0 ],
-			"obj-118::obj-4" : [ "live.toggle[1]", "live.toggle[1]", 0 ]
+			"obj-118::obj-4" : [ "live.toggle[1]", "live.toggle[1]", 0 ],
+			"obj-4::obj-7" : [ "live.toggle", "live.toggle", 0 ]
 		}
 ,
 		"dependency_cache" : [ 			{
