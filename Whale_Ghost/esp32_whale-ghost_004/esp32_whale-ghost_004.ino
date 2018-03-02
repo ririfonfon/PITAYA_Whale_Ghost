@@ -1,10 +1,10 @@
 //ID
 //#define NODE_NUMBER 1
 
-#define VERSION 2
+#define VERSION 3
 
 //Debug
-//#define DEBUG 1
+#define DEBUG 1
 //#define DEBUG_MSG 1
 
 
@@ -73,8 +73,6 @@ void setup() {
 
 // LOOP
 void loop() {
-  // auto connect
-  if (WiFi.waitForConnectResult() != WL_CONNECTED)  wifi_init();
 
   // UPDATE with data received
   if ( wifi_read(incomingPacket) )
