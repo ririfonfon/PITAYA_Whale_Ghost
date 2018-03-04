@@ -1,8 +1,8 @@
 // **Required** if debugging is enabled in library header
 // TODO: Is there any way to put this in digitalLeds_initStrands() and avoid undefined refs?
 #if DEBUG_ESP32_DIGITAL_LED_LIB
-  int digitalLeds_debugBufferSz = 1024;
-  char * digitalLeds_debugBuffer = static_cast<char*>(calloc(digitalLeds_debugBufferSz, sizeof(char)));
+int digitalLeds_debugBufferSz = 1024;
+char * digitalLeds_debugBuffer = static_cast<char*>(calloc(digitalLeds_debugBufferSz, sizeof(char)));
 #endif
 
 void dumpDebugBuffer(int, char *);
@@ -10,7 +10,7 @@ void dumpDebugBuffer(int, char *);
 void dumpSysInfo() {
   esp_chip_info_t sysinfo;
   esp_chip_info(&sysinfo);
-  #ifdef DEBUG
+#ifdef DEBUG
   Serial.print("Model: ");
   Serial.print((int)sysinfo.model);
   Serial.print("; Features: 0x");
@@ -19,16 +19,16 @@ void dumpSysInfo() {
   Serial.print((int)sysinfo.cores);
   Serial.print("; Revision: r");
   Serial.println((int)sysinfo.revision);
-  #endif
+#endif
 }// dumpSysInfo
 
-void dumpDebugBuffer(int id, char * debugBuffer){
-  #ifdef DEBUG
+void dumpDebugBuffer(int id, char * debugBuffer) {
+#ifdef DEBUG
   Serial.print("DEBUG: (");
   Serial.print(id);
   Serial.print(") ");
   Serial.println(debugBuffer);
-  #endif
+#endif
   debugBuffer[0] = 0;
 }// dumpDebugBuffer
 
