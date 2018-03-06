@@ -1,7 +1,7 @@
 //ID
 //#define NODE_NUMBER 1
 
-#define VERSION 2
+#define VERSION 3
 
 //Debug
 //#define DEBUG 1
@@ -19,11 +19,11 @@ unsigned long lastInfo = 0;
 #define INFOTIME 500
 
 #if defined(ARDUINO) && ARDUINO >= 100
-  // No extras
+// No extras
 #elif defined(ARDUINO) // pre-1.0
-  // No extras
+// No extras
 #elif defined(ESP_PLATFORM)
-  #include "arduinoish.hpp"
+#include "arduinoish.hpp"
 #endif
 
 
@@ -40,41 +40,39 @@ unsigned long lastUpdate = 0;
 
 // SETUP
 void setup() {
-  #ifdef DEBUG
-    Serial.begin(115200);
-  #endif
-  
+#ifdef DEBUG
+  Serial.begin(115200);
+#endif
+
   // NODE ID
-  #ifdef NODE_NUMBER
-    eeprom_setID((byte)NODE_NUMBER);
-  #endif
-  
+#ifdef NODE_NUMBER
+  eeprom_setID((byte)NODE_NUMBER);
+#endif
+
   // NAME
   myID = eeprom_getID();
   String myName("Hwhale");
   sprintf(nodeName, "Hwhale %02i %i", myID, VERSION);
-  #ifdef DEBUG
-    Serial.print("Starting ");
-    Serial.println(nodeName);
-  #endif
+#ifdef DEBUG
+  Serial.print("Starting ");
+  Serial.println(nodeName);
+#endif
 
   // WIFI
   wifi_init();
 
   // OTA
   ota_setup();
-  
+
   // LEDS
   leds_init();
   leds_test();
-  
+
 }
 
 
 // LOOP
 void loop() {
-  // auto connect
-  if (WiFi.waitForConnectResult() != WL_CONNECTED)  wifi_init();
 
   // UPDATE with data received
   if ( wifi_read(incomingPacket) )
@@ -82,13 +80,13 @@ void loop() {
       leds_set( incomingPacket );
 
   // LEDS SHOW
-  if ((millis()-lastRefresh) > REFRESH) {
+  if ((millis() - lastRefresh) > REFRESH) {
     leds_show();
     lastRefresh = millis();
   }
 
   // INFO HeartBeat
-  if ((millis()-lastInfo) > INFOTIME) {
+  if ((millis() - lastInfo) > INFOTIME) {
     wifi_send((uint8_t*) nodeName, HBSIZE );
     lastInfo = millis();
   }

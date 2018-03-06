@@ -15,16 +15,16 @@ const int numberOfChannels = NUM_STRIPS * NUM_LEDS_PER_STRIP * 3;
 const int numberOfLed = NUM_STRIPS * NUM_LEDS_PER_STRIP ;
 
 void gpioSetup(int gpioNum, int gpioMode, int gpioVal) {
-  #if defined(ARDUINO) && ARDUINO >= 100
-    pinMode (gpioNum, gpioMode);
-    digitalWrite (gpioNum, gpioVal);
-  #elif defined(ESP_PLATFORM)
-    gpio_num_t gpioNumNative = static_cast<gpio_num_t>(gpioNum);
-    gpio_mode_t gpioModeNative = static_cast<gpio_mode_t>(gpioMode);
-    gpio_pad_select_gpio(gpioNumNative);
-    gpio_set_direction(gpioNumNative, gpioModeNative);
-    gpio_set_level(gpioNumNative, gpioVal);
-  #endif
+#if defined(ARDUINO) && ARDUINO >= 100
+  pinMode (gpioNum, gpioMode);
+  digitalWrite (gpioNum, gpioVal);
+#elif defined(ESP_PLATFORM)
+  gpio_num_t gpioNumNative = static_cast<gpio_num_t>(gpioNum);
+  gpio_mode_t gpioModeNative = static_cast<gpio_mode_t>(gpioMode);
+  gpio_pad_select_gpio(gpioNumNative);
+  gpio_set_direction(gpioNumNative, gpioModeNative);
+  gpio_set_level(gpioNumNative, gpioVal);
+#endif
 }// gpioSetup
 
 
@@ -33,50 +33,51 @@ strand_t * strands [] = { &STRANDS[0], &STRANDS[1], &STRANDS[2], &STRANDS[3], &S
 
 void leds_init() {
 
-  for (int k=0; k<NUM_STRIPS; k++) {
-    STRANDS[k] = {  .rmtChannel = k, .gpioNum = PINS[k], .ledType = LED_WS2812B_V3, .brightLimit = 32, 
-                    .numPixels = NUM_LEDS_PER_STRIP, .pixels = nullptr, ._stateVars = nullptr};
+  for (int k = 0; k < NUM_STRIPS; k++) {
+    STRANDS[k] = {  .rmtChannel = k, .gpioNum = PINS[k], .ledType = LED_WS2812B_V3, .brightLimit = 32,
+                    .numPixels = NUM_LEDS_PER_STRIP, .pixels = nullptr, ._stateVars = nullptr
+                 };
     gpioSetup(PINS[k], OUTPUT, LOW);
   }
 
-  int STRANDCNT = sizeof(STRANDS)/sizeof(STRANDS[0]);
+  int STRANDCNT = sizeof(STRANDS) / sizeof(STRANDS[0]);
 
   if (digitalLeds_initStrands(STRANDS, STRANDCNT)) {
-    #ifdef DEBUG
+#ifdef DEBUG
     Serial.println("Init FAILURE: halting");
     delay(1000);
-    #endif
+#endif
     ESP.restart();
   }
   for (int i = 0; i < STRANDCNT; i++)
     strand_t * pStrand = &STRANDS[i];
- 
-  #ifdef DEBUG
+
+#ifdef DEBUG
   Serial.println("Init complete");
-  #endif
+#endif
 }//leds_init
 
 
 void leds_set(unsigned char* payload) {
   if (payload[1] > NUM_STRIPS) return;
 
-  #ifdef DEBUG
-    Serial.print("set payload...");
-  #endif
-  byte strip = payload[1]-1;
-  int maxLength = min(NUM_LEDS_PER_STRIP, (MTUu-4)/3);
-  
-  for (int k=0; k<maxLength; k+=1)
-    strands[strip]->pixels[k] = pixelFromRGB(payload[(k*3)+2]+CORRECTOR, payload[(k*3)+3]+CORRECTOR, payload[(k*3)+4]+CORRECTOR);
+#ifdef DEBUG
+  Serial.print("set payload...");
+#endif
+  byte strip = payload[1] - 1;
+  int maxLength = min(NUM_LEDS_PER_STRIP, (MTUu - 4) / 3);
 
-  #ifdef DEBUG
-    Serial.println("done");
-  #endif
+  for (int k = 0; k < maxLength; k += 1)
+    strands[strip]->pixels[k] = pixelFromRGB(payload[(k * 3) + 2] + CORRECTOR, payload[(k * 3) + 3] + CORRECTOR, payload[(k * 3) + 4] + CORRECTOR);
+
+#ifdef DEBUG
+  Serial.println("done");
+#endif
 }
 
 
 void leds_show() {
-  for (int k=0; k<NUM_STRIPS; k++) {
+  for (int k = 0; k < NUM_STRIPS; k++) {
     digitalLeds_updatePixels(strands[k]);
     yield();
   }
@@ -84,43 +85,43 @@ void leds_show() {
 
 
 void leds_test() {
-  #ifdef DEBUG
+#ifdef DEBUG
   Serial.println("initTest()");
-  #endif
-  for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) { 
+#endif
+  for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
     strands[0]->pixels[i] = pixelFromRGB(TEST_VAL, 0, 0);
     strands[1]->pixels[i] = pixelFromRGB(TEST_VAL, 0, 0);
     strands[2]->pixels[i] = pixelFromRGB(TEST_VAL, 0, 0);
     strands[3]->pixels[i] = pixelFromRGB(TEST_VAL, 0, 0);
     strands[4]->pixels[i] = pixelFromRGB(TEST_VAL, 0, 0);
     strands[5]->pixels[i] = pixelFromRGB(TEST_VAL, 0, 0);
-}//for i
-  leds_show();
-  delay(500);
-  for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) { 
-    strands[0]->pixels[i] = pixelFromRGB(0, TEST_VAL, 0); 
-    strands[1]->pixels[i] = pixelFromRGB(0, TEST_VAL, 0); 
-    strands[2]->pixels[i] = pixelFromRGB(0, TEST_VAL, 0);
-    strands[3]->pixels[i] = pixelFromRGB(0, TEST_VAL, 0);
-    strands[4]->pixels[i] = pixelFromRGB(0, TEST_VAL, 0); 
-    strands[5]->pixels[i] = pixelFromRGB(0, TEST_VAL, 0);
-}//for i
-  leds_show();
-  delay(500);
-  for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
-    strands[0]->pixels[i] = pixelFromRGB(0, 0, TEST_VAL); 
-    strands[1]->pixels[i] = pixelFromRGB(0, 0, TEST_VAL);
-    strands[2]->pixels[i] = pixelFromRGB(0, 0, TEST_VAL); 
-    strands[3]->pixels[i] = pixelFromRGB(0, 0, TEST_VAL); 
-    strands[4]->pixels[i] = pixelFromRGB(0, 0, TEST_VAL);
-    strands[5]->pixels[i] = pixelFromRGB(0, 0, TEST_VAL); 
   }//for i
   leds_show();
   delay(500);
   for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
-    strands[0]->pixels[i] = pixelFromRGB(0, 0, 0); 
+    strands[0]->pixels[i] = pixelFromRGB(0, TEST_VAL, 0);
+    strands[1]->pixels[i] = pixelFromRGB(0, TEST_VAL, 0);
+    strands[2]->pixels[i] = pixelFromRGB(0, TEST_VAL, 0);
+    strands[3]->pixels[i] = pixelFromRGB(0, TEST_VAL, 0);
+    strands[4]->pixels[i] = pixelFromRGB(0, TEST_VAL, 0);
+    strands[5]->pixels[i] = pixelFromRGB(0, TEST_VAL, 0);
+  }//for i
+  leds_show();
+  delay(500);
+  for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
+    strands[0]->pixels[i] = pixelFromRGB(0, 0, TEST_VAL);
+    strands[1]->pixels[i] = pixelFromRGB(0, 0, TEST_VAL);
+    strands[2]->pixels[i] = pixelFromRGB(0, 0, TEST_VAL);
+    strands[3]->pixels[i] = pixelFromRGB(0, 0, TEST_VAL);
+    strands[4]->pixels[i] = pixelFromRGB(0, 0, TEST_VAL);
+    strands[5]->pixels[i] = pixelFromRGB(0, 0, TEST_VAL);
+  }//for i
+  leds_show();
+  delay(500);
+  for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
+    strands[0]->pixels[i] = pixelFromRGB(0, 0, 0);
     strands[1]->pixels[i] = pixelFromRGB(0, 0, 0);
-    strands[2]->pixels[i] = pixelFromRGB(0, 0, 0); 
+    strands[2]->pixels[i] = pixelFromRGB(0, 0, 0);
     strands[3]->pixels[i] = pixelFromRGB(0, 0, 0);
     strands[4]->pixels[i] = pixelFromRGB(0, 0, 0);
     strands[5]->pixels[i] = pixelFromRGB(0, 0, 0);
