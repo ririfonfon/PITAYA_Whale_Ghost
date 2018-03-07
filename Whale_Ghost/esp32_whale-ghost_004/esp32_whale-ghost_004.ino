@@ -1,7 +1,7 @@
 //ID
 //#define NODE_NUMBER 1
 
-#define VERSION 3
+#define VERSION 4
 
 //Debug
 //#define DEBUG 1

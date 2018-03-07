@@ -68,7 +68,8 @@ void leds_set(unsigned char* payload) {
   int maxLength = min(NUM_LEDS_PER_STRIP, (MTUu - 4) / 3);
 
   for (int k = 0; k < maxLength; k += 1)
-    strands[strip]->pixels[k] = pixelFromRGB(payload[(k * 3) + 2] + CORRECTOR, payload[(k * 3) + 3] + CORRECTOR, payload[(k * 3) + 4] + CORRECTOR);
+//    strands[strip]->pixels[k] = pixelFromRGB(payload[(k * 3) + 2] + CORRECTOR, payload[(k * 3) + 3] + CORRECTOR, payload[(k * 3) + 4] + CORRECTOR);
+    strands[strip]->pixels[k] = pixelFromRGB((payload[(k * 3) + 2] + CORRECTOR)*(payload[(k * 3) + 2] + CORRECTOR)/255, (payload[(k * 3) + 3] + CORRECTOR)*(payload[(k * 3) + 3] + CORRECTOR)/255, (payload[(k * 3) + 4] + CORRECTOR)*(payload[(k * 3) + 4] + CORRECTOR)/255);
 
 #ifdef DEBUG
   Serial.println("done");
