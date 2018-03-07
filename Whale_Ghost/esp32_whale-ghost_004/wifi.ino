@@ -14,6 +14,8 @@ IPAddress server(192, 168, 0, 255);
 unsigned int udpPort_node = 3737;  // Node port to listen on
 unsigned int udpPort_server = 3738;  // Server port to speak to
 
+bool wifi_available = false;
+
 void wifi_init() {
 
   IPAddress ip(192, 168, 0, eeprom_getID() + 100);               // Static IP
@@ -38,6 +40,7 @@ void wifi_init() {
 }
 
 void wifi_send(uint8_t* message, int sizeM) {
+  if (!wifi_available) return;
   WUdp.beginPacket(server, udpPort_server);
   WUdp.write(message, sizeM);
   WUdp.endPacket();
@@ -90,6 +93,7 @@ void wifi_event(WiFiEvent_t event) {
 #endif
 
   if (event == SYSTEM_EVENT_STA_DISCONNECTED) {
+    wifi_available = false;
     retry += 1;
     /*if (retry > maxRetry) {
       #ifdef DEBUG
@@ -112,6 +116,7 @@ void wifi_event(WiFiEvent_t event) {
   }
   else if (event == SYSTEM_EVENT_STA_GOT_IP) {
     retry = 0;
+    wifi_available = true;
   }
 }
 
