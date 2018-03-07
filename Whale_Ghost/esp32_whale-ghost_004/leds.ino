@@ -69,7 +69,7 @@ void leds_set(unsigned char* payload) {
 
   for (int k = 0; k < maxLength; k += 1)
     //    strands[strip]->pixels[k] = pixelFromRGB(payload[(k * 3) + 2] + CORRECTOR, payload[(k * 3) + 3] + CORRECTOR, payload[(k * 3) + 4] + CORRECTOR);
-    strands[strip]->pixels[k] = pixelFromRGB((payload[(k * 3) + 2] + CORRECTOR) * (payload[(k * 3) + 2] + CORRECTOR) / 255, (payload[(k * 3) + 3] + CORRECTOR) * (payload[(k * 3) + 3] + CORRECTOR) / 255, (payload[(k * 3) + 4] + CORRECTOR) * (payload[(k * 3) + 4] + CORRECTOR) / 255);
+    strands[strip]->pixels[k] = pixelFromRGB( leds_square(payload[(k * 3) + 2]), leds_square(payload[(k * 3) + 3]), leds_square(payload[(k * 3) + 4]) );
 
 #ifdef DEBUG
   Serial.println("done");
@@ -119,6 +119,10 @@ void leds_test() {
   }//for i
   leds_show();
   delay(500);
+  black_out();
+}//initest
+
+void black_out() {
   for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
     strands[0]->pixels[i] = pixelFromRGB(0, 0, 0);
     strands[1]->pixels[i] = pixelFromRGB(0, 0, 0);
@@ -128,5 +132,10 @@ void leds_test() {
     strands[5]->pixels[i] = pixelFromRGB(0, 0, 0);
   }//for i
   leds_show();
-}//initest
+}//black_out
+
+byte leds_square(byte value) {
+  return (((value+CORRECTOR)*(value+CORRECTOR))/255);
+}
+
 
