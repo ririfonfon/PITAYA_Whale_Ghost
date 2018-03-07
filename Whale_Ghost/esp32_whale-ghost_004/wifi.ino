@@ -107,6 +107,7 @@ void wifi_event(WiFiEvent_t event) {
     //Serial.print(maxRetry);
     Serial.println();
 #endif
+    black_out();
     WiFi.reconnect();
   }
   else if (event == SYSTEM_EVENT_STA_GOT_IP) {
