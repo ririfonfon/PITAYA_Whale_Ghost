@@ -20,14 +20,14 @@ bool wifi_available = false;
 
 void wifi_init() {
 
-  IPAddress ip(192, 168, 0, eeprom_getID() + 100);               // Static IP
-  IPAddress gateway(192, 168, 0, 1);
+  IPAddress ip(192, 168, 43, eeprom_getID() + 100);               // Static IP
+  IPAddress gateway(192, 168, 43, 1);
   IPAddress subnet(255, 255, 255, 0);
 
   // Enable wifi
   WiFi.disconnect(true);
   WiFi.mode(WIFI_STA);
-  //WiFi.config(ip, gateway, subnet);
+  WiFi.config(ip, gateway, subnet);
 
   // Connect wifi
   WiFi.onEvent(wifi_event);
