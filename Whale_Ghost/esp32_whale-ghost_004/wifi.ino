@@ -3,16 +3,14 @@
 
 WiFiUDP WUdp;
 
-//Wifi settings
-//const char* ssid = "stratum";
+// Wifi settings
+const char* ssid = "stratum";
 const char* password = "9000leds";
-
-const char* ssid = "mgr4g";
 
 //
 // NETWORK
 //
-IPAddress server(192, 168, 43, 255);
+IPAddress server(192, 168, 0, 255);
 unsigned int udpPort_node = 3737;  // Node port to listen on
 unsigned int udpPort_server = 3738;  // Server port to speak to
 
@@ -20,8 +18,8 @@ bool wifi_available = false;
 
 void wifi_init() {
 
-  IPAddress ip(192, 168, 43, eeprom_getID() + 100);               // Static IP
-  IPAddress gateway(192, 168, 43, 1);
+  IPAddress ip(192, 168, 0, eeprom_getID() + 100);               // Static IP
+  IPAddress gateway(192, 168, 0, 20);
   IPAddress subnet(255, 255, 255, 0);
 
   // Enable wifi
@@ -58,7 +56,6 @@ bool wifi_read(unsigned char* incomingPacket) {
         Serial.println("Packet stored\n");
         for (int k = 0; k < len; k++) Serial.printf("%i ", incomingPacket[k]);
         Serial.println();
-        //Serial.printf("PACKET: %s*\n", incomingPacket);
     #endif
 
     return true;
