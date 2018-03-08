@@ -29,6 +29,42 @@
 		"tags" : "",
 		"boxes" : [ 			{
 				"box" : 				{
+					"bgcolor" : [ 0.882353, 0.898039, 0.909804, 1.0 ],
+					"bgcolor2" : [ 0.882353, 0.898039, 0.909804, 1.0 ],
+					"bordercolor" : [ 0.884294, 0.898605, 0.91047, 1.0 ],
+					"fontname" : "Arial",
+					"fontsize" : 10.0,
+					"id" : "obj-21",
+					"maxclass" : "jit.fpsgui",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "" ],
+					"patching_rect" : [ 173.237061, 510.0, 80.0, 33.0 ],
+					"presentation" : 1,
+					"presentation_rect" : [ 31.5, 355.0, 80.0, 33.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"bgcolor" : [ 0.882353, 0.898039, 0.909804, 1.0 ],
+					"bgcolor2" : [ 0.882353, 0.898039, 0.909804, 1.0 ],
+					"bordercolor" : [ 0.884294, 0.898605, 0.91047, 1.0 ],
+					"fontname" : "Arial",
+					"fontsize" : 10.0,
+					"id" : "obj-19",
+					"maxclass" : "jit.fpsgui",
+					"numinlets" : 1,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "" ],
+					"patching_rect" : [ 34.0, 380.0, 80.0, 33.0 ],
+					"presentation" : 1,
+					"presentation_rect" : [ 31.0, 249.0, 80.0, 33.0 ]
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"fontname" : "Arial",
 					"fontsize" : 11.0,
 					"id" : "obj-54",
@@ -165,21 +201,6 @@
 					"presentation" : 1,
 					"presentation_rect" : [ 31.5, 299.0, 254.0, 19.0 ],
 					"text" : "UDP FRAMERATE"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"fontname" : "Arial",
-					"fontsize" : 11.0,
-					"id" : "obj-14",
-					"maxclass" : "jit.fpsgui",
-					"numinlets" : 1,
-					"numoutlets" : 2,
-					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 173.237061, 511.0, 80.0, 34.0 ],
-					"presentation" : 1,
-					"presentation_rect" : [ 31.5, 356.584106, 65.0, 34.0 ]
 				}
 
 			}
@@ -6211,7 +6232,7 @@
 					"patching_rect" : [ 162.5, 197.0, 83.0, 20.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 248.0, 56.0, 52.0, 20.0 ],
-					"text" : "0 ' 0 ''"
+					"text" : "2 ' 44 ''"
 				}
 
 			}
@@ -6269,7 +6290,7 @@
 					"patching_rect" : [ 31.0, 198.0, 104.0, 22.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 30.5, 85.0, 253.0, 21.0 ],
-					"size" : 2.0
+					"size" : 187507.0
 				}
 
 			}
@@ -7838,21 +7859,6 @@
 					}
 ,
 					"text" : "p VIDEO PLAYER"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"fontname" : "Arial",
-					"fontsize" : 11.0,
-					"id" : "obj-110",
-					"maxclass" : "jit.fpsgui",
-					"numinlets" : 1,
-					"numoutlets" : 2,
-					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 34.0, 379.929138, 80.0, 34.0 ],
-					"presentation" : 1,
-					"presentation_rect" : [ 31.5, 244.0, 80.0, 34.0 ]
 				}
 
 			}
@@ -11912,7 +11918,7 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-14", 0 ],
+					"destination" : [ "obj-21", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
 					"source" : [ "obj-3", 0 ]
@@ -11985,7 +11991,7 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-110", 0 ],
+					"destination" : [ "obj-113", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
 					"source" : [ "obj-5", 0 ]
@@ -11994,7 +12000,7 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-113", 0 ],
+					"destination" : [ "obj-19", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
 					"source" : [ "obj-5", 0 ]
@@ -12012,9 +12018,9 @@
 			}
  ],
 		"parameters" : 		{
-			"obj-4::obj-7" : [ "live.toggle", "live.toggle", 0 ],
 			"obj-118::obj-4" : [ "live.toggle[1]", "live.toggle[1]", 0 ],
 			"obj-136" : [ "live.toggle[2]", "live.toggle[2]", 0 ],
+			"obj-4::obj-7" : [ "live.toggle", "live.toggle", 0 ],
 			"obj-40" : [ "live.toggle[4]", "live.toggle[4]", 0 ],
 			"obj-10::obj-136" : [ "live.toggle[3]", "live.toggle[2]", 0 ],
 			"obj-135::obj-114" : [ "MIX", "MIX", 0 ]
@@ -12022,7 +12028,7 @@
 ,
 		"dependency_cache" : [ 			{
 				"name" : "slice.maxpat",
-				"bootpath" : "/Users/maclaren/Desktop/Baleine Git/PITAYA/Whale_Ghost/Max/Video to LED",
+				"bootpath" : "/Users/maclaren/Dropbox/HMSPHR/WORK/Baleine/Video to LED/Video to LED",
 				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
