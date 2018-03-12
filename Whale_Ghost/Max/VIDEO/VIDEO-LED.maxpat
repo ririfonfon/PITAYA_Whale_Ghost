@@ -6570,7 +6570,7 @@
 					"patching_rect" : [ 162.5, 157.0, 83.0, 20.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 248.0, 56.0, 52.0, 20.0 ],
-					"text" : "0 ' 11 ''"
+					"text" : "5 ' 15 ''"
 				}
 
 			}
@@ -12606,13 +12606,13 @@
 			}
  ],
 		"parameters" : 		{
-			"obj-40" : [ "live.toggle[4]", "live.toggle[4]", 0 ],
-			"obj-136" : [ "live.toggle[2]", "live.toggle[2]", 0 ],
-			"obj-10::obj-136" : [ "live.toggle[3]", "live.toggle[2]", 0 ],
-			"obj-135::obj-114" : [ "MIX", "MIX", 0 ],
 			"obj-4::obj-7" : [ "live.toggle", "live.toggle", 0 ],
 			"obj-22" : [ "live.toggle[5]", "live.toggle[5]", 0 ],
-			"obj-118::obj-4" : [ "live.toggle[1]", "live.toggle[1]", 0 ]
+			"obj-40" : [ "live.toggle[4]", "live.toggle[4]", 0 ],
+			"obj-118::obj-4" : [ "live.toggle[1]", "live.toggle[1]", 0 ],
+			"obj-10::obj-136" : [ "live.toggle[3]", "live.toggle[2]", 0 ],
+			"obj-136" : [ "live.toggle[2]", "live.toggle[2]", 0 ],
+			"obj-135::obj-114" : [ "MIX", "MIX", 0 ]
 		}
 ,
 		"dependency_cache" : [ 			{
