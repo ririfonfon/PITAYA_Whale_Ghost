@@ -62,7 +62,6 @@ bool wifi_read(unsigned char* incomingPacket) {
     Serial.println("Packet stored\n");
     for (int k = 0; k < len; k++) Serial.printf("%i ", incomingPacket[k]);
     Serial.println();
-    //Serial.printf("PACKET: %s*\n", incomingPacket);
 #endif
 
     return true;
@@ -72,46 +71,15 @@ bool wifi_read(unsigned char* incomingPacket) {
 
 void wifi_event(WiFiEvent_t event) {
   static byte retry = 0;
-  static byte maxRetry = 15;
-
-#ifdef DEBUG
-  switch (event) {
-    case SYSTEM_EVENT_STA_CONNECTED:
-      Serial.print("WiFi connected");
-      break;
-    case SYSTEM_EVENT_STA_GOT_IP:
-      Serial.print("Wifi Connected with IP: ");
-      Serial.println(WiFi.localIP());
-      break;
-    case SYSTEM_EVENT_STA_LOST_IP:
-      Serial.print("Lost IP..");
-      break;
-    case SYSTEM_EVENT_STA_DISCONNECTED:
-      Serial.print("WiFi lost connection... ");
-      break;
-  }
-#endif
 
   if (event == SYSTEM_EVENT_STA_DISCONNECTED) {
     wifi_available = false;
     retry += 1;
-    /*if (retry > maxRetry) {
-      #ifdef DEBUG
-        Serial.println("Can't connect to WIFI... RESTART ESP !");
-      #endif
-      WiFi.disconnect(true);
-      delay(500);
-      ESP.restart();
-      }*/
 
 #ifdef DEBUG
     Serial.print(" reconnecting ");
-    Serial.print(retry);
-    //Serial.print("/");
-    //Serial.print(maxRetry);
-    Serial.println();
+    Serial.println(retry);
 #endif
-    black_out();
     WiFi.reconnect();
   }
   else if (event == SYSTEM_EVENT_STA_GOT_IP) {
@@ -119,4 +87,9 @@ void wifi_event(WiFiEvent_t event) {
     wifi_available = true;
   }
 }
+
+bool wifi_isok() {
+  return wifi_available;
+}
+
 

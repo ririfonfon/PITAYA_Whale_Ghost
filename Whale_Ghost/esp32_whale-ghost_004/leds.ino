@@ -120,6 +120,7 @@ void leds_test() {
   leds_show();
   delay(500);
   black_out();
+  leds_show();
 }//initest
 
 void black_out() {
@@ -131,7 +132,6 @@ void black_out() {
     strands[4]->pixels[i] = pixelFromRGB(0, 0, 0);
     strands[5]->pixels[i] = pixelFromRGB(0, 0, 0);
   }//for i
-  leds_show();
 }//black_out
 
 byte leds_square(byte value) {

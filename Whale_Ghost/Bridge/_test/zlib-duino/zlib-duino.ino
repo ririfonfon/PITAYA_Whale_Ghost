@@ -3,13 +3,13 @@
 void setup() {
   // put your setup code here, to run once:
   // original string len = 36
-    char a[50] = "Hello Hello Hello Hello Hello Hello!"; 
+    char a[2000] = "Hello Hello Hello Hello Hello Hello!Hello Hello Hello Hello Hello Hello!Hello Hello Hello Hello Hello Hello!Hello Hello Hello Hello Hello Hello!Hello Hello Hello Hello Hello Hello!Hello Hello Hello Hello Hello Hello!Hello Hello Hello Hello Hello Hello!Hello Hello Hello Hello Hello Hello!Hello Hello Hello Hello Hello Hello!Hello Hello Hello Hello Hello Hello!"; 
 
     // placeholder for the compressed (deflated) version of "a" 
-    char b[50];
+    char b[2000];
 
     // placeholder for the UNcompressed (inflated) version of "b"
-    char c[50];
+    char c[2000];
      
 
     printf("Uncompressed size is: %lu\n", strlen(a));
