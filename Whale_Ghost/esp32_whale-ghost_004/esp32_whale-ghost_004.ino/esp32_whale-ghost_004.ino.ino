@@ -1,7 +1,7 @@
 //ID
 //#define NODE_NUMBER 1
 
-#define VERSION 6
+#define VERSION 8
 
 //Debug
 //#define DEBUG 1
@@ -81,6 +81,7 @@ void loop() {
 
   // LEDS SHOW
   if ((millis() - lastRefresh) > REFRESH) {
+    if(!wifi_isok()) black_out();
     leds_show();
     lastRefresh = millis();
   }
