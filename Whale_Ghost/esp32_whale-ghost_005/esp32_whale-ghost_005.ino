@@ -81,7 +81,7 @@ void loop() {
 
   // LEDS SHOW
   if ((millis() - lastRefresh) > REFRESH) {
-    if(!wifi_isok()) black_out();
+    if (!wifi_isok()) black_out();
     leds_show();
     lastRefresh = millis();
   }

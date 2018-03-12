@@ -135,7 +135,7 @@ void black_out() {
 }//black_out
 
 byte leds_square(byte value) {
-  return (((value+CORRECTOR)*(value+CORRECTOR))/255);
+  return (((value + CORRECTOR) * (value + CORRECTOR)) / 255);
 }
 
 
