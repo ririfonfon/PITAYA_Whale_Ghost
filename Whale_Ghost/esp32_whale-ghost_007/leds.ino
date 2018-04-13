@@ -125,12 +125,12 @@ void leds_test() {
 
 void black_out() {
   for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
-    strands[0]->pixels[i] = pixelFromRGB(255, 0, 255);
-    strands[1]->pixels[i] = pixelFromRGB(255, 0, 255);
-    strands[2]->pixels[i] = pixelFromRGB(255, 0, 255);
-    strands[3]->pixels[i] = pixelFromRGB(255, 0, 255);
-    strands[4]->pixels[i] = pixelFromRGB(255, 0, 255);
-    strands[5]->pixels[i] = pixelFromRGB(255, 0, 255);
+    strands[0]->pixels[i] = pixelFromRGB(127, 127, 127);
+    strands[1]->pixels[i] = pixelFromRGB(127, 127, 127);
+    strands[2]->pixels[i] = pixelFromRGB(127, 127, 127);
+    strands[3]->pixels[i] = pixelFromRGB(127, 127, 127);
+    strands[4]->pixels[i] = pixelFromRGB(127, 127, 127);
+    strands[5]->pixels[i] = pixelFromRGB(127, 127, 127);
   }//for i
 }//black_out
 
