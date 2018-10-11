@@ -44,7 +44,7 @@
   )
 
   (setup
-    (last_trace_width 1)
+    (last_trace_width 0.2)
     (user_trace_width 0.5)
     (user_trace_width 1)
     (user_trace_width 1.5)
@@ -1641,7 +1641,7 @@
   (gr_text "123 Gnd\n45 Data\n678 Vcc" (at 93.218 61.722) (layer F.SilkS)
     (effects (font (size 1.5 1.5) (thickness 0.2)) (justify left))
   )
-  (gr_text "Pro Micro 2 ->" (at 175.26 81.28 90) (layer F.SilkS)
+  (gr_text "Pro Micro 2 ->" (at 161.34 82.79 90) (layer F.SilkS)
     (effects (font (size 1.5 1.5) (thickness 0.3)))
   )
   (gr_text "Pro Micro 1 ->" (at 137.16 81.28 90) (layer F.SilkS)

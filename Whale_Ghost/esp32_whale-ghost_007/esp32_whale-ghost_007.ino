@@ -4,7 +4,7 @@
 #define VERSION 12
 
 //Debug
-//#define DEBUG 1
+#define DEBUG 1
 //#define DEBUG_MSG 1
 
 
