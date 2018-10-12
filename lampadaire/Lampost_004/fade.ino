@@ -19,6 +19,7 @@ void fade_white() {
     Serial.println("((RedNow == 255) && (GreenNow == 255) && (BlueNow == 255))");
 #endif
     state = 2;
+    yield();
     trig();
   }
   dmxbuffer[1] = (RedNow * RedNow) / 255;
@@ -36,7 +37,7 @@ void fade_pink() {
   jGreenNow = 0;
   jBlueNow = jBlueNow +  1;
   if (jRedNow > 255) jRedNow = 255;
-  if (jBlueNow > 200) jBlueNow = 200;
+  if (jBlueNow > 100) jBlueNow = 100;
   dmxbuffer[1] = (jRedNow * jRedNow) / 255;
   dmxbuffer[2] = (jGreenNow * jGreenNow) / 255;
   dmxbuffer[3] = (jBlueNow * jBlueNow) / 255;
@@ -51,7 +52,7 @@ void fade_lavender() {
   kRedNow = kRedNow +  1;
   kGreenNow = 0;
   kBlueNow = kBlueNow +  1;
-  if (kRedNow > 200) kRedNow = 200;
+  if (kRedNow > 100) kRedNow = 100;
   if (kBlueNow > 255) kBlueNow = 255;
   dmxbuffer[1] = (kRedNow * kRedNow) / 255;
   dmxbuffer[2] = (kGreenNow * kGreenNow) / 255;
@@ -63,7 +64,16 @@ void fade_pink_lavender() {
 #ifdef DEBUG
   Serial.println("fade_pink_lavender()");
 #endif
-  if (pink_lav = 0) {
+  if (pink_lav == 0) {
+#ifdef DEBUG
+    Serial.println("pink_lav = 0");
+    Serial.print("lRedNow: ");
+    Serial.println(lRedNow);
+    Serial.print("lGreenNow: ");
+    Serial.println(lGreenNow);
+    Serial.print("lBlueNow: ");
+    Serial.println(lBlueNow);
+#endif
     lRedNow = lRedNow +  1;
     lGreenNow = 0;
     lBlueNow = lBlueNow +  1;
@@ -73,23 +83,48 @@ void fade_pink_lavender() {
       pink_lav = 1;
     }
   }
-  if (pink_lav = 1) {
+  if (pink_lav == 1) {
+#ifdef DEBUG
+    Serial.println("pink_lav = 1");
+    Serial.print("lRedNow: ");
+    Serial.println(lRedNow);
+    Serial.print("lGreenNow: ");
+    Serial.println(lGreenNow);
+    Serial.print("lBlueNow: ");
+    Serial.println(lBlueNow);
+#endif
     lRedNow = lRedNow -  1;
     lGreenNow = 0;
     lBlueNow = lBlueNow +  1;
-    if (lRedNow > 200) lRedNow = 200;
+    if (lRedNow < 100) lRedNow = 100;
     if (lBlueNow > 255) lBlueNow = 255;
-    if ((lRedNow == 200) && (lBlueNow == 255)) {
+    if ((lRedNow == 100) && (lBlueNow == 255)) {
+#ifdef DEBUG
+      Serial.println("((lRedNow == 100) && (lBlueNow == 255))");
+#endif
       pink_lav = 2;
+      yield();
     }
   }
-  if (pink_lav = 2) {
+  if (pink_lav == 2) {
+    #ifdef DEBUG
+    Serial.println("pink_lav = 2");
+    Serial.print("lRedNow: ");
+    Serial.println(lRedNow);
+    Serial.print("lGreenNow: ");
+    Serial.println(lGreenNow);
+    Serial.print("lBlueNow: ");
+    Serial.println(lBlueNow);
+#endif
     lRedNow = lRedNow +  1;
     lGreenNow = 0;
     lBlueNow = lBlueNow -  1;
     if (lRedNow > 255) lRedNow = 255;
-    if (lBlueNow > 200) lBlueNow = 200;
-    if ((lRedNow == 255) && (lBlueNow == 200)) {
+    if (lBlueNow < 100) lBlueNow = 100;
+    if ((lRedNow == 255) && (lBlueNow == 100)) {
+#ifdef DEBUG
+      Serial.println("((lRedNow == 255) && (lBlueNow == 100))");
+#endif
       pink_lav = 1;
     }
   }
@@ -103,14 +138,24 @@ void fade_pink_lavender() {
 void fade_seq() {
 #ifdef DEBUG
   Serial.println("fade_seq()");
+  Serial.print("mRedNow: ");
+  Serial.println(mRedNow);
+  Serial.print("mGreenNow: ");
+  Serial.println(mGreenNow);
+  Serial.print("mBlueNow: ");
+  Serial.println(mBlueNow);
 #endif
   mRedNow = mRedNow - 1;
   mGreenNow = mGreenNow - 1;
   mBlueNow = mBlueNow - 1;
-  if (mRedNow > 80) mRedNow = 80;
-  if (mGreenNow > 50) mGreenNow = 50;
-  if (mBlueNow > 0) mBlueNow = 0;
+  if (mRedNow < 80) mRedNow = 80;
+  if (mGreenNow < 50) mGreenNow = 50;
+  if (mBlueNow < 0) mBlueNow = 0;
   if ((mRedNow == 80) && (mGreenNow == 50) && (mBlueNow == 0)) {
+#ifdef DEBUG
+    Serial.println("((mRedNow == 80) && (mGreenNow == 50) && (mBlueNow == 0))");
+#endif
+    yield();
     state = 0;
     h = 0;
   }
@@ -121,4 +166,5 @@ void fade_seq() {
   copyDMXToOutput();
   h = 0;
 }
+
 

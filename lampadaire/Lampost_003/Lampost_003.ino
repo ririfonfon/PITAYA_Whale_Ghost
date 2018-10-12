@@ -13,10 +13,10 @@
 
 #include <RBD_Timer.h>  // https://github.com/alextaujenis/RBD_Timer
 #include <RBD_Button.h> // https://github.com/alextaujenis/RBD_Button
-RBD::Button button9(T9);//droite
-RBD::Button button8(T8);//gauche
-uint8_t init_btn9 = 0;
-uint8_t init_btn8 = 0;
+RBD::Button button9(T9); //droite
+RBD::Button button8(T8); //gauche
+//uint8_t init_btn9 = 0;
+//uint8_t init_btn8 = 0;
 
 #define DMX_DIRECTION_PIN 21
 #define DMX_SERIAL_OUTPUT_PIN 17
@@ -34,6 +34,10 @@ int j;
 int k;
 int l;
 uint8_t pink_lav = 0;
+
+float NowRed = 0;
+float NowGreen = 0;
+float NowBlue = 0;
 
 float RedNow = 0;
 float GreenNow = 0;
@@ -58,8 +62,8 @@ float mBlueNow = 255;
 int state = 0;
 
 // defines pins numbers hr
-const int trigPin = 2;  //D4
-const int echoPin = 0;  //D3
+const int trigPin = 35;
+const int echoPin = 34;
 
 // defines variables hr
 long duration;
@@ -70,7 +74,7 @@ int distance;
 void setup() {
 #ifdef DEBUG
   Serial.begin(115200);
-  Serial.setDebugOutput(1); //use uart0 for debugging
+  //Serial.setDebugOutput(1); //use uart0 for debugging
   Serial.print("setup");
 #endif
 
@@ -120,6 +124,7 @@ void loop() {
 #endif
     j = j + 1;
     if (j = 250000) {
+      state = 3 ;
       fade_pink();
     }
   }
@@ -129,6 +134,7 @@ void loop() {
 #endif
     k = k + 1;
     if (k = 250000) {
+      state = 4;
       fade_lavender();
     }
   }
@@ -138,9 +144,17 @@ void loop() {
 #endif
     l = l + 1;
     if (l = 250000) {
+      state = 5;
       fade_pink_lavender();
     }
   }
-
+  else if (button9.isReleased() && button8.isReleased()) {
+#ifdef DEBUG
+    Serial.println("Touch 8 & 9 isReleased()");
+#endif
+    if (state > 2) {
+      state = 0;
+    }
+  }
 }
 

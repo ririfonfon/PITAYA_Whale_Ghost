@@ -2,9 +2,9 @@ void play_seq() {
 #ifdef DEBUG
   Serial.println(">130");
 #endif
-  RedNow = 0;
-  GreenNow = 0;
-  BlueNow = 0;
+  RedNow = RedList[level];
+  GreenNow = GreenList[level];
+  BlueNow = BlueList[level];
 
   jRedNow = 0;
   jGreenNow = 0;
@@ -22,10 +22,11 @@ void play_seq() {
   mGreenNow = 255;
   mBlueNow = 255;
 
+  pink_lav = 0;
+
   dmxbuffer[1] = RedList[level];
   dmxbuffer[2] = GreenList[level];
   dmxbuffer[3] = BlueList[level];
-
 
   copyDMXToOutput();
   h = 0;
@@ -35,4 +36,6 @@ void play_seq() {
 
   esp_task_wdt_feed();
   vTaskDelay(100);
+  yield();
 }
+

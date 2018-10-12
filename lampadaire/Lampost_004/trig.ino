@@ -21,8 +21,10 @@ void trig() {
   Serial.print("state: ");
   Serial.println(state);
 #endif
+  yield();
 
   if (distance == 0) {
     reset_hcsr04();
   }
 }
+
