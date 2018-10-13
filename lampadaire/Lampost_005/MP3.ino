@@ -2,6 +2,7 @@ void sendMP3Command(char c) {
   switch (c) {
     case '?':
     case 'h':
+#ifdef DEBUGMP3
       Serial.println("HELP  ");
       Serial.println(" p = Play");
       Serial.println(" P = Pause");
@@ -22,103 +23,142 @@ void sendMP3Command(char c) {
       Serial.println(" S = Sleep");
       Serial.println(" W = Wake up");
       Serial.println(" r = Reset");
+#endif
       break;
 
 
     case 'p':
+#ifdef DEBUGMP3
       Serial.println("Play ");
+#endif
       sendCommand(CMD_PLAY, 0);
       break;
 
     case 'P':
+#ifdef DEBUGMP3
       Serial.println("Pause");
+#endif
       sendCommand(CMD_PAUSE, 0);
       break;
 
     case '>':
+#ifdef DEBUGMP3
       Serial.println("Next");
+#endif
       sendCommand(CMD_NEXT_SONG, 0);
       sendCommand(CMD_PLAYING_N, 0x0000); // ask for the number of file is playing
       break;
 
     case '<':
+#ifdef DEBUGMP3
       Serial.println("Previous");
+#endif
       sendCommand(CMD_PREV_SONG, 0);
       sendCommand(CMD_PLAYING_N, 0x0000); // ask for the number of file is playing
       break;
 
     case '+':
+#ifdef DEBUGMP3
       Serial.println("Volume Up");
+#endif
       sendCommand(CMD_VOLUME_UP, 0);
       break;
 
     case '-':
+#ifdef DEBUGMP3
       Serial.println("Volume Down");
+#endif
       sendCommand(CMD_VOLUME_DOWN, 0);
       break;
 
     case 'c':
+#ifdef DEBUGMP3
       Serial.println("Query current file");
+#endif
       sendCommand(CMD_PLAYING_N, 0);
       break;
 
     case 'q':
+#ifdef DEBUGMP3
       Serial.println("Query status");
+#endif
       sendCommand(CMD_QUERY_STATUS, 0);
       break;
 
     case 'v':
+#ifdef DEBUGMP3
       Serial.println("Query volume");
+#endif
       sendCommand(CMD_QUERY_VOLUME, 0);
       break;
 
     case 'x':
+#ifdef DEBUGMP3
       Serial.println("Query folder count");
+#endif
       sendCommand(CMD_QUERY_FLDR_COUNT, 0);
       break;
 
     case 't':
+#ifdef DEBUGMP3
       Serial.println("Query total file count");
+#endif
       sendCommand(CMD_QUERY_TOT_TRACKS, 0);
       break;
 
     case '1':
+#ifdef DEBUGMP3
       Serial.println("Play folder 1");
+#endif
       sendCommand(CMD_FOLDER_CYCLE, 0x0101);
       break;
 
     case '2':
+#ifdef DEBUGMP3
       Serial.println("Play folder 2");
+#endif
       sendCommand(CMD_FOLDER_CYCLE, 0x0201);
       break;
 
     case '3':
+#ifdef DEBUGMP3
       Serial.println("Play folder 3");
+#endif
       sendCommand(CMD_FOLDER_CYCLE, 0x0301);
       break;
 
     case '4':
+#ifdef DEBUGMP3
       Serial.println("Play folder 4");
+#endif
       sendCommand(CMD_FOLDER_CYCLE, 0x0401);
       break;
 
     case '5':
+#ifdef DEBUGMP3
       Serial.println("Play folder 5");
+#endif
       sendCommand(CMD_FOLDER_CYCLE, 0x0501);
       break;
 
     case 'S':
+#ifdef DEBUGMP3
       Serial.println("Sleep");
+#endif
       sendCommand(CMD_SLEEP_MODE, 0x00);
       break;
 
     case 'W':
+#ifdef DEBUGMP3
       Serial.println("Wake up");
+#endif
       sendCommand(CMD_WAKE_UP, 0x00);
       break;
 
     case 'r':
+#ifdef DEBUGMP3
       Serial.println("Reset");
+#endif
       sendCommand(CMD_RESET, 0x00);
       break;
   }
@@ -198,13 +238,20 @@ void sendCommand(int8_t command, int16_t dat)
   Send_buf[5] = (int8_t)(dat >> 8);  //datah
   Send_buf[6] = (int8_t)(dat);       //datal
   Send_buf[7] = 0xef;   //
+#ifdef DEBUGMP3
   Serial.print("Sending: ");
+#endif
   for (uint8_t i = 0; i < 8; i++)
   {
     mp3.write(Send_buf[i]) ;
+
+#ifdef DEBUGMP3
     Serial.print(sbyte2hex(Send_buf[i]));
+#endif
   }
+#ifdef DEBUGMP3
   Serial.println();
+#endif
 }
 
 

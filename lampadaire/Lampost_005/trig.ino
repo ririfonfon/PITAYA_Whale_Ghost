@@ -14,7 +14,7 @@ void trig() {
   // Calculating the distance
   distance = duration * 0.034 / 2;
 
-#ifdef DEBUG
+#ifdef DEBUGSR
   // Prints the distance on the Serial Monitor
   Serial.print("Distance: ");
   Serial.println(distance);

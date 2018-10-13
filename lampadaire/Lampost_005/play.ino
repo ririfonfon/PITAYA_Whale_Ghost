@@ -1,5 +1,5 @@
 void play_seq() {
-#ifdef DEBUG
+#ifdef DEBUGDMX
   Serial.println(">130");
 #endif
   RedNow = RedList[level];

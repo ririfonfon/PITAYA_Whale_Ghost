@@ -1,5 +1,5 @@
 void fade_white() {
-#ifdef DEBUG
+#ifdef DEBUGDMX
   Serial.println("<100");
   Serial.print("RedNow: ");
   Serial.println(RedNow);
@@ -15,7 +15,7 @@ void fade_white() {
   if (GreenNow > 255) GreenNow = 255;
   if (BlueNow > 255) BlueNow = 255;
   if ((RedNow == 255) && (GreenNow == 255) && (BlueNow == 255)) {
-#ifdef DEBUG
+#ifdef DEBUGDMX
     Serial.println("((RedNow == 255) && (GreenNow == 255) && (BlueNow == 255))");
 #endif
     state = 2;
@@ -30,7 +30,7 @@ void fade_white() {
 }
 
 void fade_pink() {
-#ifdef DEBUG
+#ifdef DEBUGDMX
   Serial.println("fade_pink()");
 #endif
   jRedNow = jRedNow +  1;
@@ -46,7 +46,7 @@ void fade_pink() {
 }
 
 void fade_lavender() {
-#ifdef DEBUG
+#ifdef DEBUGDMX
   Serial.println("fade_lavender()");
 #endif
   kRedNow = kRedNow +  1;
@@ -61,11 +61,11 @@ void fade_lavender() {
   k = 0;
 }
 void fade_pink_lavender() {
-#ifdef DEBUG
+#ifdef DEBUGDMX
   Serial.println("fade_pink_lavender()");
 #endif
   if (pink_lav == 0) {
-#ifdef DEBUG
+#ifdef DEBUGDMX
     Serial.println("pink_lav = 0");
     Serial.print("lRedNow: ");
     Serial.println(lRedNow);
@@ -84,7 +84,7 @@ void fade_pink_lavender() {
     }
   }
   if (pink_lav == 1) {
-#ifdef DEBUG
+#ifdef DEBUGDMX
     Serial.println("pink_lav = 1");
     Serial.print("lRedNow: ");
     Serial.println(lRedNow);
@@ -99,7 +99,7 @@ void fade_pink_lavender() {
     if (lRedNow < 100) lRedNow = 100;
     if (lBlueNow > 255) lBlueNow = 255;
     if ((lRedNow == 100) && (lBlueNow == 255)) {
-#ifdef DEBUG
+#ifdef DEBUGDMX
       Serial.println("((lRedNow == 100) && (lBlueNow == 255))");
 #endif
       pink_lav = 2;
@@ -107,7 +107,7 @@ void fade_pink_lavender() {
     }
   }
   if (pink_lav == 2) {
-    #ifdef DEBUG
+    #ifdef DEBUGDMX
     Serial.println("pink_lav = 2");
     Serial.print("lRedNow: ");
     Serial.println(lRedNow);
@@ -122,7 +122,7 @@ void fade_pink_lavender() {
     if (lRedNow > 255) lRedNow = 255;
     if (lBlueNow < 100) lBlueNow = 100;
     if ((lRedNow == 255) && (lBlueNow == 100)) {
-#ifdef DEBUG
+#ifdef DEBUGDMX
       Serial.println("((lRedNow == 255) && (lBlueNow == 100))");
 #endif
       pink_lav = 1;
@@ -136,7 +136,7 @@ void fade_pink_lavender() {
 }
 
 void fade_seq() {
-#ifdef DEBUG
+#ifdef DEBUGDMX
   Serial.println("fade_seq()");
   Serial.print("mRedNow: ");
   Serial.println(mRedNow);
@@ -152,7 +152,7 @@ void fade_seq() {
   if (mGreenNow < 50) mGreenNow = 50;
   if (mBlueNow < 0) mBlueNow = 0;
   if ((mRedNow == 80) && (mGreenNow == 50) && (mBlueNow == 0)) {
-#ifdef DEBUG
+#ifdef DEBUGDMX
     Serial.println("((mRedNow == 80) && (mGreenNow == 50) && (mBlueNow == 0))");
 #endif
     yield();

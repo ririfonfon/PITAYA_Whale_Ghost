@@ -7,7 +7,10 @@
 /**************************************************************************/
 
 #define DEBUG 1
-
+#define DEBUGSR 1
+#define DEBUGDMX 1
+#define DEBUGTOUCH 1
+#define DEBUGMP3 1
 #include <LXESP32DMX.h>
 #include "esp_task_wdt.h"
 
@@ -112,6 +115,7 @@ int detected = 20;
 int Released = 25;
 
 void setup() {
+  
 #ifdef DEBUG
   Serial.begin(115200);
   Serial.print("setup");
@@ -165,8 +169,10 @@ void loop() {
     // Check for the answer.
     if (mp3.available())
     {
+#ifdef DEBUGMP3
       Serial.print("decodeMP3Answer():");
       Serial.println(decodeMP3Answer());
+#endif
     }
   }
   /**********************************/
@@ -193,7 +199,7 @@ void loop() {
       }
     }
   }
-#ifdef DEBUG
+#ifdef DEBUGTOUCH
   Serial.print("touchRead(6):");
   Serial.println(touchRead(T6));
   Serial.print("touchRead(T7):");
@@ -201,7 +207,7 @@ void loop() {
 #endif
 
   if ((touchRead(T6) > Released) && (touchRead(T7) < detected)) {
-#ifdef DEBUG
+#ifdef DEBUGTOUCH
     Serial.println("Touch 7 detected");
 #endif
     j = j + 1;
@@ -211,7 +217,7 @@ void loop() {
     }
   }
   else if ((touchRead(T6) < detected) && (touchRead(T7) > Released)) {
-#ifdef DEBUG
+#ifdef DEBUGTOUCH
     Serial.println("Touch 6 detected");
 #endif
     k = k + 1;
@@ -221,7 +227,7 @@ void loop() {
     }
   }
   else if ((touchRead(T6) < detected) && (touchRead(T7) < detected)) {
-#ifdef DEBUG
+#ifdef DEBUGTOUCH
     Serial.println("Touch 7 & 6 detected");
 #endif
     l = l + 1;
@@ -231,7 +237,7 @@ void loop() {
     }
   }
   else if ((touchRead(T6) > Released) && (touchRead(T7) > Released)) {
-#ifdef DEBUG
+#ifdef DEBUGTOUCH
     Serial.println("Touch 7 & 6 Released");
 #endif
     if (state > 2) {

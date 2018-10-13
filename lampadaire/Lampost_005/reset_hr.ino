@@ -1,5 +1,5 @@
 void reset_hcsr04() {
-#ifdef DEBUG
+#ifdef DEBUGSR
   Serial.println("reset hcsr04");
 #endif
   pinMode(echoPin, OUTPUT);
