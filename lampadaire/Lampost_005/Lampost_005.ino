@@ -7,10 +7,10 @@
 /**************************************************************************/
 
 #define DEBUG 1
-#define DEBUGSR 1
-#define DEBUGDMX 1
+//#define DEBUGSR 1
+//#define DEBUGDMX 1
 #define DEBUGTOUCH 1
-#define DEBUGMP3 1
+//#define DEBUGMP3 1
 #include <LXESP32DMX.h>
 #include "esp_task_wdt.h"
 
@@ -121,7 +121,8 @@ void setup() {
   Serial.print("setup");
 #endif
 
-  mp3.begin(9600, SERIAL_8N1, 12, 13);
+// mp3.begin(9600, SERIAL_8N1, 12, 13); // 12 > tx mp3 13 rx mp3 
+ mp3.begin(9600, SERIAL_8N1, 32, 33);
   delay(500);
 
   sendCommand(CMD_SEL_DEV, DEV_TF);
