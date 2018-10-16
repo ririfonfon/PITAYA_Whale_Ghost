@@ -1,6 +1,6 @@
 /**************************************************************************/
 /*!
-    @file     lampost_001.ino
+    @file     lampost_006.ino
     @author   riri
 
 */
@@ -8,7 +8,8 @@
 
 #define DEBUG 1
 //#define DEBUGSR 1
-//#define DEBUGDMX 1
+#define DEBUGDMX 1
+//#define DEBUGDMXvalue 1
 //#define DEBUGTOUCH 1
 //#define DEBUGMP3 1
 
@@ -119,6 +120,12 @@ int temp = 1;
 
 int cmd;
 
+unsigned long lastRefresh = 0;
+#define REFRESH 1000
+
+unsigned long lastRefreshT = 0;
+#define REFRESHT 1250
+
 void setup() {
 
 #ifdef DEBUG
@@ -184,9 +191,13 @@ void loop() {
   }
   /**********************************/
 
-  if (state == 0) {
-    trig();
+  if ((millis() - lastRefresh) > REFRESH) {
+    if (state == 0) {
+      trig();
+    }
+    lastRefresh = millis();
   }
+
   if (state < 3) {
     if (distance < 100) {
       i = i + 1;
@@ -210,52 +221,55 @@ void loop() {
       }
     }
   }
-  //#ifdef DEBUGTOUCH
-  //  Serial.print("touchRead(T0):");
-  //  Serial.println(touchRead(T0));
-  //  Serial.print("touchRead(T3):");
-  //  Serial.println(touchRead(T3));
-  //#endif
-  //
-  //  if ((touchRead(T0) > Released) && (touchRead(T3) < detected)) {
-  //#ifdef DEBUGTOUCH
-  //    Serial.println("Touch 7 detected");
-  //    Serial.print(" j : ");
-  //    Serial.println(j);
-  //#endif
-  //    j = j + 1;
-  //    if (j >= 10) {
-  //      state = 3 ;
-  //      fade_pink();
-  //    }
-  //  }
-  //  else if ((touchRead(T0) < detected) && (touchRead(T3) > Released)) {
-  //#ifdef DEBUGTOUCH
-  //    Serial.println("Touch 6 detected");
-  //#endif
-  //    k = k + 1;
-  //    if (k >= 10) {
-  //      state = 4;
-  //      fade_lavender();
-  //    }
-  //  }
-  //  else if ((touchRead(T0) < detected) && (touchRead(T3) < detected)) {
-  //#ifdef DEBUGTOUCH
-  //    Serial.println("Touch 7 & 6 detected");
-  //#endif
-  //    l = l + 1;
-  //    if (l >= 10) {
-  //      state = 5;
-  //      fade_pink_lavender();
-  //    }
-  //  }
-  //  else if ((touchRead(T0) > Released) && (touchRead(T3) > Released)) {
-  //#ifdef DEBUGTOUCH
-  //    Serial.println("Touch 7 & 6 Released");
-  //#endif
-  //    if (state > 2) {
-  //      state = 0;
-  //    }
-  //  }
+//  if ((millis() - lastRefreshT) > REFRESHT) {
+//#ifdef DEBUGTOUCH
+//    Serial.print("touchRead(T0):");
+//    Serial.println(touchRead(T0));
+//    Serial.print("touchRead(T3):");
+//    Serial.println(touchRead(T3));
+//#endif
+//
+//    if ((touchRead(T0) > Released) && (touchRead(T3) < detected)) {
+//#ifdef DEBUGTOUCH
+//      Serial.println("Touch 7 detected");
+//      Serial.print(" j : ");
+//      Serial.println(j);
+//#endif
+//      j = j + 1;
+//      if (j >= 10) {
+//        state = 3 ;
+//        fade_pink();
+//      }
+//    }
+//    else if ((touchRead(T0) < detected) && (touchRead(T3) > Released)) {
+//#ifdef DEBUGTOUCH
+//      Serial.println("Touch 6 detected");
+//#endif
+//      k = k + 1;
+//      if (k >= 10) {
+//        state = 4;
+//        fade_lavender();
+//      }
+//    }
+//    else if ((touchRead(T0) < detected) && (touchRead(T3) < detected)) {
+//#ifdef DEBUGTOUCH
+//      Serial.println("Touch 7 & 6 detected");
+//#endif
+//      l = l + 1;
+//      if (l >= 10) {
+//        state = 5;
+//        fade_pink_lavender();
+//      }
+//    }
+//    else if ((touchRead(T0) > Released) && (touchRead(T3) > Released)) {
+//#ifdef DEBUGTOUCH
+//      Serial.println("Touch 7 & 6 Released");
+//#endif
+//      if (state > 2) {
+//        state = 0;
+//      }
+//    }
+//    lastRefreshT = millis();
+//  }
 }
 
