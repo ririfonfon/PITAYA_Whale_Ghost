@@ -100,9 +100,10 @@ uint8_t i;                          //time_loop presence
 uint8_t j;                          //time_loop pink touch1
 uint8_t k;                          //time_loop red  touch2
 uint8_t l;                          //time_loop pink_red touch1 && touch2
-uint8_t n;
 
-uint8_t pink_red = 0;
+uint8_t n;                          //I2C varible de myWire.requestFrom(4, 2);
+
+uint8_t pink_red = 0;               //statue de fade pink red
 
 float NowRed = 0;
 float NowGreen = 0;
@@ -144,7 +145,6 @@ void setup() {
 
   mp3.begin(9600);
   delay(500);
-
   sendCommand(CMD_SEL_DEV, DEV_TF);
   delay(500);
 
