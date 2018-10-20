@@ -13,6 +13,11 @@
 //#define DEBUGTOUCH 1
 //#define DEBUGMP3 1
 
+// Make code work with normal Wire library.
+#include <Arduino.h>
+#include <Wire.h>
+#define myWire Wire
+
 // dmx shield
 #include <LXESP8266UARTDMX.h>
 
@@ -21,7 +26,7 @@
 
 /****************************** MP3 ********************/
 #include <SoftwareSerial.h>
-SoftwareSerial mp3(D1, D2);
+SoftwareSerial mp3(D7, D8);
 
 static int8_t Send_buf[8] = {0}; // Buffer for Send commands.  // BETTER LOCALLY
 static uint8_t ansbuf[10] = {0}; // Buffer for the answers.    // BETTER LOCALLY
@@ -62,14 +67,10 @@ String mp3Answer;           // Answer from the MP3.
 #define CMD_QUERY_TOT_TRACKS  0x48
 #define CMD_QUERY_FLDR_COUNT  0x4f
 
-/************ Opitons **************************/
+/************ Options **************************/
 #define DEV_TF            0X02
-/**********************************************************************/
+/***********************************************/
 
-/****************************** capacitive sensor ********************/
-//#include <CapacitiveSensor.h>
-//CapacitiveSensor   cs_D7_D8 = CapacitiveSensor(D7, D8);
-// 10M resistor between pins D7 & D8, pin D8 is sensor pin 50k , add a wire and or foil if desired
 
 
 uint8_t level;
@@ -84,7 +85,7 @@ int i;
 int j;
 int k;
 int l;
-uint8_t pink_lav = 0;
+uint8_t pink_red = 0;
 
 float NowRed = 0;
 float NowGreen = 0;
@@ -120,12 +121,14 @@ const int echoPin = D6;
 long duration;
 int distance;
 
-int detected = 20;
-int Released = 25;
-
 int temp = 1;
 
 int cmd = 0;
+
+int n;
+
+int touch1;
+int touch2;
 
 unsigned long lastRefresh = 0;
 #define REFRESH 100
@@ -155,6 +158,10 @@ void setup() {
 
   pinMode(DMX_SERIAL_OUTPUT_PIN, OUTPUT);
   ESP8266DMX.startOutput();
+
+  myWire.begin(5, 4);
+  myWire.begin();
+
 
   trig();
 
@@ -196,6 +203,24 @@ void loop() {
 #endif
     }
   }
+  /***************i2c****************/
+  if (state != 1) {
+  n = myWire.requestFrom(4, 2);
+  byte buffer[40];
+  myWire.readBytes( buffer, n);
+  touch1 = (int) buffer[0];
+  touch2 = (int) buffer[1];
+#ifdef DEBUGTOUCH
+  Serial.print("touch1 : ");
+  Serial.print(touch1);
+  Serial.print(" touch2 : ");
+  Serial.print(touch2);
+  Serial.print(" state : ");
+  Serial.print(state);
+  Serial.print(" distance : ");
+  Serial.println(distance);
+#endif
+  }
   /**********************************/
 
   if ((millis() - lastRefresh) > REFRESH) {
@@ -206,7 +231,7 @@ void loop() {
   }
 
   if (state < 3) {
-    if (distance < 200) {
+    if (distance < 100) {
       i = i + 1;
       if (i >= 10) {
         i = 0;
@@ -214,7 +239,7 @@ void loop() {
         fade_white();
       }
     }
-    if (distance > 220) {
+    if (distance > 120) {
       h = h + 1;
       if (h >= 10) {
         h = 0;
@@ -230,21 +255,20 @@ void loop() {
       }
     }
   }
+  if (touch1 < 10 && touch2 < 10 && state > 2 ) {
+    state = 0 ;
+  }
 
-//  if ((millis() - lastRefreshT) > REFRESHT) {
-//    if (cs_D7_D8.capacitiveSensor(1) > 100) {
-//      j = j + 1;
-//      if (j >= 10) {
-//        state = 3 ;
-//        fade_pink();
-//      }
-//    }
-//    else if (cs_D7_D8.capacitiveSensor(1) < 10) {
-//      if (state > 2) {
-//        state = 0;
-//      }
-//    }
-//    lastRefreshT = millis();
-//  }
-
+  if (touch1 > 10 && touch2 < 10) {
+    state = 3 ;
+    fade_pink();
+  }
+  if (touch1 < 10 && touch2 > 10) {
+    state = 4;
+    fade_red();
+  }
+  if (touch1 > 10 && touch2 > 10) {
+    state = 5;
+    fade_pink_red();
+  }
 }
