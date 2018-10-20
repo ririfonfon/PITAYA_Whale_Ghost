@@ -97,8 +97,8 @@ void fade_red() {
     cmd = 4;
   }
 
-  if (touch2 > kRedNow)  kRedNow = kRedNow +  1;
-  if (touch2 < kRedNow)  kRedNow = kRedNow -  1;
+  if (touch2 > kRedNow)  kRedNow = kRedNow +  0.1;
+  if (touch2 < kRedNow)  kRedNow = kRedNow -  0.1;
   kGreenNow = 0;
   kBlueNow = 0;
   if (kRedNow == touch2 ) kRedNow = touch2;
@@ -123,11 +123,11 @@ void fade_pink() {
     cmd = 5;
   }
 
-  if (touch1 > jRedNow)  jRedNow = jRedNow +  1;
-  if (touch1 < jRedNow)  jRedNow = jRedNow -  1;
+  if (touch1 > jRedNow)  jRedNow = jRedNow +  0.1;
+  if (touch1 < jRedNow)  jRedNow = jRedNow -  0.1;
   jGreenNow = 0;
-  if (touch1 > jBlueNow)  jBlueNow = jBlueNow +  1;
-  if (touch1 < jBlueNow)  jBlueNow = jBlueNow -  1;
+  if (touch1 > jBlueNow)  jBlueNow = jBlueNow +  0.1;
+  if (touch1 < jBlueNow)  jBlueNow = jBlueNow -  0.1;
   if (jRedNow == touch1 ) jRedNow = touch1;
   if (jBlueNow == touch1 ) jBlueNow = touch1;
   dmxbuffer[1] = (jRedNow * jRedNow) / 255;
@@ -162,13 +162,17 @@ void fade_pink_red() {
     Serial.print("lBlueNow: ");
     Serial.println(lBlueNow);
 #endif
-    if (touch2 > lRedNow)  lRedNow = lRedNow +  1;
-    if (touch2 < lRedNow)  lRedNow = lRedNow -  1;
+    if (touch2 > lRedNow)  lRedNow = lRedNow +  0.1;
+    if (touch2 < lRedNow)  lRedNow = lRedNow -  0.1;
     lGreenNow = 0;
     lBlueNow = 0;
 
     if (lRedNow == touch2) {
-      pink_red = 1;
+      o++;
+      if (o >= loop_time) {
+        o = 0;
+        pink_red = 1;
+      }
     }
   }
   if (pink_red == 1) {
@@ -183,18 +187,21 @@ void fade_pink_red() {
     Serial.print("lBlueNow: ");
     Serial.println(lBlueNow);
 #endif
-    if (touch1 > lRedNow)  lRedNow = lRedNow +  1;
-    if (touch1 < lRedNow)  lRedNow = lRedNow -  1;
+    if (touch1 > lRedNow)  lRedNow = lRedNow +  0.1;
+    if (touch1 < lRedNow)  lRedNow = lRedNow -  0.1;
     jGreenNow = 0;
-    if (touch1 > lBlueNow)  lBlueNow = lBlueNow +  1;
-    if (touch1 < lBlueNow)  lBlueNow = lBlueNow -  1;
+    if (touch1 > lBlueNow)  lBlueNow = lBlueNow +  0.1;
+    if (touch1 < lBlueNow)  lBlueNow = lBlueNow -  0.1;
 
     if ((lRedNow == touch1) && (lBlueNow == touch1)) {
 #ifdef DEBUGDMX
       Serial.println("((lRedNow == 100) && (lBlueNow == 255))");
 #endif
-      pink_red = 2;
-
+      o++;
+      if (o >= loop_time) {
+        o = 0;
+        pink_red = 2;
+      }
     }
   }
   if (pink_red == 2) {
@@ -209,17 +216,21 @@ void fade_pink_red() {
     Serial.print("lBlueNow: ");
     Serial.println(lBlueNow);
 #endif
-    if (touch2 > lRedNow)  lRedNow = lRedNow +  1;
-    if (touch2 < lRedNow)  lRedNow = lRedNow -  1;
+    if (touch2 > lRedNow)  lRedNow = lRedNow +  0.1;
+    if (touch2 < lRedNow)  lRedNow = lRedNow -  0.1;
     lGreenNow = 0;
-    lBlueNow = lBlueNow -  1;
+    lBlueNow = lBlueNow -  0.1;
     if (lRedNow > 255) lRedNow = 255;
     if (lBlueNow < 0) lBlueNow = 0;
     if ((lRedNow == touch2) && (lBlueNow == 0)) {
 #ifdef DEBUGDMX
       Serial.println("((lRedNow == 255) && (lBlueNow == 100))");
 #endif
-      pink_red = 1;
+      o++;
+      if (o >= loop_time) {
+        o = 0;
+        pink_red = 1;
+      }
     }
   }
   dmxbuffer[1] = (lRedNow * lRedNow) / 255;
