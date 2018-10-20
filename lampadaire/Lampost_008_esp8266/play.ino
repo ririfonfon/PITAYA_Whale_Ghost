@@ -37,7 +37,7 @@ void play_seq() {
   h = 0;
 
   level++;
-  if (level > 20) level = 0;
+  if (level > Cue) level = 0;
 
 }
 
