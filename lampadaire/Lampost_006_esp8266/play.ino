@@ -2,7 +2,7 @@ void play_seq() {
 #ifdef DEBUGDMX
   Serial.println(">130");
 #endif
-  if (cmd == 0) {
+  if (cmd != 1) {
     sendCommand(CMD_FOLDER_CYCLE, 0x0101);
     delay(10);
     cmd = 1;
@@ -27,7 +27,7 @@ void play_seq() {
   mGreenNow = 255;
   mBlueNow = 240;
 
-  pink_lav = 0;
+  pink_red = 0;
 
   dmxbuffer[1] = (RedList[level]*RedList[level])/255;
   dmxbuffer[2] = (GreenList[level]*GreenList[level])/255;
