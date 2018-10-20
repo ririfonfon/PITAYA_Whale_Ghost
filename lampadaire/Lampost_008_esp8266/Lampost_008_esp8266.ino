@@ -69,7 +69,7 @@ String mp3Answer;                // Answer from the MP3.
 #define CMD_QUERY_FLDR_COUNT  0x4f  //
 
 /******************** Options **************************/
-#define DEV_TF            0X02
+#define DEV_TF                0X02  //
 /*******************************************************/
 
 /***************************** HR **********************/
@@ -100,6 +100,8 @@ uint8_t i;                          //time_loop presence
 uint8_t j;                          //time_loop pink touch1
 uint8_t k;                          //time_loop red  touch2
 uint8_t l;                          //time_loop pink_red touch1 && touch2
+uint8_t m;                          //time_loop i2c
+
 
 uint8_t n;                          //I2C varible de myWire.requestFrom(4, 2);
 
@@ -176,7 +178,11 @@ void loop() {
 
   /***************i2c****************/
   if (state != 1) {
-    I2C_request();
+    m++;
+    if (m >= loop_time) {
+      m = 0;
+      I2C_request();
+    }
   }
 
   /**************Prog****************/
