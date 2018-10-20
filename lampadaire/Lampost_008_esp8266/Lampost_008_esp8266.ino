@@ -72,8 +72,8 @@ String mp3Answer;                // Answer from the MP3.
 #define DEV_TF                0X02  //
 /*******************************************************/
 
-/***************************** HR **********************/
-// defines pins numbers hr
+/***************************** HC-SR04 **********************/
+// defines pins numbers hc
 const int trigPin = D5;
 const int echoPin = D6;
 // defines variables hr
@@ -90,8 +90,8 @@ int cmd = 0;                        //statue_mp3
 uint8_t temp = 1;                   // delay_dmx_send
 uint8_t temp_mp3 = 10;              // delay_mp3_send
 
-const int no_presence = 120;
-const int presence = 100;
+const int no_presence = 120;        // hc value
+const int presence = 100;           // hc gate
 
 const int loop_time = 10;           //gate de time
 
@@ -107,29 +107,25 @@ uint8_t n;                          //I2C varible de myWire.requestFrom(4, 2);
 
 uint8_t pink_red = 0;               //statue de fade pink red
 
-float NowRed = 0;
-float NowGreen = 0;
-float NowBlue = 0;
-
 float RedNow = 0;
 float GreenNow = 0;
-float BlueNow = 0;
+float BlueNow = 0;                  // rvb fade_white
 
 float jRedNow = 0;
 float jGreenNow = 0;
-float jBlueNow = 0;
+float jBlueNow = 0;                 // rvb fade_pink
 
 float kRedNow = 0;
 float kGreenNow = 0;
-float kBlueNow = 0;
+float kBlueNow = 0;                 // rvb fade_red
 
 float lRedNow = 0;
 float lGreenNow = 0;
-float lBlueNow = 0;
+float lBlueNow = 0;                 // rvb fade_pink_red
 
 float mRedNow = 255;
 float mGreenNow = 255;
-float mBlueNow = 255;
+float mBlueNow = 240;               // rvb seq_fade
 
 int touch1;
 int touch2;
