@@ -16,9 +16,9 @@ void fade_white() {
   Serial.print("BlueNow: ");
   Serial.println(BlueNow);
 #endif
-  RedNow = RedNow +  0.5;
-  GreenNow = GreenNow +  0.5;
-  BlueNow = BlueNow +  0.5;
+  RedNow = RedNow +  0.2;
+  GreenNow = GreenNow +  0.2;
+  BlueNow = BlueNow +  0.2;
   if (RedNow > 255) RedNow = 255;
   if (GreenNow > 255) GreenNow = 255;
   if (BlueNow > 240) BlueNow = 240;
@@ -63,9 +63,9 @@ void fade_seq() {
   Serial.print("mBlueNow: ");
   Serial.println(mBlueNow);
 #endif
-  mRedNow = mRedNow - 0.5;
-  mGreenNow = mGreenNow - 0.5;
-  mBlueNow = mBlueNow - 0.5;
+  mRedNow = mRedNow - 0.2;
+  mGreenNow = mGreenNow - 0.2;
+  mBlueNow = mBlueNow - 0.2;
   if (mRedNow < 80) mRedNow = 80;
   if (mGreenNow < 50) mGreenNow = 50;
   if (mBlueNow < 0) mBlueNow = 0;
