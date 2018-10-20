@@ -165,17 +165,23 @@ void fade_pink_red() {
     if (touch2 > lRedNow)  lRedNow = lRedNow +  0.1;
     if (touch2 < lRedNow)  lRedNow = lRedNow -  0.1;
     lGreenNow = 0;
-    lBlueNow = 0;
+    lBlueNow = lBlueNow -  0.1;
+    if (lRedNow > touch2) lRedNow = touch2;
+    if (lBlueNow < 0) lBlueNow = 0;
 
-    if (lRedNow == touch2) {
+    if ((lRedNow == touch2) && (lBlueNow == 0)) {
       o++;
       if (o >= loop_time) {
         o = 0;
         pink_red = 1;
+
+        lRedNow = 0;
+        lGreenNow = 0;
+        lBlueNow = 0;
       }
     }
   }
-  if (pink_red == 1) {
+  else if (pink_red == 1) {
 #ifdef DEBUGDMX
     Serial.println("pink_red = 1");
 #endif
@@ -189,9 +195,12 @@ void fade_pink_red() {
 #endif
     if (touch1 > lRedNow)  lRedNow = lRedNow +  0.1;
     if (touch1 < lRedNow)  lRedNow = lRedNow -  0.1;
-    jGreenNow = 0;
+    lGreenNow = 0;
     if (touch1 > lBlueNow)  lBlueNow = lBlueNow +  0.1;
     if (touch1 < lBlueNow)  lBlueNow = lBlueNow -  0.1;
+
+    if (lRedNow > touch2) lRedNow = touch1;
+    if (lBlueNow > touch2) lBlueNow = touch1;
 
     if ((lRedNow == touch1) && (lBlueNow == touch1)) {
 #ifdef DEBUGDMX
@@ -200,39 +209,15 @@ void fade_pink_red() {
       o++;
       if (o >= loop_time) {
         o = 0;
-        pink_red = 2;
+        pink_red = 0;
+
+        lRedNow = 0;
+        lGreenNow = 0;
+        lBlueNow = 0;
       }
     }
   }
-  if (pink_red == 2) {
-#ifdef DEBUGDMX
-    Serial.println("pink_red = 2");
-#endif
-#ifdef DEBUGDMXvalue
-    Serial.print("lRedNow: ");
-    Serial.println(lRedNow);
-    Serial.print("lGreenNow: ");
-    Serial.println(lGreenNow);
-    Serial.print("lBlueNow: ");
-    Serial.println(lBlueNow);
-#endif
-    if (touch2 > lRedNow)  lRedNow = lRedNow +  0.1;
-    if (touch2 < lRedNow)  lRedNow = lRedNow -  0.1;
-    lGreenNow = 0;
-    lBlueNow = lBlueNow -  0.1;
-    if (lRedNow > 255) lRedNow = 255;
-    if (lBlueNow < 0) lBlueNow = 0;
-    if ((lRedNow == touch2) && (lBlueNow == 0)) {
-#ifdef DEBUGDMX
-      Serial.println("((lRedNow == 255) && (lBlueNow == 100))");
-#endif
-      o++;
-      if (o >= loop_time) {
-        o = 0;
-        pink_red = 1;
-      }
-    }
-  }
+
   dmxbuffer[1] = (lRedNow * lRedNow) / 255;
   dmxbuffer[2] = (lGreenNow * lGreenNow) / 255;
   dmxbuffer[3] = (lBlueNow * lBlueNow) / 255;
