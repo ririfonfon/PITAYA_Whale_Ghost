@@ -1,6 +1,6 @@
 /**************************************************************************/
 /*!
-    @file     lampost_006.ino
+    @file     lampost_008_esp82266.ino
     @author   riri
     @NodeMCU 1.0(ESP-12E Module)
 */
