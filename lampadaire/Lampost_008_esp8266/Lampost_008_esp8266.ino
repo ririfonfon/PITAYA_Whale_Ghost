@@ -84,17 +84,23 @@ int distance;
 unsigned long lastRefresh = 0;
 #define REFRESH 100
 
-int state = 0;
-int cmd = 0;
+int state = 0;                      //statue_prog
+int cmd = 0;                        //statue_mp3
 
-int temp = 1;
+uint8_t temp = 1;                   // delay_dmx_send
+uint8_t temp_mp3 = 10;              // delay_mp3_send
 
-int h;
-int i;
-int j;
-int k;
-int l;
-int n;
+const int no_presence = 120;
+const int presence = 100;
+
+const int loop_time = 10;           //gate de time
+
+uint8_t h;                          //time_loop no_presence
+uint8_t i;                          //time_loop presence
+uint8_t j;                          //time_loop pink touch1
+uint8_t k;                          //time_loop red  touch2
+uint8_t l;                          //time_loop pink_red touch1 && touch2
+uint8_t n;
 
 uint8_t pink_red = 0;
 
@@ -124,13 +130,15 @@ float mBlueNow = 255;
 
 int touch1;
 int touch2;
+const int touch_gate = 10;          //gate de touch
+
 
 /**************************** SETUP ********************/
 void setup() {
 
 #ifdef DEBUG
-  Serial.begin(74880);
-  Serial.setDebugOutput(1); //use uart0 for debugging
+  Serial.begin(74880);             //74880 freq de l'esp8266 crash
+  Serial.setDebugOutput(1);        //use uart0 for debugging
   Serial.println("setup");
 #endif
 
@@ -165,11 +173,13 @@ void loop() {
 
   /************** mp3 ****************/
   check_mp3();
+
   /***************i2c****************/
   if (state != 1) {
     I2C_request();
   }
-  /**********************************/
+
+  /**************Prog****************/
 
   if ((millis() - lastRefresh) > REFRESH) {
     if (state == 0) {
@@ -179,44 +189,53 @@ void loop() {
   }
 
   if (state < 3) {
-    if (distance < 100) {
-      i = i + 1;
-      if (i >= 10) {
+    if (distance < presence) {
+      i++;
+      if (i >= loop_time) {
         i = 0;
         state = 1;
         fade_white();
       }
     }
-    if (distance > 120) {
-      h = h + 1;
-      if (h >= 10) {
+    if (distance > no_presence) {
+      h++;
+      if (h >= loop_time) {
         h = 0;
         if (state == 0) {
           play_seq();
         }
-        if (state == 1) {
+        else if (state == 1) {
           fade_white();
         }
-        if (state == 2) {
+        else if (state == 2) {
           fade_seq();
         }
       }
     }
   }
-  if (touch1 < 10 && touch2 < 10 && state > 2 ) {
+  if (touch1 < touch_gate && touch2 < touch_gate && state > 2 ) {
     state = 0 ;
   }
 
-  if (touch1 > 10 && touch2 < 10) {
-    state = 3 ;
-    fade_pink();
+  if (touch1 > touch_gate && touch2 < touch_gate) {
+    j++;
+    if (j >= loop_time) {
+      state = 3 ;
+      fade_pink();
+    }
   }
-  if (touch1 < 10 && touch2 > 10) {
-    state = 4;
-    fade_red();
+  if (touch1 < touch_gate && touch2 > touch_gate) {
+    k++;
+    if (k >= loop_time) {
+      state = 4;
+      fade_red();
+    }
   }
-  if (touch1 > 10 && touch2 > 10) {
-    state = 5;
-    fade_pink_red();
+  if (touch1 > touch_gate && touch2 > touch_gate) {
+    l++;
+    if (l >= loop_time) {
+      state = 5;
+      fade_pink_red();
+    }
   }
 }

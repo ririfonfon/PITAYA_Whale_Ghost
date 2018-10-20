@@ -4,11 +4,11 @@ void fade_white() {
 #endif
   if (cmd != 2) {
     sendCommand(CMD_FOLDER_CYCLE, 0x0201);
-    delay(10);
+    delay(temp_mp3);
     cmd = 2;
   }
 #ifdef DEBUGDMXvalue
-  Serial.println("<100");
+  Serial.println("presence");
   Serial.print("RedNow: ");
   Serial.println(RedNow);
   Serial.print("GreenNow: ");
@@ -49,7 +49,7 @@ void fade_white() {
 void fade_seq() {
   if (cmd != 3) {
     sendCommand(CMD_FOLDER_CYCLE, 0x0301);
-    delay(10);
+    delay(temp_mp3);
     cmd = 3;
   }
 #ifdef DEBUGDMX
@@ -91,12 +91,12 @@ void fade_red() {
 #ifdef DEBUGDMX
   Serial.println("fade_red()");
 #endif
-if (cmd != 4) {
+  if (cmd != 4) {
     sendCommand(CMD_FOLDER_CYCLE, 0x0401);
-    delay(10);
+    delay(temp_mp3);
     cmd = 4;
   }
-  
+
   if (touch2 > kRedNow)  kRedNow = kRedNow +  1;
   if (touch2 < kRedNow)  kRedNow = kRedNow -  1;
   kGreenNow = 0;
@@ -117,12 +117,12 @@ void fade_pink() {
   Serial.println("fade_pink()");
 #endif
 
-if (cmd != 5) {
+  if (cmd != 5) {
     sendCommand(CMD_FOLDER_CYCLE, 0x0501);
-    delay(10);
+    delay(temp_mp3);
     cmd = 5;
   }
-  
+
   if (touch1 > jRedNow)  jRedNow = jRedNow +  1;
   if (touch1 < jRedNow)  jRedNow = jRedNow -  1;
   jGreenNow = 0;
@@ -144,12 +144,12 @@ void fade_pink_red() {
   Serial.println("fade_pink_red()");
 #endif
 
-if (cmd != 6) {
+  if (cmd != 6) {
     sendCommand(CMD_FOLDER_CYCLE, 0x0601);
-    delay(10);
+    delay(temp_mp3);
     cmd = 6;
   }
-  
+
   if (pink_red == 0) {
 #ifdef DEBUGDMX
     Serial.println("pink_red = 0");
