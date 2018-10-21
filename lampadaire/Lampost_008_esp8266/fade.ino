@@ -26,9 +26,16 @@ void fade_white() {
 #ifdef DEBUGDMXvalue
     Serial.print("w");
 #endif
-    state = 2;
+
     if ((millis() - lastRefreshw) > REFRESHw) {
       trig();
+      if (distance > no_presence) {
+        p++;
+        if (p >= loop_time) {
+          p = 0;
+          state = 2;
+        }
+      }
       lastRefreshw = millis();
     }
   }

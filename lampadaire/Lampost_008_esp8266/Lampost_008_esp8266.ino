@@ -104,6 +104,7 @@ uint8_t k;                          //time_loop red  touch2
 uint8_t l;                          //time_loop pink_red touch1 && touch2
 uint8_t m;                          //time_loop i2c
 uint8_t o;                          //time_fade pink-red
+uint8_t p;                          //time_loop no_presence de fade w
 
 uint8_t n;                          //I2C varible de myWire.requestFrom(4, 2);
 
