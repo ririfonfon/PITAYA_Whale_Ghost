@@ -82,7 +82,9 @@ int distance;
 
 /************************* Variable ********************/
 unsigned long lastRefresh = 0;
-#define REFRESH 100
+#define REFRESH 100                 //timing de trig loop
+unsigned long lastRefreshw = 0;
+#define REFRESHw 100                //timing de trig de fade white
 
 int state = 0;                      //statue_prog
 int cmd = 0;                        //statue_mp3

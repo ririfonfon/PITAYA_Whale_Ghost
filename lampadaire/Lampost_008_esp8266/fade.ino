@@ -27,9 +27,9 @@ void fade_white() {
     Serial.print("w");
 #endif
     state = 2;
-    if ((millis() - lastRefresh) > REFRESH) {
+    if ((millis() - lastRefreshw) > REFRESHw) {
       trig();
-      lastRefresh = millis();
+      lastRefreshw = millis();
     }
   }
   if (state < 2) {
