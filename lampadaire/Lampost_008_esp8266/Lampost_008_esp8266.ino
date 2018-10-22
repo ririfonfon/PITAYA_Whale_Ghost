@@ -40,7 +40,7 @@ String mp3Answer;                // Answer from the MP3.
 #define CMD_PLAY_W_INDEX      0X03  //
 #define CMD_VOLUME_UP         0X04  //
 #define CMD_VOLUME_DOWN       0X05  //
-#define CMD_SET_VOLUME        0X06  //
+#define CMD_SET_VOLUME        0X06  //(0-30)
 
 #define CMD_SNG_CYCL_PLAY     0X08  // Single Cycle Play.
 #define CMD_SEL_DEV           0X09  //
@@ -90,10 +90,12 @@ int state = 0;                      //statue_prog
 int cmd = 0;                        //statue_mp3
 
 uint8_t temp = 1;                   // delay_dmx_send
-uint8_t temp_mp3 = 10;              // delay_mp3_send
+uint8_t temp_mp3 = 5;              // delay_mp3_send
 
 const int no_presence = 120;        // hc value
 const int presence = 100;           // hc gate
+
+const int MP3_Volume = 30;          //volume mp3 (0-30)
 
 const int loop_time = 10;           //gate de time
 
@@ -148,6 +150,8 @@ void setup() {
   delay(500);
   sendCommand(CMD_SEL_DEV, DEV_TF);
   delay(500);
+  sendCommand(CMD_SET_VOLUME, MP3_Volume);
+  delay(500);
 
   pinMode(trigPin, OUTPUT); // Sets the trigPin as an Output
   pinMode(echoPin, INPUT); // Sets the echoPin as an Input
@@ -171,7 +175,6 @@ void setup() {
 
 /***************************** LOOP ********************/
 void loop() {
-
   /************** mp3 ****************/
   check_mp3();
 
@@ -200,6 +203,7 @@ void loop() {
         i = 0;
         state = 1;
         fade_white();
+        I2C_request();
       }
     }
     if (distance > no_presence) {
