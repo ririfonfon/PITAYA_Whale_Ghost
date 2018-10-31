@@ -92,8 +92,8 @@ int cmd = 0;                        //statue_mp3
 uint8_t temp = 1;                   // delay_dmx_send
 uint8_t temp_mp3 = 5;              // delay_mp3_send
 
-const int no_presence = 120;        // hc value
-const int presence = 100;           // hc gate
+const int no_presence = 280;        // hc value
+const int presence = 260;           // hc gate
 
 const int MP3_Volume = 30;          //volume mp3 (0-30)
 
@@ -222,29 +222,29 @@ void loop() {
       }
     }
   }
-  if (touch1 < touch_gate && touch2 < touch_gate && state > 2 ) {
-    state = 0 ;
-  }
-
-  if (touch1 > touch_gate && touch2 < touch_gate) {
-    j++;
-    if (j >= loop_time) {
-      state = 3 ;
-      fade_pink();
-    }
-  }
-  if (touch1 < touch_gate && touch2 > touch_gate) {
-    k++;
-    if (k >= loop_time) {
-      state = 4;
-      fade_red();
-    }
-  }
-  if (touch1 > touch_gate && touch2 > touch_gate) {
-    l++;
-    if (l >= loop_time) {
-      state = 5;
-      fade_pink_red();
-    }
-  }
+  //  if (touch1 < touch_gate && touch2 < touch_gate && state > 2 ) {
+  //    state = 0 ;
+  //  }
+  //
+  //  if (touch1 > touch_gate && touch2 < touch_gate) {
+  //    j++;
+  //    if (j >= loop_time) {
+  //      state = 3 ;
+  //      fade_pink();
+  //    }
+  //  }
+  //  if (touch1 < touch_gate && touch2 > touch_gate) {
+  //    k++;
+  //    if (k >= loop_time) {
+  //      state = 4;
+  //      fade_red();
+  //    }
+  //  }
+  //  if (touch1 > touch_gate && touch2 > touch_gate) {
+  //    l++;
+  //    if (l >= loop_time) {
+  //      state = 5;
+  //      fade_pink_red();
+  //    }
+  //  }
 }

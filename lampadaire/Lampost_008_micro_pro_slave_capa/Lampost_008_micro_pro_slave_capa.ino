@@ -6,20 +6,26 @@
 */
 /**************************************************************************/
 
-//#define DEBUG 1
+#define DEBUG 1
 
 /************************** Include ********************/
 #include <Wire.h>
 #include <CapacitiveSensor.h>
+long d;           // touch 9
 
 /************************* Variable ********************/
-long d;           // touch 9
 int e;            // map touch 9
 int f;            // map de e
 
 long a;           // touch 6
 int b;            // map touch 6
 int c;            // map de b
+
+int aniv_h = 1300;
+int aniv_b = 1000;
+
+int dniv_h = 1300;
+int dniv_b = 1000;
 
 /*************************** Touch **********************/
 CapacitiveSensor   cs_8_9 = CapacitiveSensor(8, 9);
@@ -39,16 +45,16 @@ void setup() {
 /***************************** LOOP ********************/
 void loop() {
   d =  cs_8_9.capacitiveSensor(30);
-  if (d < 150) f = 150;
-  else if (d > 3000) f = 3000;
+  if (d < dniv_b) f = dniv_b;
+  else if (d > dniv_h) f = dniv_h;
   else f = d;
-  e = map (f, 150, 3000, 0, 255);
+  e = map (f, dniv_b, dniv_h, 0, 255);
 
   a =  cs_8_6.capacitiveSensor(30);
-  if (a < 150) c = 150;
-  else if (a > 3000) c = 3000;
+  if (a < aniv_b) c = aniv_b;
+  else if (a > aniv_h) c = aniv_h;
   else c = a;
-  b = map (c, 150, 3000, 0, 255);
+  b = map (c, aniv_b, aniv_h, 0, 255);
 
 #ifdef DEBUG
   Serial.print(" d : ");
