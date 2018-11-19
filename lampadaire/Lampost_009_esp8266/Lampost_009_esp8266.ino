@@ -89,7 +89,7 @@ int cmd = 0;                        //statue_mp3
 uint8_t temp = 1;                   // delay_dmx_send
 uint8_t temp_mp3 = 5;              // delay_mp3_send
 
-const int no_presence = 120;        // hc value
+const int no_presence = 200;        // hc value
 const int presence = 100;           // hc gate
 
 const int MP3_Volume = 30;          //volume mp3 (0-30)

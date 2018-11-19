@@ -29,7 +29,7 @@ void fade_white() {
 
     if ((millis() - lastRefreshw) > REFRESHw) {
       trig();
-      if (distance > no_presence) {
+      if (distance >= no_presence) {
         p++;
         if (p >= loop_time) {
           p = 0;
