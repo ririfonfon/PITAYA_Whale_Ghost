@@ -20,7 +20,7 @@ int RedList[]   = {R_m1, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi,
                    R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi,
                    R_m1, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi,
                    R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_m2, R_hi, R_hi,
-                   R_hi, R_hi, R_hi, R_hi, R_hi, R_hi,  255,  255, 255,  255
+                   R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_m1, R_hi, R_m1, R_hi
                   };
 
 int GreenList[] = {G_m1, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi,
@@ -28,7 +28,7 @@ int GreenList[] = {G_m1, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi,
                    G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi,
                    G_m1, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi,
                    G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_m2, G_hi, G_hi,
-                   G_hi, G_hi, G_hi, G_hi, G_hi, G_hi,  255,  255,  255,  255
+                   G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_m1, G_hi, G_m1, G_hi
                   };
 
 int BlueList[]  = {B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo,
@@ -36,6 +36,6 @@ int BlueList[]  = {B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo,
                    B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo,
                    B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo,
                    B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo,
-                   B_lo, B_lo, B_lo, B_lo, B_lo, B_lo,  255,  255,  255,  255
+                   B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo
                   };
 
