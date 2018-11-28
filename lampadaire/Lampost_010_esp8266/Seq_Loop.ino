@@ -15,27 +15,74 @@ int R_m2 = 180;
 int G_m2 = 130;
 
 
-int RedList[]   = {R_m1, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi,
-                   R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_m2, R_hi, R_hi,
-                   R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi,
-                   R_m1, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi,
-                   R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_m2, R_hi, R_hi,
-                   R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_m1, R_hi, R_m1, R_hi
-                  };
+int RedList1[]   = {R_m1, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi,
+                    R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_m2, R_hi, R_hi,
+                    R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi,
+                    R_m1, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi,
+                    R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_m2, R_hi, R_hi,
+                    R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_m1, R_hi, R_m1, R_hi
+                   };
 
-int GreenList[] = {G_m1, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi,
-                   G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_m2, G_hi, G_hi,
-                   G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi,
-                   G_m1, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi,
-                   G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_m2, G_hi, G_hi,
-                   G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_m1, G_hi, G_m1, G_hi
-                  };
+int GreenList1[] = {G_m1, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi,
+                    G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_m2, G_hi, G_hi,
+                    G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi,
+                    G_m1, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi,
+                    G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_m2, G_hi, G_hi,
+                    G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_m1, G_hi, G_m1, G_hi
+                   };
 
-int BlueList[]  = {B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo,
-                   B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo,
-                   B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo,
-                   B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo,
-                   B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo,
-                   B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo
-                  };
+int BlueList1[]  = {B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo,
+                    B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo,
+                    B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo,
+                    B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo,
+                    B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo,
+                    B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo
+                   };
 
+int RedList2[]   = {R_m1, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi,
+                    R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_m2, R_hi, R_hi,
+                    R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi,
+                    R_m1, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi,
+                    R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_m2, R_hi, R_hi,
+                    R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_m1, R_hi, R_m1, R_hi
+                   };
+
+int GreenList2[] = {G_m1, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi,
+                    G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_m2, G_hi, G_hi,
+                    G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi,
+                    G_m1, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi,
+                    G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_m2, G_hi, G_hi,
+                    G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_m1, G_hi, G_m1, G_hi
+                   };
+
+int BlueList2[]  = {B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo,
+                    B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo,
+                    B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo,
+                    B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo,
+                    B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo,
+                    B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo
+                   };
+
+int RedList3[]   = {R_m1, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi,
+                    R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_m2, R_hi, R_hi,
+                    R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi,
+                    R_m1, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi,
+                    R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_m2, R_hi, R_hi,
+                    R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_m1, R_hi, R_m1, R_hi
+                   };
+
+int GreenList3[] = {G_m1, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi,
+                    G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_m2, G_hi, G_hi,
+                    G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi,
+                    G_m1, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi,
+                    G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_m2, G_hi, G_hi,
+                    G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_m1, G_hi, G_m1, G_hi
+                   };
+
+int BlueList3[]  = {B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo,
+                    B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo,
+                    B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo,
+                    B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo,
+                    B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo,
+                    B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo, B_lo
+                   };

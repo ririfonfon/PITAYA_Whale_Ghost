@@ -6,6 +6,8 @@
 */
 /**************************************************************************/
 
+#define ID 1
+
 //#define DEBUG 1
 //#define DEBUGSR 1
 //#define DEBUGDMX 1
@@ -24,6 +26,7 @@
 #define DMX_DIRECTION_PIN D3
 #define DMX_SERIAL_OUTPUT_PIN D4
 uint8_t level;
+uint8_t part;
 uint8_t dmxbuffer[DMX_MAX_FRAME];
 
 /****************************** MP3 ********************/
