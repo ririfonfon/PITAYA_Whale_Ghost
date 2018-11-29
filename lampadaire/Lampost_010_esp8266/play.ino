@@ -52,8 +52,11 @@ void play_seq() {
 
   copyDMXToOutput();
   h = 0;
-
-  level++;
+  seq++;
+  if (seq > loop_time_seq) {
+    seq = 0;
+    level++;
+  }
   if (level > Cue) {
     level = 0;
     part = part + 1;

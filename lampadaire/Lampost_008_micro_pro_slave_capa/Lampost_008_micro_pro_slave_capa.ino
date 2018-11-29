@@ -21,10 +21,10 @@ long a;           // touch 6
 int b;            // map touch 6
 int c;            // map de b
 
-int aniv_h = 1300;
+int aniv_h = 2000;
 int aniv_b = 1000;
 
-int dniv_h = 1300;
+int dniv_h = 2000;
 int dniv_b = 1000;
 
 /*************************** Touch **********************/

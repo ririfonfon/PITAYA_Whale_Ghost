@@ -103,9 +103,9 @@ void fade_red() {
     delay(temp_mp3);
     cmd = 4;
   }
-
-  if (touch2 > dmx_red)  kRedNow = kRedNow +  0.1;
-  if (touch2 < dmx_red)  kRedNow = kRedNow -  0.1;
+  touch = (touch1 + touch2) / 2;
+  if (touch > dmx_red)  kRedNow = kRedNow +  0.1;
+  if (touch < dmx_red)  kRedNow = kRedNow -  0.1;
   if (dmx_green > 0)  kGreenNow = kGreenNow - 0.1;
   if (dmx_blue > 0)  kBlueNow = kBlueNow - 0.1;
   if (dmx_red == touch2 ) kRedNow = 0;
@@ -165,14 +165,7 @@ void fade_pink_red() {
 #ifdef DEBUGDMX
     Serial.println("pink_red = 0");
 #endif
-#ifdef DEBUGDMXvalue
-    Serial.print("lRedNow: ");
-    Serial.println(lRedNow);
-    Serial.print("lGreenNow: ");
-    Serial.println(lGreenNow);
-    Serial.print("lBlueNow: ");
-    Serial.println(lBlueNow);
-#endif
+
     if (touch2 > lRedNow)  lRedNow = lRedNow +  0.1;
     if (touch2 < lRedNow)  lRedNow = lRedNow -  0.1;
     lGreenNow = 0;
@@ -222,9 +215,9 @@ void fade_pink_red() {
         o = 0;
         pink_red = 0;
 
-        lRedNow = 0;
-        lGreenNow = 0;
-        lBlueNow = 0;
+        //        lRedNow = 0;
+        //        lGreenNow = 0;
+        //        lBlueNow = 0;
       }
     }
   }

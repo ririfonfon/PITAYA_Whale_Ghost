@@ -6,10 +6,9 @@
 */
 /**************************************************************************/
 
-#define ID 1
+//#define ID 1
 
 //#define DEBUG 1
-//#define DEBUGSR 1
 //#define DEBUGDMX 1
 //#define DEBUGDMXvalue 1
 //#define DEBUGTOUCH 1
@@ -98,7 +97,9 @@ const int presence = 100;           // hc gate
 const int MP3_Volume = 30;          //volume mp3 (0-30)
 
 const int loop_time = 10;           //gate de time
+const int loop_time_seq = 50;       //gate de time
 
+uint8_t seq;                        //time_loop de play
 uint8_t h;                          //time_loop no_presence
 uint8_t i;                          //time_loop presence
 uint8_t j;                          //time_loop pink touch1
@@ -136,6 +137,7 @@ float mRedNow = 255;
 float mGreenNow = 255;
 float mBlueNow = 240;               // rvb seq_fade
 
+int touch;
 int touch1;
 int touch2;
 const int touch_gate = 10;          //gate de touch
@@ -248,7 +250,7 @@ void loop() {
     l++;
     if (l >= loop_time) {
       state = 5;
-      fade_pink_red();
+      fade_red();
     }
   }
 }
