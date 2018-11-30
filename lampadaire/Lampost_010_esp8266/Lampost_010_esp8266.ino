@@ -9,10 +9,11 @@
 //#define ID 1
 
 #define DEBUG 1
-#define DEBUGDMX 1
+//#define DEBUGDMX 1
 //#define DEBUGDMXvalue 1
 //#define DEBUGTOUCH 1
 //#define DEBUGMP3 1
+#define DEBUGSTATE 1
 
 /***************************** WIRE ********************/
 #include <Arduino.h>
@@ -111,33 +112,10 @@ uint8_t p;                          //time_loop no_presence de fade w
 
 uint8_t n;                          //I2C varible de myWire.requestFrom(4, 2);
 
-uint8_t pink_red = 0;               //statue de fade pink red
-
 float dmx_red ;
 float dmx_green ;
 float dmx_blue ;
 
-float RedNow = 0;
-float GreenNow = 0;
-float BlueNow = 0;                  // rvb fade_white
-
-float jRedNow = 0;
-float jGreenNow = 0;
-float jBlueNow = 0;                 // rvb fade_pink
-
-float kRedNow = 0;
-float kGreenNow = 0;
-float kBlueNow = 0;                 // rvb fade_red
-
-float lRedNow = 0;
-float lGreenNow = 0;
-float lBlueNow = 0;                 // rvb fade_pink_red
-
-float mRedNow = 255;
-float mGreenNow = 255;
-float mBlueNow = 240;               // rvb seq_fade
-
-int touch;
 int touch1;
 int touch2;
 const int touch_gate = 10;          //gate de touch
@@ -181,6 +159,12 @@ void setup() {
 
 /***************************** LOOP ********************/
 void loop() {
+
+#ifdef DEBUGSTATE
+  Serial.print("state :");
+  Serial.println(state);
+#endif
+
   /************** mp3 ****************/
   check_mp3();
 
@@ -204,32 +188,37 @@ void loop() {
 
   if (state < 3) {
     if (distance <= presence) {
-      i++;
-      if (i >= loop_time) {
-        i = 0;
-        state = 1;
-        fade_white();
-        I2C_request();
-      }
+      //      i++;
+      //      if (i >= loop_time) {
+      //      i = 0;
+      state = 1;
+#ifdef DEBUGSTATE
+      Serial.print("(distance <= presence)");
+#endif
+      fade_white();
+      I2C_request();
+      //      }
     }
+
     if (distance >= no_presence) {
-      h++;
-      if (h >= loop_time) {
-        h = 0;
-        if (state == 0) {
-          play_seq();
-        }
-        else if (state == 1) {
-          fade_white();
-        }
-        else if (state == 2) {
-          fade_seq();
-        }
+      //      h++;
+      //      if (h >= loop_time) {
+      //      h = 0;
+      if (state == 0) {
+        play_seq();
       }
+      else if (state == 1) {
+        fade_white();
+      }
+      else if (state == 2) {
+        fade_seq();
+      }
+      //      }
     }
   }
+
   if (touch1 < touch_gate && touch2 < touch_gate && state > 2 ) {
-    state = 0 ;
+    fade_to();
   }
 
   if (touch1 > touch_gate && touch2 < touch_gate) {
@@ -249,7 +238,7 @@ void loop() {
   if (touch1 > touch_gate && touch2 > touch_gate) {
     l++;
     if (l >= loop_time) {
-      state = 5;
+      state = 3;
       fade_red();
     }
   }
