@@ -8,8 +8,8 @@
 
 //#define ID 1
 
-//#define DEBUG 1
-//#define DEBUGDMX 1
+#define DEBUG 1
+#define DEBUGDMX 1
 //#define DEBUGDMXvalue 1
 //#define DEBUGTOUCH 1
 //#define DEBUGMP3 1
@@ -26,7 +26,7 @@
 #define DMX_SERIAL_OUTPUT_PIN D4
 uint8_t level;
 uint8_t part;
-uint8_t dmxbuffer[DMX_MAX_FRAME];
+float dmxbuffer[DMX_MAX_FRAME];
 
 /****************************** MP3 ********************/
 #include <SoftwareSerial.h>
@@ -242,7 +242,7 @@ void loop() {
   if (touch1 < touch_gate && touch2 > touch_gate) {
     k++;
     if (k >= loop_time) {
-      state = 4;
+      state = 3;
       fade_pink();
     }
   }
