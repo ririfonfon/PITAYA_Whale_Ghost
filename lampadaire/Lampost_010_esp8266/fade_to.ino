@@ -2,20 +2,26 @@
 void fade_to() {
 #ifdef DEBUGDMX
   Serial.print("fade_to()");
-  Serial.print(" /dmx_red:");
-  Serial.print(dmx_red);
-  Serial.print(" /dmx_green:");
-  Serial.print(dmx_green);
-  Serial.print(" /dmx_blue:");
-  Serial.println(dmx_blue);
+  Serial.print(" /rouge:");
+  Serial.print(rouge);
+  Serial.print(" /vert:");
+  Serial.print(vert);
+  Serial.print(" /bleu:");
+  Serial.print(bleu);
+  Serial.print(" /ro:");
+  Serial.print(ro);
+  Serial.print(" /ve:");
+  Serial.print(ve);
+  Serial.print(" /bl:");
+  Serial.println(bl);
 #endif
 
 
-  if (dmx_red != 200 && dmx_green != 150 && dmx_blue != 0 ) {
-    Serial.print(" != ");
+  if (ro != 199 && ve != 149 && bl != 0 ) {
+    Serial.println(" != ");
     state = 6;
   }
-  if (dmx_blue == 200 && dmx_green == 150 && dmx_blue == 0) {
+  if ( ro == 199 && ve == 149 && bl == 0) {
     state = 0;
   }
 
@@ -26,19 +32,19 @@ void fade_to() {
     cmd = 6;
   }
 
-  if (dmx_red < 200)  dmx_red = dmx_red +  0.2;
-  if (dmx_red > 200)  dmx_red = dmx_red -  0.2;
-  if (dmx_green < 150)   dmx_green = dmx_green + 0.2;
-  if (dmx_green > 150)   dmx_green = dmx_green - 0.2;
-  if (dmx_blue > 0)  dmx_blue = dmx_blue -  0.2;
+  if (rouge < 200)  rouge = rouge +  0.2;
+  if (rouge > 200)  rouge = rouge -  0.2;
+  if (vert < 150)   vert = vert + 0.2;
+  if (vert > 150)   vert = vert - 0.2;
+  if (bleu > 0)  bleu = bleu -  0.2;
 
-  if (dmx_red == 200) dmx_red = 200;
-  if (dmx_green == 150) dmx_green = 150;
-  if (dmx_blue <= 0) dmx_blue = 0;
+  if (rouge == 200) rouge = 200;
+  if (vert == 150) vert = 150;
+  if (bleu <= 0) bleu = 0;
 
-  dmxbuffer[1] = dmx_red;
-  dmxbuffer[2] = dmx_green;
-  dmxbuffer[3] = dmx_blue;
+  dmxbuffer[1] = rouge;
+  dmxbuffer[2] = vert;
+  dmxbuffer[3] = bleu;
   copyDMXToOutput();
   delay(temp);
 }

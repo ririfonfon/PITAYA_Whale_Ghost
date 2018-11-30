@@ -8,12 +8,12 @@
 
 //#define ID 1
 
-#define DEBUG 1
+//#define DEBUG 1
 //#define DEBUGDMX 1
 //#define DEBUGDMXvalue 1
 //#define DEBUGTOUCH 1
 //#define DEBUGMP3 1
-#define DEBUGSTATE 1
+//#define DEBUGSTATE 1
 
 /***************************** WIRE ********************/
 #include <Arduino.h>
@@ -104,17 +104,21 @@ uint8_t seq;                        //time_loop de play
 uint8_t h;                          //time_loop no_presence
 uint8_t i;                          //time_loop presence
 uint8_t j;                          //time_loop pink touch1
-uint8_t k;                          //time_loop red  touch2
-uint8_t l;                          //time_loop pink_red touch1 && touch2
+uint8_t k;                          //time_loop R  touch2
+uint8_t l;                          //time_loop pink_rouge touch1 && touch2
 uint8_t m;                          //time_loop i2c
-uint8_t o;                          //time_fade pink-red
+uint8_t o;                          //time_fade pink-rouge
 uint8_t p;                          //time_loop no_presence de fade w
 
 uint8_t n;                          //I2C varible de myWire.requestFrom(4, 2);
 
-float dmx_red ;
-float dmx_green ;
-float dmx_blue ;
+float rouge ;
+float vert ;
+float bleu ;
+
+uint8_t ro ;
+uint8_t ve ;
+uint8_t bl ;
 
 int touch1;
 int touch2;
@@ -239,7 +243,7 @@ void loop() {
     l++;
     if (l >= loop_time) {
       state = 3;
-      fade_red();
+      fade_rouge();
     }
   }
 }

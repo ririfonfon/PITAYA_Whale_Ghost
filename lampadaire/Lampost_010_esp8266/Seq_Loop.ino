@@ -19,74 +19,74 @@ int R_m2 = 180;
 int G_m2 = 130;
 
 
-int RedList1[]   = {R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi,
-                    R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi,
-                    R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi,
-                    R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi,
-                    R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi,
-                    R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi
-                   };
+int RList1[]   = {R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi,
+                  R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi,
+                  R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi,
+                  R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi,
+                  R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi,
+                  R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi, R_hi
+                 };
 
-int GreenList1[] = {lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
-                    lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
-                    lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
-                    lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
-                    lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
-                    lo, lo, lo, lo, lo, lo, lo, lo, lo, lo
-                   };
+int GList1[] = {lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
+                lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
+                lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
+                lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
+                lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
+                lo, lo, lo, lo, lo, lo, lo, lo, lo, lo
+               };
 
-int BlueList1[]  = {lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
-                    lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
-                    lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
-                    lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
-                    lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
-                    lo, lo, lo, lo, lo, lo, lo, lo, lo, lo
-                   };
+int BList1[]  = {lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
+                 lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
+                 lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
+                 lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
+                 lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
+                 lo, lo, lo, lo, lo, lo, lo, lo, lo, lo
+                };
 
-int RedList2[]   = {lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
-                    lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
-                    lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
-                    lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
-                    lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
-                    lo, lo, lo, lo, lo, lo, lo, lo, lo, lo
-                   };
+int RList2[]   = {lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
+                  lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
+                  lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
+                  lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
+                  lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
+                  lo, lo, lo, lo, lo, lo, lo, lo, lo, lo
+                 };
 
-int GreenList2[] = {G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi,
-                    G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi,
-                    G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi,
-                    G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi,
-                    G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi,
-                    G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi
-                   };
+int GList2[] = {G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi,
+                G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi,
+                G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi,
+                G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi,
+                G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi,
+                G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi
+               };
 
-int BlueList2[]  = {lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
-                    lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
-                    lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
-                    lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
-                    lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
-                    lo, lo, lo, lo, lo, lo, lo, lo, lo, lo
-                   };
+int BList2[]  = {lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
+                 lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
+                 lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
+                 lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
+                 lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
+                 lo, lo, lo, lo, lo, lo, lo, lo, lo, lo
+                };
 
-int RedList3[]   = {lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
-                    lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
-                    lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
-                    lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
-                    lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
-                    lo, lo, lo, lo, lo, lo, lo, lo, lo, lo
-                   };
+int RList3[]   = {lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
+                  lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
+                  lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
+                  lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
+                  lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
+                  lo, lo, lo, lo, lo, lo, lo, lo, lo, lo
+                 };
 
-int GreenList3[] = {lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
-                    lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
-                    lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
-                    lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
-                    lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
-                    lo, lo, lo, lo, lo, lo, lo, lo, lo, lo
-                   };
+int GList3[] = {lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
+                lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
+                lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
+                lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
+                lo, lo, lo, lo, lo, lo, lo, lo, lo, lo,
+                lo, lo, lo, lo, lo, lo, lo, lo, lo, lo
+               };
 
-int BlueList3[]  = {G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi,
-                    G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi,
-                    G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi,
-                    G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi,
-                    G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi,
-                    G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi
-                   };
+int BList3[]  = {G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi,
+                 G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi,
+                 G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi,
+                 G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi,
+                 G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi,
+                 G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi, G_hi
+                };

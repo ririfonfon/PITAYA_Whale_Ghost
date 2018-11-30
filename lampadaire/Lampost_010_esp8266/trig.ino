@@ -1,9 +1,9 @@
 void trig() {
-if(digitalRead(trigPin)==HIGH){  //si le signal est à l'état haut
-   distance = presence;
+  if (digitalRead(trigPin) == HIGH) { //si le signal est à l'état haut
+    distance = presence;
   }
-  if(digitalRead(trigPin)==LOW){ //si le signal est à l'état bas
-   distance = no_presence;    
+  if (digitalRead(trigPin) == LOW) { //si le signal est à l'état bas
+    distance = no_presence;
   }
 
 
@@ -15,7 +15,7 @@ if(digitalRead(trigPin)==HIGH){  //si le signal est à l'état haut
   Serial.print(state);
   Serial.print(" cmd: ");
   Serial.println(cmd);
-  
+
 #endif
 }
 

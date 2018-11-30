@@ -1,12 +1,18 @@
 void fade_white() {
-#ifdef DEBUGDMXvalue
-  Serial.println("fade_white()");
-  Serial.print(" /dmx_red:");
-  Serial.print(dmx_red);
-  Serial.print(" /dmx_green:");
-  Serial.print(dmx_green);
-  Serial.print(" /dmx_blue:");
-  Serial.println(dmx_blue);
+#ifdef DEBUGDMX
+  Serial.print("fade_white()");
+  Serial.print(" /rouge:");
+  Serial.print(rouge);
+  Serial.print(" /vert:");
+  Serial.print(vert);
+  Serial.print(" /bleu:");
+  Serial.print(bleu);
+  Serial.print(" /ro:");
+  Serial.print(ro);
+  Serial.print(" /ve:");
+  Serial.print(ve);
+  Serial.print(" /bl:");
+  Serial.println(bl);
 #endif
 
   if (cmd != 2) {
@@ -15,13 +21,13 @@ void fade_white() {
     cmd = 2;
   }
 
-  dmx_red = dmx_red +  0.2;
-  dmx_green = dmx_green +  0.2;
-  dmx_blue = dmx_blue +  0.2;
-  if (dmx_red > 255) dmx_red = 255;
-  if (dmx_green > 255) dmx_green = 255;
-  if (dmx_blue > 240) dmx_blue = 240;
-  if (dmx_blue == 255 && dmx_green == 255 && dmx_blue == 240) {
+  rouge = rouge +  0.2;
+  vert = vert +  0.2;
+  bleu = bleu +  0.2;
+  if (rouge > 255) rouge = 255;
+  if (vert > 255) vert = 255;
+  if (bleu > 240) bleu = 240;
+  if (ro == 255 && ve == 240 && bl == 240) {
 #ifdef DEBUGDMXvalue
     Serial.print("w");
 #endif
@@ -42,9 +48,9 @@ void fade_white() {
 #ifdef DEBUGDMXvalue
     Serial.println("state < 2");
 #endif
-    dmxbuffer[1] = dmx_red;
-    dmxbuffer[2] = dmx_blue;
-    dmxbuffer[3] = dmx_blue;
+    dmxbuffer[1] = rouge;
+    dmxbuffer[2] = bleu;
+    dmxbuffer[3] = bleu;
     copyDMXToOutput();
     delay(temp);
   }
@@ -53,14 +59,20 @@ void fade_white() {
 
 /*******************************************************/
 void fade_seq() {
-#ifdef DEBUGDMXvalue
+#ifdef DEBUGDMX
   Serial.print("fade_seq()");
-  Serial.print(" /dmx_red:");
-  Serial.print(dmx_red);
-  Serial.print(" /dmx_green:");
-  Serial.print(dmx_green);
-  Serial.print(" /dmx_blue:");
-  Serial.println(dmx_blue);
+  Serial.print(" /rouge:");
+  Serial.print(rouge);
+  Serial.print(" /vert:");
+  Serial.print(vert);
+  Serial.print(" /bleu:");
+  Serial.print(bleu);
+  Serial.print(" /ro:");
+  Serial.print(ro);
+  Serial.print(" /ve:");
+  Serial.print(ve);
+  Serial.print(" /bl:");
+  Serial.println(bl);
 #endif
   if (cmd != 3) {
     sendCommand(CMD_FOLDER_CYCLE, 0x0301);
@@ -68,54 +80,54 @@ void fade_seq() {
     cmd = 3;
   }
 
-  dmx_red = dmx_red - 0.2;
-  dmx_green = dmx_green - 0.2;
-  dmx_blue = dmx_blue - 0.2;
-  if (dmx_red < 80) dmx_red = 80;
-  if (dmx_green < 50) dmx_green = 50;
-  if (dmx_blue < 0) dmx_blue = 0;
-  if (dmx_red == 80 && dmx_green == 50 && dmx_blue == 0) {
+  rouge = rouge - 0.2;
+  vert = vert - 0.2;
+  bleu = bleu - 0.2;
+  if (rouge < 80) rouge = 80;
+  if (vert < 50) vert = 50;
+  if (bleu < 0) bleu = 0;
+  if (ro == 80 && ve == 50 && bl == 0) {
     state = 0;
     h = 0;
   }
 
-  dmxbuffer[1] = dmx_red;
-  dmxbuffer[2] = dmx_green;
-  dmxbuffer[3] = dmx_blue;
+  dmxbuffer[1] = rouge;
+  dmxbuffer[2] = vert;
+  dmxbuffer[3] = bleu;
   copyDMXToOutput();
   delay(temp);
   h = 0;
 }
 
 /*******************************************************/
-void fade_red() {
+void fade_rouge() {
 #ifdef DEBUGDMX
-  Serial.print("fade_red()");
-  Serial.print(" /dmx_red:");
-  Serial.print(dmx_red);
-  Serial.print(" /dmx_green:");
-  Serial.print(dmx_green);
-  Serial.print(" /dmx_blue:");
-  Serial.println(dmx_blue);
+  Serial.print("fade_rouge()");
+  Serial.print(" /rouge:");
+  Serial.print(rouge);
+  Serial.print(" /vert:");
+  Serial.print(vert);
+  Serial.print(" /bleu:");
+  Serial.println(bleu);
 #endif
   if (cmd != 4) {
     sendCommand(CMD_FOLDER_CYCLE, 0x0401);
     delay(temp_mp3);
     cmd = 4;
   }
-  if (dmx_red < 255)  dmx_red = dmx_red +  0.2;
-  if (dmx_red > 255)  dmx_red = dmx_red -  0.2;
-  if (dmx_green > 0)   dmx_green = dmx_green - 0.2;
-  if (dmx_blue > 0)  dmx_blue = dmx_blue -  0.2;
+  if (rouge < 255)  rouge = rouge +  0.2;
+  if (rouge > 255)  rouge = rouge -  0.2;
+  if (vert > 0)   vert = vert - 0.2;
+  if (bleu > 0)  bleu = bleu -  0.2;
 
-  if (dmx_red >= 255) dmx_red = 255;
-  if (dmx_green <= 0) dmx_green = 0;
-  if (dmx_blue <= 0) dmx_blue = 0;
+  if (rouge >= 255) rouge = 255;
+  if (vert <= 0) vert = 0;
+  if (bleu <= 0) bleu = 0;
 
 
-  dmxbuffer[1] = dmx_red;
-  dmxbuffer[2] = dmx_green;
-  dmxbuffer[3] = dmx_blue;
+  dmxbuffer[1] = rouge;
+  dmxbuffer[2] = vert;
+  dmxbuffer[3] = bleu;
   copyDMXToOutput();
   delay(temp);
   l = 0;
@@ -125,12 +137,12 @@ void fade_red() {
 void fade_pink() {
 #ifdef DEBUGDMX
   Serial.print("fade_pink()");
-  Serial.print(" /dmx_red:");
-  Serial.print(dmx_red);
-  Serial.print(" /dmx_green:");
-  Serial.print(dmx_green);
-  Serial.print(" /dmx_blue:");
-  Serial.println(dmx_blue);
+  Serial.print(" /rouge:");
+  Serial.print(rouge);
+  Serial.print(" /vert:");
+  Serial.print(vert);
+  Serial.print(" /bleu:");
+  Serial.println(bleu);
 #endif
 
   if (cmd != 5) {
@@ -139,24 +151,19 @@ void fade_pink() {
     cmd = 5;
   }
 
-  if (dmx_red < 255)  dmx_red = dmx_red +  0.2;
-  if (dmx_red > 255)  dmx_red = dmx_red -  0.2;
-  if (dmx_green > 0)   dmx_green = dmx_green - 0.2;
-  if (dmx_blue < 255)  dmx_blue = dmx_blue +  0.2;
-  if (dmx_blue > 255)  dmx_blue = dmx_blue -  0.2;
+  if (rouge < 255)  rouge = rouge +  0.2;
+  if (rouge > 255)  rouge = rouge -  0.2;
+  if (vert > 0)   vert = vert - 0.2;
+  if (bleu < 255)  bleu = bleu +  0.2;
+  if (bleu > 255)  bleu = bleu -  0.2;
 
-  if (dmx_red >= 255 ) {
-    dmx_red = 255;
-  }
-  if (dmx_green <= 0) {
-    dmx_green = 0;
-  }
-  if (dmx_blue >= 255 ) {
-    dmx_blue = 255;
-  }
-  dmxbuffer[1] = dmx_red;
-  dmxbuffer[2] = dmx_green;
-  dmxbuffer[3] = dmx_blue;
+  if (rouge >= 255 ) rouge = 255;
+  if (vert <= 0) vert = 0;
+  if (bleu >= 255 ) bleu = 255;
+
+  dmxbuffer[1] = rouge;
+  dmxbuffer[2] = vert;
+  dmxbuffer[3] = bleu;
   copyDMXToOutput();
   delay(temp);
   j = 0;
@@ -164,9 +171,9 @@ void fade_pink() {
 }
 
 /*******************************************************/
-void fade_pink_red() {
+void fade_pink_rouge() {
 #ifdef DEBUGDMX
-  Serial.println("fade_pink_red()");
+  Serial.println("fade_pink_rouge()");
 #endif
 
 }
