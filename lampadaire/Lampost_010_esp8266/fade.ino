@@ -43,9 +43,9 @@ void fade_white() {
 #ifdef DEBUGDMXvalue
     Serial.println("state < 2");
 #endif
-    dmxbuffer[1] = (RedNow * RedNow) / 255;
-    dmxbuffer[2] = (GreenNow * GreenNow) / 255;
-    dmxbuffer[3] = (BlueNow * BlueNow) / 255;
+    dmxbuffer[1] = RedNow;
+    dmxbuffer[2] = GreenNow;
+    dmxbuffer[3] = BlueNow;
     copyDMXToOutput();
     delay(temp);
   }
@@ -85,9 +85,9 @@ void fade_seq() {
     h = 0;
   }
 
-  dmxbuffer[1] = (mRedNow * mRedNow) / 255;
-  dmxbuffer[2] = (mGreenNow * mGreenNow) / 255;
-  dmxbuffer[3] = (mBlueNow * mBlueNow) / 255;
+  dmxbuffer[1] = mRedNow;
+  dmxbuffer[2] = mGreenNow;
+  dmxbuffer[3] = mBlueNow;
   copyDMXToOutput();
   delay(temp);
   h = 0;
@@ -96,26 +96,32 @@ void fade_seq() {
 /*******************************************************/
 void fade_red() {
 #ifdef DEBUGDMX
-  Serial.println("fade_red()");
+  Serial.print("fade_red()");
+  Serial.print(" /dmx_red:");
+  Serial.print(dmx_red);
+  Serial.print(" /dmx_blue:");
+  Serial.print(dmx_blue);
+  Serial.print(" /dmx_green:");
+  Serial.println(dmx_green);
 #endif
   if (cmd != 4) {
     sendCommand(CMD_FOLDER_CYCLE, 0x0401);
     delay(temp_mp3);
     cmd = 4;
   }
-  touch = (touch1 + touch2) / 2;
-  if (touch > dmx_red)  kRedNow = kRedNow +  0.1;
-  if (touch < dmx_red)  kRedNow = kRedNow -  0.1;
-  if (dmx_green > 0)  kGreenNow = kGreenNow - 0.1;
-  if (dmx_blue > 0)  kBlueNow = kBlueNow - 0.1;
-  if (dmx_red == touch2 ) kRedNow = 0;
-  if (dmx_green == 0 ) kGreenNow = 0;
-  if (dmx_blue == 0 ) kBlueNow = 0;
+  if (dmx_red < 255)  dmx_red = dmx_red +  0.1;
+  if (dmx_red > 255)  dmx_red = dmx_red -  0.1;
+  if (dmx_green > 0)   dmx_green = dmx_green - 0.1;
+  if (dmx_blue > 0)  dmx_blue = dmx_blue -  0.1;
+
+  if (dmx_red >= 255) dmx_red = 255;
+  if (dmx_green <= 0) dmx_green = 0;
+  if (dmx_blue <= 0) dmx_blue = 0;
 
 
-  dmxbuffer[1] = ((dmx_red + kRedNow) * (dmx_red + kRedNow)) / 255;
-  dmxbuffer[2] = ((dmx_green + kGreenNow) * (dmx_green + kGreenNow)) / 255;
-  dmxbuffer[3] = ((dmx_blue + kBlueNow) * (dmx_blue + kBlueNow)) / 255;
+  dmxbuffer[1] = dmx_red;
+  dmxbuffer[2] = dmx_green;
+  dmxbuffer[3] = dmx_blue;
   copyDMXToOutput();
   delay(temp);
   k = 0;
@@ -124,7 +130,13 @@ void fade_red() {
 /*******************************************************/
 void fade_pink() {
 #ifdef DEBUGDMX
-  Serial.println("fade_pink()");
+  Serial.print("fade_pink()");
+  Serial.print(" /dmx_red:");
+  Serial.print(dmx_red);
+  Serial.print(" /dmx_blue:");
+  Serial.print(dmx_blue);
+  Serial.print(" /dmx_green:");
+  Serial.print(dmx_green);
 #endif
 
   if (cmd != 5) {
@@ -133,17 +145,27 @@ void fade_pink() {
     cmd = 5;
   }
 
-  if (touch1 > dmx_red)  jRedNow = jRedNow +  0.1;
-  if (touch1 < dmx_red)  jRedNow = jRedNow -  0.1;
-  if (dmx_green > 0)   jGreenNow = jGreenNow - 0.1;
-  if (touch1 > jBlueNow)  jBlueNow = jBlueNow +  0.1;
-  if (touch1 < jBlueNow)  jBlueNow = jBlueNow -  0.1;
-  if (dmx_red == touch1 ) jRedNow = 0;
-  if (dmx_green == 0) jGreenNow = 0;
-  if (dmx_blue == touch1 ) jBlueNow = 0;
-  dmxbuffer[1] = ((dmx_red + jRedNow) * (dmx_red + jRedNow)) / 255;
-  dmxbuffer[2] = ((dmx_green + jGreenNow) * (dmx_green + jGreenNow)) / 255;
-  dmxbuffer[3] = ((dmx_blue + jBlueNow) * (dmx_blue + jBlueNow)) / 255;
+  if (dmx_red < 255)  dmx_red = dmx_red +  0.1;
+  if (dmx_red > 255)  dmx_red = dmx_red -  0.1;
+  if (dmx_green > 0)   dmx_green = dmx_green - 0.1;
+  if (dmx_blue < 255)  dmx_blue = dmx_blue +  0.1;
+  if (dmx_blue > 255)  dmx_blue = dmx_blue -  0.1;
+
+  if (dmx_red >= 255 ) {
+    jRedNow = 0;
+    Serial.println("dmx_red >= 255");
+  }
+  if (dmx_green <= 0) {
+    jGreenNow = 0;
+    Serial.println("dmx_green <= 0");
+  }
+  if (dmx_blue >= 255 ) {
+    jBlueNow = 0;
+    Serial.println("dmx_blue >= 255");
+  }
+  dmxbuffer[1] = dmx_red;
+  dmxbuffer[2] = dmx_green;
+  dmxbuffer[3] = dmx_blue;
   copyDMXToOutput();
   delay(temp);
   j = 0;
@@ -222,9 +244,9 @@ void fade_pink_red() {
     }
   }
 
-  dmxbuffer[1] = (lRedNow * lRedNow) / 255;
-  dmxbuffer[2] = (lGreenNow * lGreenNow) / 255;
-  dmxbuffer[3] = (lBlueNow * lBlueNow) / 255;
+  dmxbuffer[1] = lRedNow;
+  dmxbuffer[2] = lGreenNow;
+  dmxbuffer[3] = lBlueNow;
   copyDMXToOutput();
   delay(temp);
   l = 0;
