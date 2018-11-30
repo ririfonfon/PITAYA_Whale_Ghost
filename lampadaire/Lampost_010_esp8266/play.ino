@@ -1,6 +1,12 @@
 void play_seq() {
 #ifdef DEBUGDMX
-  Serial.println("no_presence");
+  Serial.print("play_seq()");
+  Serial.print(" /dmx_red:");
+  Serial.print(dmx_red);
+  Serial.print(" /dmx_blue:");
+  Serial.print(dmx_blue);
+  Serial.print(" /dmx_green:");
+  Serial.println(dmx_green);
 #endif
   if (cmd != 1) {
     sendCommand(CMD_FOLDER_CYCLE, 0x0101);
@@ -11,25 +17,25 @@ void play_seq() {
     RedNow = RedList1[level];
     GreenNow = GreenList1[level];
     BlueNow = BlueList1[level];
-    dmxbuffer[1] = (RedList1[level] * RedList1[level]) / 255;
-    dmxbuffer[2] = (GreenList1[level] * GreenList1[level]) / 255;
-    dmxbuffer[3] = (BlueList1[level] * BlueList1[level]) / 255;
+    dmxbuffer[1] = RedList1[level];
+    dmxbuffer[2] = GreenList1[level];
+    dmxbuffer[3] = BlueList1[level];
   }
   else if (part == 1) {
     RedNow = RedList2[level];
     GreenNow = GreenList2[level];
     BlueNow = BlueList2[level];
-    dmxbuffer[1] = (RedList2[level] * RedList2[level]) / 255;
-    dmxbuffer[2] = (GreenList2[level] * GreenList2[level]) / 255;
-    dmxbuffer[3] = (BlueList2[level] * BlueList2[level]) / 255;
+    dmxbuffer[1] = RedList2[level];
+    dmxbuffer[2] = GreenList2[level];
+    dmxbuffer[3] = BlueList2[level];
   }
   else if (part == 2) {
     RedNow = RedList3[level];
     GreenNow = GreenList3[level];
     BlueNow = BlueList3[level];
-    dmxbuffer[1] = (RedList3[level] * RedList3[level]) / 255;
-    dmxbuffer[2] = (GreenList3[level] * GreenList3[level]) / 255;
-    dmxbuffer[3] = (BlueList3[level] * BlueList3[level]) / 255;
+    dmxbuffer[1] = RedList3[level];
+    dmxbuffer[2] = GreenList3[level];
+    dmxbuffer[3] = BlueList3[level];
   }
 
   jRedNow = 0;
