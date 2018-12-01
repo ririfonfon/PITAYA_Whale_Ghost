@@ -7,8 +7,7 @@
 /**************************************************************************/
 
 //#define ID 1
-
-//#define DEBUG 1
+#define DEBUG 1
 //#define DEBUGDMX 1
 //#define DEBUGDMXvalue 1
 //#define DEBUGTOUCH 1
@@ -25,7 +24,7 @@
 
 #define DMX_DIRECTION_PIN D3
 #define DMX_SERIAL_OUTPUT_PIN D4
-uint8_t level;
+long level;
 uint8_t part;
 float dmxbuffer[DMX_MAX_FRAME];
 
@@ -98,7 +97,7 @@ const int presence = 100;           // hc gate
 const int MP3_Volume = 30;          //volume mp3 (0-30)
 
 const int loop_time = 10;           //gate de time
-const int loop_time_seq = 50;       //gate de time
+const int loop_time_seq = 100;       //gate de time
 
 uint8_t seq;                        //time_loop de play
 uint8_t h;                          //time_loop no_presence
@@ -192,9 +191,6 @@ void loop() {
 
   if (state < 3) {
     if (distance <= presence) {
-      //      i++;
-      //      if (i >= loop_time) {
-      //      i = 0;
       state = 1;
 #ifdef DEBUGSTATE
       Serial.print("(distance <= presence)");

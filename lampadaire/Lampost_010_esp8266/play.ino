@@ -10,6 +10,8 @@ void play_seq() {
 #endif
   if (cmd != 1) {
     sendCommand(CMD_FOLDER_CYCLE, 0x0101);
+    seq = 0;
+    part = 0;
     delay(temp_mp3);
     cmd = 1;
   }
@@ -38,7 +40,12 @@ void play_seq() {
   if (level > Cue) {
     level = 0;
     part = part + 1;
-    if (part >= 3) part = 0;
+    if (part >= 3) {
+      part = 0;
+      cmd = 0;
+    }
+    Serial.print(" /part:");
+    Serial.println(part);
   }
 
 }
