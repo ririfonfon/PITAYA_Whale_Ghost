@@ -15,36 +15,38 @@ void play_seq() {
     delay(temp_mp3);
     cmd = 1;
   }
-  if (part == 0) {
-    dmxbuffer[1] = RList1[level];
-    dmxbuffer[2] = GList1[level];
-    dmxbuffer[3] = BList1[level];
-  }
-  else if (part == 1) {
-    dmxbuffer[1] = RList2[level];
-    dmxbuffer[2] = GList2[level];
-    dmxbuffer[3] = BList2[level];
-  }
-  else if (part == 2) {
-    dmxbuffer[1] = RList3[level];
-    dmxbuffer[2] = GList3[level];
-    dmxbuffer[3] = BList3[level];
-  }
-  copyDMXToOutput();
-  h = 0;
-  seq++;
-  if (seq > loop_time_seq) {
-    seq = 0;
-    level++;
-  }
-  if (level > Cue) {
-    level = 0;
-    part = part + 1;
-    if (part >= 3) {
-      part = 0;
-      cmd = 0;
+
+  if (cmd == 1) {
+    if (part == 0) {
+      dmxbuffer[1] = RList1[level];
+      dmxbuffer[2] = GList1[level];
+      dmxbuffer[3] = BList1[level];
+    }
+    else if (part == 1) {
+      dmxbuffer[1] = RList2[level];
+      dmxbuffer[2] = GList2[level];
+      dmxbuffer[3] = BList2[level];
+    }
+    else if (part == 2) {
+      dmxbuffer[1] = RList3[level];
+      dmxbuffer[2] = GList3[level];
+      dmxbuffer[3] = BList3[level];
+    }
+    copyDMXToOutput();
+    h = 0;
+    seq++;
+    if (seq > loop_time_seq) {
+      seq = 0;
+      level++;
+    }
+    if (level > Cue) {
+      level = 0;
+      part = part + 1;
+      if (part >= 3) {
+        part = 0;
+        cmd = 0;
+      }
     }
   }
-
 }
 

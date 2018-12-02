@@ -18,13 +18,15 @@ void fade_to() {
 
 
   if (ro != 199 && ve != 149 && bl != 0 ) {
-    Serial.println(" != ");
     state = 6;
   }
   if ( ro == 199 && ve == 149 && bl == 0) {
-    state = 0;
+    to++;
+    if (to >= 800) {
+      to=0;
+      state = 9;
+    }
   }
-
 
   if (cmd != 6) {
     sendCommand(CMD_FOLDER_CYCLE, 0x0601);

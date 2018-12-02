@@ -120,7 +120,10 @@ void fade_rouge() {
   if (vert > 0)   vert = vert - 0.2;
   if (bleu > 0)  bleu = bleu -  0.2;
 
-  if (rouge >= 255) rouge = 255;
+  if (rouge >= 255) {
+    rouge = 255;
+    bingo++;
+  }
   if (vert <= 0) vert = 0;
   if (bleu <= 0) bleu = 0;
 
@@ -131,6 +134,11 @@ void fade_rouge() {
   copyDMXToOutput();
   delay(temp);
   l = 0;
+  if (bingo == bingo_win) {
+    lastbingo = millis();
+    state = 20;
+    bingo_chase();
+  }
 }
 
 /*******************************************************/
@@ -160,21 +168,20 @@ void fade_pink() {
   if (rouge >= 255 ) rouge = 255;
   if (vert <= 0) vert = 0;
   if (bleu >= 255 ) bleu = 255;
+  if (rouge >= 254 && bleu >= 254) bingo++;
 
   dmxbuffer[1] = rouge;
   dmxbuffer[2] = vert;
   dmxbuffer[3] = bleu;
   copyDMXToOutput();
+
   delay(temp);
   j = 0;
   k = 0;
-}
-
-/*******************************************************/
-void fade_pink_rouge() {
-#ifdef DEBUGDMX
-  Serial.println("fade_pink_rouge()");
-#endif
-
+  if (bingo == bingo_win) {
+    state = 20;
+    lastbingo = millis();
+    bingo_chase();
+  }
 }
 

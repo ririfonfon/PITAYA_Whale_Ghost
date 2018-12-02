@@ -6,7 +6,6 @@
 */
 /**************************************************************************/
 
-//#define ID 1
 //#define DEBUG 1
 //#define DEBUGDMX 1
 //#define DEBUGDMXvalue 1
@@ -80,16 +79,27 @@ const int trigPin = D5;
 int distance;
 
 /************************* Variable ********************/
-unsigned long lastRefresh = 0;
+
 #define REFRESH 100                 //timing de trig loop
-unsigned long lastRefreshw = 0;
+unsigned long lastRefresh = 0;
+
 #define REFRESHw 100                //timing de trig de fade white
+unsigned long lastRefreshw = 0;
+
+#define REFRESHbingo 50000          //timing de play de bingo
+unsigned long lastbingo = 0;
+
+#define REFRESHtouch 1000           //timing de trig de touch
+unsigned long lasttouch = 0;
+int cmdtouch;
+
+int bingo_win = 500;                //timing de play bingo
 
 int state = 0;                      //statue_prog
 int cmd = 0;                        //statue_mp3
 
 uint8_t temp = 1;                   // delay_dmx_send
-uint8_t temp_mp3 = 5;              // delay_mp3_send
+uint8_t temp_mp3 = 5;               // delay_mp3_send
 
 const int no_presence = 200;        // hc value
 const int presence = 100;           // hc gate
@@ -97,7 +107,10 @@ const int presence = 100;           // hc gate
 const int MP3_Volume = 30;          //volume mp3 (0-30)
 
 const int loop_time = 10;           //gate de time
-const int loop_time_seq = 100;       //gate de time
+const int loop_time_seq = 100;       //gate de time de seq
+const long loop_time_bingo = 1500;    //gate de couleur de bingo
+
+const int touch_gate = 10;          //gate de touch
 
 uint8_t seq;                        //time_loop de play
 uint8_t h;                          //time_loop no_presence
@@ -108,6 +121,8 @@ uint8_t l;                          //time_loop pink_rouge touch1 && touch2
 uint8_t m;                          //time_loop i2c
 uint8_t o;                          //time_fade pink-rouge
 uint8_t p;                          //time_loop no_presence de fade w
+int bi;                             //time_loop de bingo
+int to;                             //time_loop de fade to
 
 uint8_t n;                          //I2C varible de myWire.requestFrom(4, 2);
 
@@ -121,7 +136,8 @@ uint8_t bl ;
 
 int touch1;
 int touch2;
-const int touch_gate = 10;          //gate de touch
+
+int bingo;
 
 
 /**************************** SETUP ********************/
@@ -158,6 +174,7 @@ void setup() {
 #ifdef DEBUG
   Serial.println("setup complete");
 #endif
+  delay(5000);
 }
 
 /***************************** LOOP ********************/
@@ -169,7 +186,7 @@ void loop() {
 #endif
 
   /************** mp3 ****************/
-  check_mp3();
+  //  check_mp3();
 
   /***************i2c****************/
   if (state != 1) {
@@ -197,49 +214,75 @@ void loop() {
 #endif
       fade_white();
       I2C_request();
-      //      }
     }
 
     if (distance >= no_presence) {
-      //      h++;
-      //      if (h >= loop_time) {
-      //      h = 0;
       if (state == 0) {
+        bingo = 0;
         play_seq();
       }
       else if (state == 1) {
+        bingo = 0;
         fade_white();
       }
       else if (state == 2) {
+        bingo = 0;
         fade_seq();
       }
-      //      }
     }
   }
 
-  if (touch1 < touch_gate && touch2 < touch_gate && state > 2 ) {
-    fade_to();
+  if (touch1 < touch_gate && touch2 < touch_gate &&  state > 2 && state < 8) {
+    if (cmdtouch != 1) {
+      lasttouch = millis();
+      state = 7;
+      cmdtouch = 1;
+    }
+    if ((millis() - lasttouch) > REFRESHtouch) {
+      bingo = 0;
+      fade_to();
+      lasttouch = millis();
+    }
+    if (state == 6) {
+      bingo = 0;
+      fade_to();
+    }
   }
 
-  if (touch1 > touch_gate && touch2 < touch_gate) {
-    j++;
-    if (j >= loop_time) {
-      state = 3 ;
-      fade_pink();
+  if (state < 9) {
+    if (touch1 > touch_gate && touch2 < touch_gate ) {
+      cmdtouch = 0;
+      j++;
+      if (j >= loop_time) {
+        state = 3 ;
+        fade_pink();
+      }
+    }
+    if (touch1 < touch_gate && touch2 > touch_gate ) {
+      cmdtouch = 0;
+      k++;
+      if (k >= loop_time) {
+        state = 3;
+        fade_pink();
+      }
+    }
+    if (touch1 > touch_gate && touch2 > touch_gate ) {
+      cmdtouch = 0;
+      l++;
+      if (l >= loop_time) {
+        state = 3;
+        fade_rouge();
+      }
     }
   }
-  if (touch1 < touch_gate && touch2 > touch_gate) {
-    k++;
-    if (k >= loop_time) {
-      state = 3;
-      fade_pink();
-    }
+  if (state == 9) {
+    bi = 0;
+    part = 0;
+    seq = 0;
+    level = 0;
+    state = 0;
   }
-  if (touch1 > touch_gate && touch2 > touch_gate) {
-    l++;
-    if (l >= loop_time) {
-      state = 3;
-      fade_rouge();
-    }
+  if (state == 20) {
+    bingo_chase();
   }
 }
