@@ -17,13 +17,13 @@ void fade_to() {
 #endif
 
 
-  if (ro != 199 && ve != 149 && bl != 0 ) {
+  if (ro != 20 && ve != 14 && bl != 0 ) {
     state = 6;
   }
-  if ( ro == 199 && ve == 149 && bl == 0) {
+  if ( ro == 20 && ve == 14 && bl == 0) {
     to++;
     if (to >= 800) {
-      to=0;
+      to = 0;
       state = 9;
     }
   }
@@ -34,14 +34,14 @@ void fade_to() {
     cmd = 6;
   }
 
-  if (rouge < 200)  rouge = rouge +  0.2;
-  if (rouge > 200)  rouge = rouge -  0.2;
-  if (vert < 150)   vert = vert + 0.2;
-  if (vert > 150)   vert = vert - 0.2;
+  if (rouge < 20)  rouge = rouge +  0.2;
+  if (rouge > 20)  rouge = rouge -  0.2;
+  if (vert < 15)   vert = vert + 0.2;
+  if (vert > 15)   vert = vert - 0.2;
   if (bleu > 0)  bleu = bleu -  0.2;
 
-  if (rouge == 200) rouge = 200;
-  if (vert == 150) vert = 150;
+  if (19 < rouge < 20) rouge = 20;
+  if (vert == 15) vert = 15;
   if (bleu <= 0) bleu = 0;
 
   dmxbuffer[1] = rouge;

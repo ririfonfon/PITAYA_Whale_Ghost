@@ -86,7 +86,7 @@ unsigned long lastRefresh = 0;
 #define REFRESHw 100                //timing de trig de fade white
 unsigned long lastRefreshw = 0;
 
-#define REFRESHbingo 50000          //timing de play de bingo
+#define REFRESHbingo 39000          //timing de play de bingo
 unsigned long lastbingo = 0;
 
 #define REFRESHtouch 1000           //timing de trig de touch
@@ -104,7 +104,7 @@ uint8_t temp_mp3 = 5;               // delay_mp3_send
 const int no_presence = 200;        // hc value
 const int presence = 100;           // hc gate
 
-const int MP3_Volume = 30;          //volume mp3 (0-30)
+const int MP3_Volume = 28;          //volume mp3 (0-30)
 
 const int loop_time = 10;           //gate de time
 const int loop_time_seq = 100;       //gate de time de seq

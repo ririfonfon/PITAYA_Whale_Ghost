@@ -120,7 +120,7 @@ void fade_rouge() {
   if (vert > 0)   vert = vert - 0.2;
   if (bleu > 0)  bleu = bleu -  0.2;
 
-  if (rouge >= 255) {
+  if (rouge >= 254) {
     rouge = 255;
     bingo++;
   }
