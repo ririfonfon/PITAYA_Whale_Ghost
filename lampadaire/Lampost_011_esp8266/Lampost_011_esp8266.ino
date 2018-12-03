@@ -1,6 +1,6 @@
 /**************************************************************************/
 /*!
-    @file     lampost_010_esp82266.ino
+    @file     lampost_011_esp82266.ino
     @author   riri
     @NodeMCU 1.0(ESP-12E Module)
 */
@@ -89,11 +89,11 @@ unsigned long lastRefreshw = 0;
 #define REFRESHbingo 39000          //timing de play de bingo
 unsigned long lastbingo = 0;
 
-#define REFRESHtouch 1000           //timing de trig de touch
+#define REFRESHtouch 2000           //timing de trig de touch
 unsigned long lasttouch = 0;
 int cmdtouch;
 
-int bingo_win = 500;                //timing de play bingo
+int bingo_win = 2500;                //timing de play bingo
 
 int state = 0;                      //statue_prog
 int cmd = 0;                        //statue_mp3
@@ -227,6 +227,10 @@ void loop() {
       }
       else if (state == 2) {
         bingo = 0;
+        bi = 0;
+        part = 0;
+        seq = 0;
+        level = 0;
         fade_seq();
       }
     }
