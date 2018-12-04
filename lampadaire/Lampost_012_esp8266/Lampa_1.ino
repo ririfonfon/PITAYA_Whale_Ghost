@@ -1,6 +1,10 @@
 ////Lampa_1 part 1 3 2
 //const long Cue = 294;
 //
+//int BList1[Cue];
+//int BList2[Cue];
+//int BList3[Cue];
+//
 //int R_lo = 0;
 //int G_lo = 0;
 //

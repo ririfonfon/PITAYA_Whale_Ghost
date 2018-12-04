@@ -236,7 +236,6 @@ void loop() {
   }
 
   else if (state == 9) {
-    rnd = 0;
 #ifdef DEBUGSTATE
     Serial.print("state :");
     Serial.print(state);
