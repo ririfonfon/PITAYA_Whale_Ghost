@@ -107,9 +107,9 @@ const int presence = 100;           // hc gate
 
 const int MP3_Volume = 28;          //volume mp3 (0-30)
 
-const long loop_time = 20000;           //gate de time
+const long loop_time = 8000;           //gate de time
 const int loop_time_seq = 100;       //gate de time de seq
-const long loop_time_bingo = 1500;    //gate de couleur de bingo
+long loop_time_bingo = 1500;    //gate de couleur de bingo
 
 const int touch_gate = 10;          //gate de touch
 
@@ -204,7 +204,15 @@ void loop() {
 
 
   if (distance <= presence && rnd == 0) {
-    state = (random(1) + 1);
+        tir++;
+        if (tir <= 9) {
+          state = 1;
+        }
+        else if (tir >= 10) {
+          tir = 0;
+          state = 2;
+        }
+
 #ifdef DEBUGSTATE
     Serial.print("state de rnd :");
     Serial.print(state);
@@ -222,21 +230,8 @@ void loop() {
     fade_white();
   }
 
-  else if (state == 12) {
-    fade_pink();
-  }
-  else if (state == 13) {
-    fade_rouge();
-  }
   else if (state == 2) {
-    tir++;
-    if (tir == 3) {
-      tir = 0;
-      bingo_chase();
-    }
-    else if (tir != 3) {
-      fade_white();
-    }
+    bingo_chase();
   }
 
   else if (state == 6) {
@@ -255,6 +250,13 @@ void loop() {
     level = 0;
     state = 0;
     rnd = 0;
+  }
+
+  else if (state == 12) {
+    fade_pink();
+  }
+  else if (state == 13) {
+    fade_rouge();
   }
 
 }

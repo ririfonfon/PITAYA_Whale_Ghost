@@ -3,7 +3,7 @@
 const long Cue = 310;
 
 int R_lo = 127;
-int G_lo = 100;
+int G_lo = 100.;
 
 int R_l1 = 80;
 int G_l1 = 70;

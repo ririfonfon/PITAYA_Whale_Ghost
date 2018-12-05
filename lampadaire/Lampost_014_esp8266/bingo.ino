@@ -17,6 +17,7 @@ void bingo_chase() {
     cmd = 7;
   }
   bi++;
+
   if (bi >= loop_time_bingo) {
     dmxbuffer[1] = random(255);
     dmxbuffer[2] = random(255);
@@ -24,8 +25,10 @@ void bingo_chase() {
     copyDMXToOutput();
     delay(temp);
     bi = 0;
+    loop_time_bingo = loop_time_bingo + 100;
   }
   if ((millis() - lastbingo) > REFRESHbingo) {
+    loop_time_bingo = 1500;
     state = 6;
   }
 }
