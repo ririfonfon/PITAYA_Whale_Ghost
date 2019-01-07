@@ -5,7 +5,7 @@ WiFiUDP WUdp;
 
 //Wifi settings
 const char* ssid = "stratum";
-const char* password = "9000leds";
+//const char* password = "9000leds";
 
 //
 // NETWORK
