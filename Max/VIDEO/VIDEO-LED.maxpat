@@ -8,7 +8,7 @@
 			"architecture" : "x64"
 		}
 ,
-		"rect" : [ 714.0, 45.0, 567.0, 475.0 ],
+		"rect" : [ 4.0, 45.0, 567.0, 475.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 11.0,
@@ -864,7 +864,7 @@
 							"architecture" : "x64"
 						}
 ,
-						"rect" : [ 234.0, 235.0, 1206.0, 435.0 ],
+						"rect" : [ 754.0, 346.0, 1206.0, 435.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 1,
 						"default_fontsize" : 11.0,
@@ -3277,7 +3277,7 @@
 											"architecture" : "x64"
 										}
 ,
-										"rect" : [ 467.0, 158.0, 641.0, 542.0 ],
+										"rect" : [ 661.0, 45.0, 641.0, 542.0 ],
 										"bglocked" : 0,
 										"openinpresentation" : 0,
 										"default_fontsize" : 11.0,
@@ -8568,7 +8568,7 @@
 							"architecture" : "x64"
 						}
 ,
-						"rect" : [ 752.0, 568.0, 461.0, 108.0 ],
+						"rect" : [ 18.0, 543.0, 461.0, 108.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 1,
 						"default_fontsize" : 12.0,
@@ -8587,7 +8587,6 @@
 						"description" : "",
 						"digest" : "",
 						"tags" : "",
-						"visible" : 1,
 						"boxes" : [ 							{
 								"box" : 								{
 									"fontname" : "Arial",
@@ -12842,19 +12841,19 @@
  ],
 		"parameters" : 		{
 			"obj-50" : [ "live.tab[3]", "live.tab[3]", 0 ],
-			"obj-22" : [ "live.toggle[5]", "live.toggle[5]", 0 ],
-			"obj-40" : [ "live.toggle[4]", "live.toggle[4]", 0 ],
-			"obj-4::obj-7" : [ "live.toggle", "live.toggle", 0 ],
 			"obj-34" : [ "live.toggle[6]", "live.toggle[5]", 0 ],
 			"obj-135::obj-114" : [ "MIX", "MIX", 0 ],
 			"obj-10::obj-136" : [ "live.toggle[3]", "live.toggle[2]", 0 ],
-			"obj-136" : [ "live.toggle[2]", "live.toggle[2]", 0 ],
-			"obj-118::obj-4" : [ "live.toggle[1]", "live.toggle[1]", 0 ]
+			"obj-40" : [ "live.toggle[4]", "live.toggle[4]", 0 ],
+			"obj-22" : [ "live.toggle[5]", "live.toggle[5]", 0 ],
+			"obj-118::obj-4" : [ "live.toggle[1]", "live.toggle[1]", 0 ],
+			"obj-4::obj-7" : [ "live.toggle", "live.toggle", 0 ],
+			"obj-136" : [ "live.toggle[2]", "live.toggle[2]", 0 ]
 		}
 ,
 		"dependency_cache" : [ 			{
 				"name" : "slice.maxpat",
-				"bootpath" : "/Users/macosphere23/Desktop/PITAYA/Whale_Ghost/Max/VIDEO",
+				"bootpath" : "/Users/maclaren/Desktop/Baleine Git/PITAYA/Max/VIDEO",
 				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
