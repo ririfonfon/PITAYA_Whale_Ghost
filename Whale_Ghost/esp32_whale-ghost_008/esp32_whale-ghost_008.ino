@@ -1,11 +1,8 @@
 //ID: uncomment on first Flash only !!!
-//#define NODE_NUMBER 1
-
-// SUBNET: uncomment on first Flash, or if you want to change SUBNET
-#define NODE_SUBNET 1
+#define NODE_NUMBER 19
 
 // VERSION
-#define VERSION 14
+#define VERSION 15
 
 //Debug
 //#define DEBUG 1
@@ -52,11 +49,6 @@ void setup() {
   // NODE ID
 #ifdef NODE_NUMBER
   eeprom_setID((byte)NODE_NUMBER);
-#endif
-
-  // SUBNET
-#ifdef NODE_SUBNET
-  eeprom_setSUBNET((byte)NODE_SUBNET);
 #endif
 
   // NAME
