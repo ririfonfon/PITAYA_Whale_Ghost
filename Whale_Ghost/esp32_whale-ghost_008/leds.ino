@@ -124,18 +124,14 @@ void leds_test() {
 }//initest
 
 void black_out() {
+  byte value = 127;
   for (int i = 0 ; i < NUM_LEDS_PER_STRIP ; i++) {
-    strands[0]->pixels[i] = pixelFromRGB(127, 127, 127);
-    strands[1]->pixels[i] = pixelFromRGB(127, 127, 127);
-    strands[2]->pixels[i] = pixelFromRGB(127, 127, 127);
-    strands[3]->pixels[i] = pixelFromRGB(127, 127, 127);
-    strands[4]->pixels[i] = pixelFromRGB(127, 127, 127);
-    strands[5]->pixels[i] = pixelFromRGB(127, 127, 127);
+    for (int j = 0 ; j < 6 ; j++) {
+      strands[j]->pixels[i] = pixelFromRGB(value, value, value);
+    }
   }//for i
 }//black_out
 
 byte leds_square(byte value) {
   return (((value + CORRECTOR) * (value + CORRECTOR)) / 255);
 }
-
-
