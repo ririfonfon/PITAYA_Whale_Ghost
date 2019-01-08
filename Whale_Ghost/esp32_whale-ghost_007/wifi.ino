@@ -4,13 +4,13 @@
 WiFiUDP WUdp;
 
 //Wifi settings
-const char* ssid = "stratum";
+const char* ssid = "whale";
 //const char* password = "9000leds";
 
 //
 // NETWORK
 //
-IPAddress server(192, 168, 0, 255);
+IPAddress server(192, 168, 1, 255);
 unsigned int udpPort_node = 3737;  // Node port to listen on
 unsigned int udpPort_server = 3738;  // Server port to speak to
 
@@ -18,8 +18,8 @@ bool wifi_available = false;
 
 void wifi_init() {
 
-  IPAddress ip(192, 168, 0, eeprom_getID() + 100);               // Static IP
-  IPAddress gateway(192, 168, 0, 1);
+  IPAddress ip(192, 168, 1, eeprom_getID() + 100);               // Static IP
+  IPAddress gateway(192, 168, 1, 1);
   IPAddress subnet(255, 255, 255, 0);
 
   // Enable wifi
