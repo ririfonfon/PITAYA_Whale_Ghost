@@ -1,11 +1,11 @@
 //ID: uncomment on first Flash only !!!
-#define NODE_NUMBER 19
+#define NODE_NUMBER 1
 
 // VERSION
 #define VERSION 15
 
 //Debug
-//#define DEBUG 1
+#define DEBUG 1
 //#define DEBUG_MSG 1
 
 
@@ -39,6 +39,7 @@ unsigned char incomingPacket[MTUu];  // buffer for incoming packets
 const int INFO_TIME = 500;
 unsigned long lastUpdate = 0;
 
+void wifi_event(WiFiEvent_t event);
 
 // SETUP
 void setup() {
