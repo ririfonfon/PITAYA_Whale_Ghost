@@ -5,7 +5,7 @@
 			"major" : 6,
 			"minor" : 1,
 			"revision" : 10,
-			"architecture" : "x64"
+			"architecture" : "x86"
 		}
 ,
 		"rect" : [ 670.0, 45.0, 567.0, 475.0 ],
@@ -366,7 +366,7 @@
 							"major" : 6,
 							"minor" : 1,
 							"revision" : 10,
-							"architecture" : "x64"
+							"architecture" : "x86"
 						}
 ,
 						"rect" : [ 25.0, 70.0, 640.0, 480.0 ],
@@ -861,7 +861,7 @@
 							"major" : 6,
 							"minor" : 1,
 							"revision" : 10,
-							"architecture" : "x64"
+							"architecture" : "x86"
 						}
 ,
 						"rect" : [ 74.0, 346.0, 1206.0, 435.0 ],
@@ -3274,7 +3274,7 @@
 											"major" : 6,
 											"minor" : 1,
 											"revision" : 10,
-											"architecture" : "x64"
+											"architecture" : "x86"
 										}
 ,
 										"rect" : [ 639.0, 45.0, 641.0, 542.0 ],
@@ -5182,10 +5182,10 @@
 							"major" : 6,
 							"minor" : 1,
 							"revision" : 10,
-							"architecture" : "x64"
+							"architecture" : "x86"
 						}
 ,
-						"rect" : [ 351.0, 144.0, 290.0, 302.0 ],
+						"rect" : [ 767.0, 543.0, 290.0, 302.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 1,
 						"default_fontsize" : 11.0,
@@ -6201,7 +6201,7 @@
 							"major" : 6,
 							"minor" : 1,
 							"revision" : 10,
-							"architecture" : "x64"
+							"architecture" : "x86"
 						}
 ,
 						"rect" : [ 644.0, 446.0, 640.0, 480.0 ],
@@ -6891,7 +6891,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 144.295441, 379.584106, 29.5, 17.0 ],
-					"text" : "91"
+					"text" : "255"
 				}
 
 			}
@@ -6982,7 +6982,7 @@
 					"patching_rect" : [ 31.0, 163.0, 104.0, 22.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 30.5, 85.0, 253.0, 21.0 ],
-					"size" : 189369.0
+					"size" : 9468459.0
 				}
 
 			}
@@ -7002,7 +7002,7 @@
 							"major" : 6,
 							"minor" : 1,
 							"revision" : 10,
-							"architecture" : "x64"
+							"architecture" : "x86"
 						}
 ,
 						"rect" : [ 139.0, 45.0, 847.0, 787.0 ],
@@ -8756,7 +8756,7 @@
 							"major" : 6,
 							"minor" : 1,
 							"revision" : 10,
-							"architecture" : "x64"
+							"architecture" : "x86"
 						}
 ,
 						"rect" : [ 806.0, 543.0, 431.0, 121.0 ],
@@ -9243,7 +9243,7 @@
 											"major" : 6,
 											"minor" : 1,
 											"revision" : 10,
-											"architecture" : "x64"
+											"architecture" : "x86"
 										}
 ,
 										"rect" : [ 330.0, 124.0, 640.0, 480.0 ],
@@ -9443,7 +9443,7 @@
 											"major" : 6,
 											"minor" : 1,
 											"revision" : 10,
-											"architecture" : "x64"
+											"architecture" : "x86"
 										}
 ,
 										"rect" : [ 330.0, 124.0, 640.0, 480.0 ],
@@ -9643,7 +9643,7 @@
 											"major" : 6,
 											"minor" : 1,
 											"revision" : 10,
-											"architecture" : "x64"
+											"architecture" : "x86"
 										}
 ,
 										"rect" : [ 330.0, 124.0, 640.0, 480.0 ],
@@ -9843,7 +9843,7 @@
 											"major" : 6,
 											"minor" : 1,
 											"revision" : 10,
-											"architecture" : "x64"
+											"architecture" : "x86"
 										}
 ,
 										"rect" : [ 330.0, 124.0, 640.0, 480.0 ],
@@ -10043,7 +10043,7 @@
 											"major" : 6,
 											"minor" : 1,
 											"revision" : 10,
-											"architecture" : "x64"
+											"architecture" : "x86"
 										}
 ,
 										"rect" : [ 330.0, 124.0, 640.0, 480.0 ],
@@ -10243,7 +10243,7 @@
 											"major" : 6,
 											"minor" : 1,
 											"revision" : 10,
-											"architecture" : "x64"
+											"architecture" : "x86"
 										}
 ,
 										"rect" : [ 330.0, 124.0, 640.0, 480.0 ],
@@ -10443,7 +10443,7 @@
 											"major" : 6,
 											"minor" : 1,
 											"revision" : 10,
-											"architecture" : "x64"
+											"architecture" : "x86"
 										}
 ,
 										"rect" : [ 330.0, 124.0, 640.0, 480.0 ],
@@ -10643,7 +10643,7 @@
 											"major" : 6,
 											"minor" : 1,
 											"revision" : 10,
-											"architecture" : "x64"
+											"architecture" : "x86"
 										}
 ,
 										"rect" : [ 330.0, 124.0, 640.0, 480.0 ],
@@ -10843,7 +10843,7 @@
 											"major" : 6,
 											"minor" : 1,
 											"revision" : 10,
-											"architecture" : "x64"
+											"architecture" : "x86"
 										}
 ,
 										"rect" : [ 330.0, 124.0, 640.0, 480.0 ],
@@ -11043,7 +11043,7 @@
 											"major" : 6,
 											"minor" : 1,
 											"revision" : 10,
-											"architecture" : "x64"
+											"architecture" : "x86"
 										}
 ,
 										"rect" : [ 330.0, 124.0, 640.0, 480.0 ],
@@ -11243,7 +11243,7 @@
 											"major" : 6,
 											"minor" : 1,
 											"revision" : 10,
-											"architecture" : "x64"
+											"architecture" : "x86"
 										}
 ,
 										"rect" : [ 330.0, 124.0, 640.0, 480.0 ],
@@ -11512,7 +11512,7 @@
 											"major" : 6,
 											"minor" : 1,
 											"revision" : 10,
-											"architecture" : "x64"
+											"architecture" : "x86"
 										}
 ,
 										"rect" : [ 330.0, 124.0, 640.0, 480.0 ],
@@ -12359,7 +12359,7 @@
 							"major" : 6,
 							"minor" : 1,
 							"revision" : 10,
-							"architecture" : "x64"
+							"architecture" : "x86"
 						}
 ,
 						"rect" : [ 577.0, 100.0, 343.0, 460.0 ],
@@ -13032,21 +13032,21 @@
 			}
  ],
 		"parameters" : 		{
+			"obj-10::obj-29" : [ "live.toggle[7]", "live.toggle[5]", 0 ],
+			"obj-22" : [ "live.toggle[5]", "live.toggle[5]", 0 ],
 			"obj-4::obj-7" : [ "live.toggle", "live.toggle", 0 ],
-			"obj-50" : [ "live.tab[3]", "live.tab[3]", 0 ],
-			"obj-34" : [ "live.toggle[6]", "live.toggle[5]", 0 ],
 			"obj-135::obj-114" : [ "MIX", "MIX", 0 ],
 			"obj-136" : [ "live.toggle[2]", "live.toggle[2]", 0 ],
-			"obj-118::obj-4" : [ "live.toggle[1]", "live.toggle[1]", 0 ],
-			"obj-10::obj-29" : [ "live.toggle[7]", "live.toggle[5]", 0 ],
 			"obj-10::obj-136" : [ "live.toggle[3]", "live.toggle[2]", 0 ],
 			"obj-40" : [ "live.toggle[4]", "live.toggle[4]", 0 ],
-			"obj-22" : [ "live.toggle[5]", "live.toggle[5]", 0 ]
+			"obj-50" : [ "live.tab[3]", "live.tab[3]", 0 ],
+			"obj-118::obj-4" : [ "live.toggle[1]", "live.toggle[1]", 0 ],
+			"obj-34" : [ "live.toggle[6]", "live.toggle[5]", 0 ]
 		}
 ,
 		"dependency_cache" : [ 			{
 				"name" : "slice.maxpat",
-				"bootpath" : "/Users/maclaren/Desktop/Baleine Git/PITAYA/Whale_Ghost/Max/VIDEO",
+				"bootpath" : "/Users/macosphere23/Desktop/PITAYA/Whale_Ghost/Max/VIDEO",
 				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
