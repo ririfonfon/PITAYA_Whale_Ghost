@@ -6924,7 +6924,7 @@
 					"patching_rect" : [ 162.5, 157.0, 83.0, 20.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 248.0, 56.0, 52.0, 20.0 ],
-					"text" : "1 ' 47 ''"
+					"text" : "0 ' 0 ''"
 				}
 
 			}
