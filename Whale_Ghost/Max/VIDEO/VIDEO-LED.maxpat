@@ -6924,7 +6924,7 @@
 					"patching_rect" : [ 162.5, 157.0, 83.0, 20.0 ],
 					"presentation" : 1,
 					"presentation_rect" : [ 248.0, 56.0, 52.0, 20.0 ],
-					"text" : "1 ' 55 ''"
+					"text" : "0 ' 0 ''"
 				}
 
 			}
@@ -13032,21 +13032,21 @@
 			}
  ],
 		"parameters" : 		{
-			"obj-40" : [ "live.toggle[4]", "live.toggle[4]", 0 ],
-			"obj-118::obj-4" : [ "live.toggle[1]", "live.toggle[1]", 0 ],
-			"obj-136" : [ "live.toggle[2]", "live.toggle[2]", 0 ],
-			"obj-22" : [ "live.toggle[5]", "live.toggle[5]", 0 ],
-			"obj-10::obj-136" : [ "live.toggle[3]", "live.toggle[2]", 0 ],
-			"obj-34" : [ "live.toggle[6]", "live.toggle[5]", 0 ],
-			"obj-10::obj-29" : [ "live.toggle[7]", "live.toggle[5]", 0 ],
 			"obj-4::obj-7" : [ "live.toggle", "live.toggle", 0 ],
 			"obj-50" : [ "live.tab[3]", "live.tab[3]", 0 ],
-			"obj-135::obj-114" : [ "MIX", "MIX", 0 ]
+			"obj-34" : [ "live.toggle[6]", "live.toggle[5]", 0 ],
+			"obj-135::obj-114" : [ "MIX", "MIX", 0 ],
+			"obj-136" : [ "live.toggle[2]", "live.toggle[2]", 0 ],
+			"obj-118::obj-4" : [ "live.toggle[1]", "live.toggle[1]", 0 ],
+			"obj-10::obj-29" : [ "live.toggle[7]", "live.toggle[5]", 0 ],
+			"obj-10::obj-136" : [ "live.toggle[3]", "live.toggle[2]", 0 ],
+			"obj-40" : [ "live.toggle[4]", "live.toggle[4]", 0 ],
+			"obj-22" : [ "live.toggle[5]", "live.toggle[5]", 0 ]
 		}
 ,
 		"dependency_cache" : [ 			{
 				"name" : "slice.maxpat",
-				"bootpath" : "/Users/macosphere23/Desktop/PITAYA/Whale_Ghost/Max/VIDEO",
+				"bootpath" : "/Users/maclaren/Desktop/Baleine Git/PITAYA/Whale_Ghost/Max/VIDEO",
 				"patcherrelativepath" : ".",
 				"type" : "JSON",
 				"implicit" : 1
