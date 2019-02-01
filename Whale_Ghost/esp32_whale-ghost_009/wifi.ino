@@ -4,7 +4,7 @@
 WiFiUDP WUdp;
 
 //Wifi settings
-char* base_ssid = "whale1";            // will be complet with 1 or 2 !! -> id impare = whale1 // id paire = whale2
+char* base_ssid = "whale2";            // will be complet with 1 or 2 !! -> id impare = whale1 // id paire = whale2
 //const char* password = "9000leds";
 
 //
@@ -26,7 +26,7 @@ void wifi_init() {
   String ssid = String(base_ssid);
 
   // detect subnet group (paire / impaire)
-  byte subnet_group = 1;
+  byte subnet_group = 2;
 //  if ( (eeprom_getID() & 0x01) == 0) subnet_group = 2;
 //  ssid += String(subnet_group);
   

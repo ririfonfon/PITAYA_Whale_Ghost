@@ -1,11 +1,11 @@
 //ID: uncomment on first Flash only !!!
-#define NODE_NUMBER 1
+#define NODE_NUMBER 12
 
 // VERSION
 #define VERSION 15
 
 //Debug
-#define DEBUG 1
+//#define DEBUG 1
 //#define DEBUG_MSG 1
 
 
