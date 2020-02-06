@@ -8,7 +8,7 @@
 			"architecture" : "x86"
 		}
 ,
-		"rect" : [ 670.0, 45.0, 567.0, 475.0 ],
+		"rect" : [ 751.0, 45.0, 567.0, 475.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 11.0,
@@ -864,7 +864,7 @@
 							"architecture" : "x86"
 						}
 ,
-						"rect" : [ 74.0, 346.0, 1206.0, 435.0 ],
+						"rect" : [ 74.0, 345.0, 1206.0, 435.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 1,
 						"default_fontsize" : 11.0,
@@ -3277,7 +3277,7 @@
 											"architecture" : "x86"
 										}
 ,
-										"rect" : [ 639.0, 45.0, 641.0, 542.0 ],
+										"rect" : [ 127.0, 145.0, 641.0, 542.0 ],
 										"bglocked" : 0,
 										"openinpresentation" : 0,
 										"default_fontsize" : 11.0,
@@ -5185,7 +5185,7 @@
 							"architecture" : "x86"
 						}
 ,
-						"rect" : [ 767.0, 543.0, 290.0, 302.0 ],
+						"rect" : [ 713.0, 269.0, 290.0, 302.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 1,
 						"default_fontsize" : 11.0,
@@ -6891,7 +6891,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 144.295441, 379.584106, 29.5, 17.0 ],
-					"text" : "255"
+					"text" : "28"
 				}
 
 			}
@@ -13032,16 +13032,16 @@
 			}
  ],
 		"parameters" : 		{
-			"obj-135::obj-114" : [ "MIX", "MIX", 0 ],
-			"obj-34" : [ "live.toggle[6]", "live.toggle[5]", 0 ],
-			"obj-136" : [ "live.toggle[2]", "live.toggle[2]", 0 ],
-			"obj-10::obj-29" : [ "live.toggle[7]", "live.toggle[5]", 0 ],
 			"obj-10::obj-136" : [ "live.toggle[3]", "live.toggle[2]", 0 ],
-			"obj-4::obj-7" : [ "live.toggle", "live.toggle", 0 ],
+			"obj-118::obj-4" : [ "live.toggle[1]", "live.toggle[1]", 0 ],
 			"obj-40" : [ "live.toggle[4]", "live.toggle[4]", 0 ],
+			"obj-135::obj-114" : [ "MIX", "MIX", 0 ],
+			"obj-4::obj-7" : [ "live.toggle", "live.toggle", 0 ],
 			"obj-50" : [ "live.tab[3]", "live.tab[3]", 0 ],
+			"obj-10::obj-29" : [ "live.toggle[7]", "live.toggle[5]", 0 ],
+			"obj-34" : [ "live.toggle[6]", "live.toggle[5]", 0 ],
 			"obj-22" : [ "live.toggle[5]", "live.toggle[5]", 0 ],
-			"obj-118::obj-4" : [ "live.toggle[1]", "live.toggle[1]", 0 ]
+			"obj-136" : [ "live.toggle[2]", "live.toggle[2]", 0 ]
 		}
 ,
 		"dependency_cache" : [ 			{
