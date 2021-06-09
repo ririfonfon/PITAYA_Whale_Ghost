@@ -2,7 +2,7 @@
 #define variable_h
 #endif
 
-#define PWM_CHANNELS 5      //
+#define PWM_CHANNELS 8      //
 #define PWM_FREQUENCY 60000 //
 #define PWM_RESOLUTION 16   //
 
@@ -16,10 +16,10 @@ bool p[PWM_CHANNELS+1] = {false};
 bool n[PWM_CHANNELS] = {false};
 unsigned long currentp[PWM_CHANNELS];
 
-long fade = 8;        // fade * 2,6 = seconds
-long decalage = 1000; // milliseconds
-long on = 20000;      // milliseconds
-long off = 20000;     // milliseconds
+long fade = 1;        // fade * 2,6 = seconds  8
+long decalage = 1000; // milliseconds  1000
+long on = 6000;      // milliseconds  20000
+long off = 6000;     // milliseconds  20000
 
 int value[PWM_CHANNELS] = {0};
 
