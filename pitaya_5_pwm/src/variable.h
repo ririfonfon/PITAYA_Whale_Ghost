@@ -6,7 +6,7 @@
 #define PWM_FREQUENCY 60000 //
 #define PWM_RESOLUTION 16   //
 
-uint8_t PWM_GPIOPIN[PWM_CHANNELS] = {32, 33, 25, 26, 27};
+uint8_t PWM_GPIOPIN[16] = {32, 33, 25, 26, 27 , 14 , 12 , 13 , 23 , 22 , 21 , 19 , 18 , 5 , 4 , 2};
 
 long previousMillis = 0;
 bool cycle = true;
