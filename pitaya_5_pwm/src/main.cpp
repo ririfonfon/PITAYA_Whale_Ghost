@@ -21,14 +21,10 @@ bool p4 = false;
 
 long fade = 8;        // fade * 2,6 = seconds
 long decalage = 1000; // milliseconds
-long on = 20000;       // milliseconds
+long on = 20000;      // milliseconds
 long off = 20000;     // milliseconds
 
-int value0 = 0;
-int value1 = 0;
-int value2 = 0;
-int value3 = 0;
-int value4 = 0;
+int value[5] = {0};
 
 unsigned long currentp;
 unsigned long currentp0;
@@ -57,6 +53,53 @@ void init_led()
   pinMode(onboard_led.pin, OUTPUT);
 } //init_led
 
+uint8_t ref[5];
+void rnd()
+{
+  ref[0] = {8};
+  ref[1] = {8};
+  ref[2] = {8};
+  ref[3] = {8};
+  ref[4] = {8};
+  int i = 0;
+  
+  boolean equals;
+  // ref[i] = random(4);
+  // Serial.print("ref[");
+  // Serial.print(i);
+  // Serial.print("] = ");
+  // Serial.println(ref[i]);
+  // i++;
+  while (i != 5)
+  {
+    ref[i] = random(5);
+    Serial.print("ref[");
+    Serial.print(i);
+    Serial.print("] = ");
+    Serial.println(ref[i]);
+    equals = false;
+    for (int k = 0; k != i; k++)
+    {
+      Serial.print("k ref[");
+      Serial.print(k);
+      Serial.print("] = ");
+      Serial.print(ref[k]);
+      Serial.print("  iref[");
+      Serial.print(i);
+      Serial.print("] = ");
+      Serial.println(ref[i]);
+      if (ref[k] == ref[i])
+      {
+        equals = true;
+      }
+    }
+    if (!equals)
+    {
+      i++;
+    }
+  }
+}
+
 void setup()
 {
   Serial.begin(115200);
@@ -70,6 +113,11 @@ void setup()
   {
     ledcAttachPin(PWM_GPIOPIN[k], k);
     ledcSetup(k, PWM_FREQUENCY, PWM_RESOLUTION);
+  }
+  rnd();
+  for (int k = 0; k > 5; k++)
+  {
+    Serial.println(ref[k]);
   }
 }
 
@@ -121,11 +169,11 @@ void loop()
     fade_clock = millis() % fade < 1;
     if (fade_clock && f0)
     {
-      value0 += 1;
+      value[0] += 1;
     }
-    if (value0 > 65535)
+    if (value[0] > 65535)
     {
-      value0 = 65535;
+      value[0] = 65535;
       f0 = false;
       p0 = true;
       currentp0 = currentMillis;
@@ -138,11 +186,11 @@ void loop()
     fade_clock = millis() % fade < 1;
     if (fade_clock && f1)
     {
-      value1 += 1;
+      value[1] += 1;
     }
-    if (value1 > 65535)
+    if (value[1] > 65535)
     {
-      value1 = 65535;
+      value[1] = 65535;
       f1 = false;
       p1 = true;
       currentp1 = currentMillis;
@@ -155,11 +203,11 @@ void loop()
     fade_clock = millis() % fade < 1;
     if (fade_clock && f2)
     {
-      value2 += 1;
+      value[2] += 1;
     }
-    if (value2 > 65535)
+    if (value[2] > 65535)
     {
-      value2 = 65535;
+      value[2] = 65535;
       f2 = false;
       p2 = true;
       currentp2 = currentMillis;
@@ -172,11 +220,11 @@ void loop()
     fade_clock = millis() % fade < 1;
     if (fade_clock && f3)
     {
-      value3 += 1;
+      value[3] += 1;
     }
-    if (value3 > 65535)
+    if (value[3] > 65535)
     {
-      value3 = 65535;
+      value[3] = 65535;
       f3 = false;
       p3 = true;
       currentp3 = currentMillis;
@@ -189,11 +237,11 @@ void loop()
     fade_clock = millis() % fade < 1;
     if (fade_clock && f4)
     {
-      value4 += 1;
+      value[4] += 1;
     }
-    if (value4 > 65535)
+    if (value[4] > 65535)
     {
-      value4 = 65535;
+      value[4] = 65535;
       f4 = false;
       p4 = true;
       currentp4 = currentMillis;
@@ -204,23 +252,23 @@ void loop()
 
   if (p0 && currentMillis - currentp0 > on)
   {
-    value0 = 0;
+    value[0] = 0;
   }
   if (p1 && currentMillis - currentp1 > on)
   {
-    value1 = 0;
+    value[1] = 0;
   }
   if (p2 && currentMillis - currentp2 > on)
   {
-    value2 = 0;
+    value[2] = 0;
   }
   if (p3 && currentMillis - currentp3 > on)
   {
-    value3 = 0;
+    value[3] = 0;
   }
-  if (p4 && p!=true && currentMillis - currentp4 > on)
+  if (p4 && p != true && currentMillis - currentp4 > on)
   {
-    value4 = 0;
+    value[4] = 0;
     p = true;
     currentp = currentMillis;
     Serial.print("currentp ");
@@ -241,10 +289,11 @@ void loop()
     f2 = false;
     f3 = false;
     f4 = false;
+    rnd();
   }
-  ledcWrite(0, value0);
-  ledcWrite(1, value1);
-  ledcWrite(2, value2);
-  ledcWrite(3, value3);
-  ledcWrite(4, value4);
+  ledcWrite(0, value[ref[0]]);
+  ledcWrite(1, value[ref[1]]);
+  ledcWrite(2, value[ref[2]]);
+  ledcWrite(3, value[ref[3]]);
+  ledcWrite(4, value[ref[4]]);
 }
