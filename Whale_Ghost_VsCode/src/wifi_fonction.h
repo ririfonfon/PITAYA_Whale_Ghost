@@ -7,12 +7,13 @@
 WiFiUDP WUdp;
 
 //Wifi settings
-#if myID % 2 == 0
-char *base_ssid = "whale2"; // will be complet with 1 or 2 !! -> id impare = whale1 // id paire = whale2
-#endif
-#if myID % 2 != 0
-char *base_ssid = "whale1"; // will be complet with 1 or 2 !! -> id impare = whale1 // id paire = whale2
-#endif
+char *base_ssid = "whale1";
+
+void ssid_init()
+{
+  if (myID % 2 == 0)
+    base_ssid[5] = '2';
+}
 //const char* password = "9000leds";
 
 //

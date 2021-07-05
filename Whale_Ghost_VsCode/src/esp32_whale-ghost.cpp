@@ -65,6 +65,7 @@ void setup() {
 
   // NAME
   myID = eeprom_getID();
+  ssid_init();
   String myName("Hwhale");
   sprintf(nodeName, "Hwhale %02i %i", myID, VERSION);
 #ifdef DEBUG
