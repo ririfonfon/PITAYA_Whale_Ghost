@@ -4,3 +4,6 @@ Whale_Gosth/KiCad/_autosave-Whale_Gosth.kicad_pcb
 *.DS_Store
 *DS_Store
 .DS_Store
+pitaya_5_pwm/.pio/build/project.checksum
+pitaya_5_pwm/.vscode/c_cpp_properties.json
+pitaya_5_pwm/.vscode/launch.json
